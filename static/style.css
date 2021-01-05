@@ -1,0 +1,18 @@
+/* CSS RESET */
+
+
+/* MY CUSTOM CSS */
+
+/* Index Page */
+h1 {
+    font-size: 55px;
+}
+
+.index-header h1{
+    text-align: center;
+}
+
+/* Add Activity Page */
+.text-area {
+    display: block;
+}

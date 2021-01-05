@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add Activity
+{% endblock %}
+
+{% block content %}
+    <div class="index-header">
+        <h1>Add an Activity</h1>
+    </div>
+    <div>
+        <form>
+            <div class="form-group">
+                <label for="activity-title">Activity Title</label>
+                <input autocomplete="off" autofocus class="form-control" name="activity-title" type="text" placeholder="Activity Title">
+            </div>
+            <div class="form-group text-area">
+                <label for="activity-description">Activity Description</label>
+                <textarea class="form-control" id="activity-description" name="activity-description" placeholder="Activity Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="subject">Choose subject</label>
+                <select name="subject" id="subject" class="form-control">
+                    <option value="Math">Math</option>
+                    <option value="Reading">Reading</option>
+                    <option value="S.T.E.A.M">S.T.E.A.M.</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="students">Choose student(s)</label>
+                <select name="students" id="students" class="form-control">
+                    <option value="student-1">Student 1</option>
+                    <option value="student-2">Student 2</option>
+                    <option value="all">All Students</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="activity-date">Activity Date</label>
+                <input type="date" id="activity-date" name="activity-date" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="status">Activity Completed?</label>
+                <input type="checkbox" id="status" name="status" value="completed">      
+            </div>
+
+        
+            
+            <button class="btn btn-primary" type="submit">Add Activity</button>
+        </form>
+    </div>
+{% endblock %}
