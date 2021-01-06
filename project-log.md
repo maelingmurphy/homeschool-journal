@@ -9,6 +9,32 @@
 **Resources**
 
 ----------------------------------------------------------
+## January 5, 2021
+
+**Today's Progress**:
+- Installed Flask-WTF to use with creating forms whose input can be validated: `$ pip install flask flask-WTF`
+- Installed python-dotenv in order to use .env file to store SECRET_KEY variable: `pip install python-dotenv`
+- Started creating form on 'add.html' using FlaskForm 
+- Added config files with SECRET_KEY info to enable CSRF protection 
+
+**Thoughts**: 
+- WTForms is a Python library used for handling forms. It can be used via the Flask plugin, Flask-WTF
+- Routes give instructions on what should be served to the user based on the URL they visit within the app. My routes for this app are defined in my app.py file
+- Form classes are Python models that are used to validate the data submitted in forms.
+- Jinja templates are used to render the HTML forms that are displayed to the user
+- It's common to use CapitazliedWords when naming Python classes (e.g. AddActivity)
+- You have to set up a secret key in order to use features like flask-login and CSRF protection. I encountered this error (RuntimeError: A secret key is required to use CSRF.)  when trying to view my form I created using WTForms. 
+- It's best to use a separate configuration file for storing the configuration variables that will be applied to the Flask app. 
+- Environment variables are stored in the system memory of the device running the app and can be temporarily created via the terminal: (e.g. `$ export SECRET_KEY='o9uaglkiDjro')`. The variable exists as long as you keep the terminal open. To check the variable value, `echo $SECRET_KEY`
+**Resources**
+1. [Handling Forms in Flask with Flask-WTF](https://hackersandslackers.com/flask-wtforms-forms/)
+2. [WTForms Documentation](https://wtforms.readthedocs.io/en/2.3.x/#)
+3. [FieldList with SelectField](https://stackoverflow.com/questions/24296834/wtform-fieldlist-with-selectfield-how-do-i-render)
+4. [Secret key required to use CSRF](https://stackoverflow.com/questions/47687307/how-do-you-solve-the-error-keyerror-a-secret-key-is-required-to-use-csrf-whe)
+5. [Generating SECRET KEY for Flask](https://stackoverflow.com/questions/34902378/where-do-i-get-a-secret-key-for-flask)
+6. [Setting up .env file for use with Flask project](https://itnext.io/start-using-env-for-your-flask-project-and-stop-using-environment-variables-for-development-247dc12468be)
+7. [Python with Flask Fundamentals](https://www.rithmschool.com/courses/flask-fundamentals/forms-with-wtforms)
+8.[Flask Configuration](https://explore-flask.readthedocs.io/en/latest/configuration.html) - helped me set up my 2 config files to provide my SECRET_KEY: one in the root, other in instance folder
 
 ## January 4, 2020
 **Today's Progress**:
