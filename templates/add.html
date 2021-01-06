@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block title %}
     Add Activity
 {% endblock %}
@@ -10,22 +11,43 @@
     </div>
 
     <div class="formwrapper">
-        <form method="POST" action="/add">
+        <form method="POST" action="/add" class="form" role="form">
+            {{ form.csrf_token() }}
             <div class="form-group">
                 {{ form.title.label }}
-                {{ form.title(size=100) }}
+                {{ form.title(size=100, class_='form-control', placeholder='Enter activity title') }}
             </div>
 
             <div class="form-group">
                 {{ form.description.label }}
-                {{ form.description }}
+                {{ form.description(class_='form-control', placeholder='Enter activity description') }}
             </div>
 
             <div class="form-group">
                 {{ form.subject.label }}
-                {{ form.subject }}
+                {{ form.subject(class_='form-control') }}
             </div>
-            {{ form.submit }}
+
+            <div class="form-group">
+                {{ form.resources.label }}
+                {{ form.resources(class_='form-control', placeholder='List any resources needed for this activity (e.g. supplies, books, links, etc.') }}
+            </div>
+
+            <div class="form-group">
+                {{ form.activity_date.label }}
+                {{ form.activity_date(class_='datepicker') }}
+            </div>
+
+            <div class="form-group">
+                {{ form.students.label }}
+                {{ form.students(class_='form-control') }}
+            </div>
+
+            <div class="form-group">
+                {{ form.status.label }}
+                {{ form.status }}
+            </div>
+            {{ form.submit(class_='btn btn-primary') }}
         </form>
     </div>
 
