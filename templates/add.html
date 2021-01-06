@@ -8,7 +8,29 @@
     <div class="index-header">
         <h1>Add an Activity</h1>
     </div>
-    <div>
+
+    <div class="formwrapper">
+        <form method="POST" action="/add">
+            <div class="form-group">
+                {{ form.title.label }}
+                {{ form.title(size=100) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.description.label }}
+                {{ form.description }}
+            </div>
+
+            <div class="form-group">
+                {{ form.subject.label }}
+                {{ form.subject }}
+            </div>
+            {{ form.submit }}
+        </form>
+    </div>
+
+    <!--
+    <div class="add-activity-form">
         <form>
             <div class="form-group">
                 <label for="activity-title">Activity Title</label>
@@ -25,6 +47,10 @@
                     <option value="Reading">Reading</option>
                     <option value="S.T.E.A.M">S.T.E.A.M.</option>
                 </select>
+            </div>
+            <div class="form-group text-area">
+                <label for="resources">Resources</label>
+                <textarea class="form-control" id="resources" name="resources" placeholder="Resources"></textarea>
             </div>
             <div class="form-group">
                 <label for="students">Choose student(s)</label>
@@ -48,4 +74,5 @@
             <button class="btn btn-primary" type="submit">Add Activity</button>
         </form>
     </div>
+    -->
 {% endblock %}
