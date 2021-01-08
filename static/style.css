@@ -3,16 +3,38 @@
 
 /* MY CUSTOM CSS */
 
+body {
+    background-color: #a8dadc;
+}
+
+.header h1{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+#submit {
+    background-color: #e76f51;
+    text-transform: uppercase;
+    border: none;
+}
+
 /* Index Page */
 h1 {
     font-size: 55px;
 }
 
-.index-header h1{
-    text-align: center;
-}
 
 /* Add Activity Page */
 .text-area {
     display: block;
+}
+
+.form-float {
+    display: inline-flex;
+
+}
+
+.float-item {
+    padding-right: 30px;
 }
