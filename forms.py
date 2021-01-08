@@ -30,7 +30,12 @@ class AddActivity(FlaskForm):
     activity_date = DateField('Activity Date', format='%Y-%m-%d', validators=(validators.DataRequired(),))
     
     # Checkbox for marking completed activity
-    status = BooleanField('Completed?')
+    status = BooleanField('Activity Completed?')
+
+    # Additional Notes
+    notes = TextAreaField(
+        'Notes'
+    )
 
     # Submit form
     submit = SubmitField('Add Activity')
