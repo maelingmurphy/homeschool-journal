@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="index-header">
+    <div class="header">
         <h1>Add an Activity</h1>
     </div>
 
@@ -18,29 +18,39 @@
                 {{ form.title(size=100, class_='form-control', placeholder='Enter activity title') }}
             </div>
 
+            <div class="form-float">
+                <div class="form-group float-item">
+                    {{ form.activity_date.label }}
+                    {{ form.activity_date(class_='datepicker form-control') }}
+                </div>
+    
+                <div class="form-group float-item">
+                    {{ form.subject.label }}
+                    {{ form.subject(class_='form-control') }}
+                </div>
+    
+                <div class="form-group float-item">
+                    {{ form.students.label }}
+                    {{ form.students(class_='form-control') }}
+                </div>  
+
+            </div>
+            
+        
             <div class="form-group">
                 {{ form.description.label }}
                 {{ form.description(class_='form-control', placeholder='Enter activity description') }}
             </div>
 
-            <div class="form-group">
-                {{ form.subject.label }}
-                {{ form.subject(class_='form-control') }}
-            </div>
-
+            
             <div class="form-group">
                 {{ form.resources.label }}
                 {{ form.resources(class_='form-control', placeholder='List any resources needed for this activity (e.g. supplies, books, links, etc.') }}
             </div>
 
             <div class="form-group">
-                {{ form.activity_date.label }}
-                {{ form.activity_date(class_='datepicker') }}
-            </div>
-
-            <div class="form-group">
-                {{ form.students.label }}
-                {{ form.students(class_='form-control') }}
+                {{ form.notes.label }}
+                {{ form.notes(class_='form-control', placeholder='Add any additional notes or feedback for this activity') }}
             </div>
 
             <div class="form-group">
@@ -51,50 +61,4 @@
         </form>
     </div>
 
-    <!--
-    <div class="add-activity-form">
-        <form>
-            <div class="form-group">
-                <label for="activity-title">Activity Title</label>
-                <input autocomplete="off" autofocus class="form-control" name="activity-title" type="text" placeholder="Activity Title">
-            </div>
-            <div class="form-group text-area">
-                <label for="activity-description">Activity Description</label>
-                <textarea class="form-control" id="activity-description" name="activity-description" placeholder="Activity Description"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="subject">Choose subject</label>
-                <select name="subject" id="subject" class="form-control">
-                    <option value="Math">Math</option>
-                    <option value="Reading">Reading</option>
-                    <option value="S.T.E.A.M">S.T.E.A.M.</option>
-                </select>
-            </div>
-            <div class="form-group text-area">
-                <label for="resources">Resources</label>
-                <textarea class="form-control" id="resources" name="resources" placeholder="Resources"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="students">Choose student(s)</label>
-                <select name="students" id="students" class="form-control">
-                    <option value="student-1">Student 1</option>
-                    <option value="student-2">Student 2</option>
-                    <option value="all">All Students</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="activity-date">Activity Date</label>
-                <input type="date" id="activity-date" name="activity-date" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="status">Activity Completed?</label>
-                <input type="checkbox" id="status" name="status" value="completed">      
-            </div>
-
-        
-            
-            <button class="btn btn-primary" type="submit">Add Activity</button>
-        </form>
-    </div>
-    -->
 {% endblock %}
