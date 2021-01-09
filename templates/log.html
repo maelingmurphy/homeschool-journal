@@ -5,8 +5,144 @@
 {% endblock %}
 
 {% block content %}
-    <div class="header">
-        <h1>Activity Log</h1>
+    <div class="activity-log-header">
+        <h2>Activity Log <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#modal-add">Add New Activity</button></h2>
+    </div>
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Activity</th>
+                <th>Subject</th>
+                <th>Student</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>01/08/21</td>
+            <td>Intro to Multiplication</td>
+            <td>Math</td>
+            <td>Check Mark(icon)</td>
+            <td>Student 1</td>
+            <td>
+                <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal-edit">Edit(icon)</a>
+                <a href="" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-details">View Details(icon)</a>
+                <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')">Delete(icon)</a>
+            </td>
+
+        </tbody>
+    </table>
+
+    <!-- Modal: Add New Activity -->
+    <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="modal-addTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-addTitle">Add New Activity</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Enter form here-->
+                    <form method="POST" action="/add" class="form" role="form">
+                        {{ form.csrf_token() }}
+                        <div class="form-group">
+                            {{ form.title.label }}
+                            {{ form.title(size=100, class_='form-control', placeholder='Enter activity title') }}
+                        </div>
+            
+                        <div class="form-group">
+                            {{ form.activity_date.label }}
+                            {{ form.activity_date(class_='datepicker form-control') }}
+                        </div>
+            
+                        <div class="form-group">
+                            {{ form.subject.label }}
+                            {{ form.subject(class_='form-control') }}
+                        </div>
+            
+                        <div class="form-group">
+                            {{ form.students.label }}
+                            {{ form.students(class_='form-control') }}
+                        </div>  
+        
+                        <div class="form-group">
+                            {{ form.description.label }}
+                            {{ form.description(class_='form-control', placeholder='Enter activity description') }}
+                        </div>
+            
+                        
+                        <div class="form-group">
+                            {{ form.resources.label }}
+                            {{ form.resources(class_='form-control', placeholder='List any resources needed for this activity (e.g. supplies, books, links, etc.') }}
+                        </div>
+            
+                        <div class="form-group">
+                            {{ form.notes.label }}
+                            {{ form.notes(class_='form-control', placeholder='Add any additional notes or feedback for this activity') }}
+                        </div>
+            
+                        <div class="form-group">
+                            {{ form.status.label }}
+                            {{ form.status }}
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    {{ form.submit(class_='btn btn-primary') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Activity -->
+
+    <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="modal-editTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-editTitle">Edit Activity</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">UPDATE</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
     </div>
     
+    <!-- Modal Activity Details -->
+
+    <div class="modal fade" id="modal-details" tabindex="-1" role="dialog" aria-labelledby="modal-details" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-detailsTitle">Activity Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
