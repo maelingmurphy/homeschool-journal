@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="activity-log-header">
-        <h2>Activity Log <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#modal-add">Add New Activity</button></h2>
+        <h2>Activity Log <button id="modal-add-btn" type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#modal-add">Add New Activity</button></h2>
     </div>
 
     <table class="table table-dark">
@@ -21,21 +21,28 @@
             </tr>
         </thead>
         <tbody>
-            <td>01/08/21</td>
-            <td>Intro to Multiplication</td>
-            <td>Math</td>
-            <td>Check Mark(icon)</td>
-            <td>Student 1</td>
-            <td>
-                <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal-edit">Edit(icon)</a>
-                <a href="" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-details">View Details(icon)</a>
-                <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')">Delete(icon)</a>
-            </td>
+            {% for activity in activities %}
+            <tr>
+                <td>{{ activity.date }}</td>
+                <td>{{ activity.title }}</td>
+                <td>{{ activity.subject }}</td>
+                <td>{{ activity. student }}</td>
+                <td>{{ activity.status }}</td>   
+                <td>
+                    <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal-edit">Edit(icon)</a>
+                    <a href="" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-details">View Details(icon)</a>
+                    <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')">Delete(icon)</a>
+                </td>
+                {% endfor %}
+            </tr>
+            
 
         </tbody>
     </table>
+{% endblock %}
 
-    <!-- Modal: Add New Activity -->
+<!-- CHECK THIS CODE - remember to replace modal comments!
+    *Modal: Add New Activity*
     <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="modal-addTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -46,7 +53,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- Enter form here-->
+                    
                     <form method="POST" action="/add" class="form" role="form">
                         {{ form.csrf_token() }}
                         <div class="form-group">
@@ -100,7 +107,7 @@
         </div>
     </div>
 
-    <!-- Modal Edit Activity -->
+    * Modal Edit Activity*
 
     <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="modal-editTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -123,7 +130,7 @@
         </div>
     </div>
     
-    <!-- Modal Activity Details -->
+    *Modal Activity Details*
 
     <div class="modal fade" id="modal-details" tabindex="-1" role="dialog" aria-labelledby="modal-details" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -144,5 +151,4 @@
             </div>
         </div>
     </div>
-
-{% endblock %}
+--> 
