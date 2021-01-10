@@ -38,3 +38,8 @@ h1 {
 .float-item {
     padding-right: 30px;
 }
+
+/* Log */
+.activity-log-header {
+    padding-top: 30px;
+}

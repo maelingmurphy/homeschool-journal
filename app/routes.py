@@ -4,27 +4,14 @@ from flask import (
     url_for,
     redirect
 )
-
-from config import Config
+from app import app
 
 # Import AddActivity class from forms.py
 from forms import AddActivity 
 
 
-# Flask app creation 
-app = Flask(__name__, instance_relative_config=True) # Refers to this current file 
 
-#app.config.from_pyfile('config.py') # Load configuration variables from an instance folder
-
-if app.config['ENV'] == 'production':
-    app.config.from_object('config.ProductionConfig')
-else:
-    app.config.from_object('config.DevelopmentConfig')
-
-print(f'ENV is now set to: {app.config["ENV"]}')
-
-if __name__ == "__app__":
-    app.run(debug=True)
+# THE ROUTES 
 
 # Home Page
 @app.route('/')
