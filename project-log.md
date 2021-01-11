@@ -88,7 +88,6 @@ This [tutorial](https://www.youtube.com/watch?v=XTpLbBJTOM4) was extremely helpf
 4. [Modal - Bootstrap](https://getbootstrap.com/docs/4.0/components/modal/)
 
 ----------------------------------------------------------
-
 ## January 6, 2021
 
 **Today's Progress**:
@@ -105,7 +104,6 @@ This [tutorial](https://www.youtube.com/watch?v=XTpLbBJTOM4) was extremely helpf
 4. [Passing HTML attributes to Flask form]((https://john.soban.ski/pass-bootstrap-html-attributes-to-flask-wtforms.html))
 
 ----------------------------------------------------------
-
 ## January 5, 2021
 
 **Today's Progress**:
