@@ -66,6 +66,7 @@
 8. [How to set up folder structure for rendering templates](https://flask.palletsprojects.com/en/1.1.x/quickstart/#rendering-templates)
 9. [How to add Flask-Migrate to project](https://blog.miguelgrinberg.com/post/how-to-add-flask-migrate-to-an-existing-project)
 
+
 ----------------------------------------------------------
 ## January 8, 2021
 
@@ -77,12 +78,13 @@
 - Added a 'notes' field to the form on 'Add An Activity' page 
 - Added modal window for adding a new activity from the log.html page 
 
-**Thoughts**: 
-This [tutorial](https://www.youtube.com/watch?v=XTpLbBJTOM4) was extremely helpful in learning how to use modals with Bootstrap. 
+**Thoughts**:
+- This [tutorial](https://www.youtube.com/watch?v=XTpLbBJTOM4) was extremely helpful in learning how to use modals with Bootstrap.
+
 
 **Resources**
 1. [GIF Creation Tools](https://webflow.com/blog/5-tools-to-help-you-give-the-gift-of-gifs)
-2. [The <table> HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
+2. [The table HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) 
 3. [Tables - Bootstrap](https://getbootstrap.com/docs/4.0/content/tables/)
 4. [Modal - Bootstrap](https://getbootstrap.com/docs/4.0/components/modal/)
 
@@ -120,6 +122,7 @@ This [tutorial](https://www.youtube.com/watch?v=XTpLbBJTOM4) was extremely helpf
 - You have to set up a secret key in order to use features like flask-login and CSRF protection. I encountered this error (RuntimeError: A secret key is required to use CSRF.)  when trying to view my form I created using WTForms. 
 - It's best to use a separate configuration file for storing the configuration variables that will be applied to the Flask app. 
 - Environment variables are stored in the system memory of the device running the app and can be temporarily created via the terminal: (e.g. `$ export SECRET_KEY='o9uaglkiDjro')`. The variable exists as long as you keep the terminal open. To check the variable value, `echo $SECRET_KEY`
+
 **Resources**
 1. [Handling Forms in Flask with Flask-WTF](https://hackersandslackers.com/flask-wtforms-forms/)
 2. [WTForms Documentation](https://wtforms.readthedocs.io/en/2.3.x/#)
@@ -131,8 +134,6 @@ This [tutorial](https://www.youtube.com/watch?v=XTpLbBJTOM4) was extremely helpf
 8.[Flask Configuration](https://explore-flask.readthedocs.io/en/latest/configuration.html) - helped me set up my 2 config files to provide my SECRET_KEY: one in the root, other in instance folder
 
 ----------------------------------------------------------
-
-
 ## January 4, 2020
 **Today's Progress**:
 - Created private repo for project (homeschool-journal)
@@ -153,5 +154,7 @@ This [tutorial](https://www.youtube.com/watch?v=XTpLbBJTOM4) was extremely helpf
 3. [freeCodeCamp - Build a web applicat using Flask](https://www.freecodecamp.org/news/how-to-build-a-web-application-using-flask-and-deploy-it-to-the-cloud-3551c985e492/)
 4. [Building a URL to a specific function using url_for()](https://flask.palletsprojects.com/en/0.12.x/quickstart/#url-building)
 5. [Flask series](https://dev.to/brunooliveira/flask-series-part-i-4do8)
-6. [HTML <input type="checkbox"](https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_checkbox)
-7. [HTML <input type="date">](https://www.w3schools.com/tags/att_input_type_date.asp)
+6. [HTML input type="checkbox"](https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_checkbox)
+7. [HTML input type="date"](https://www.w3schools.com/tags/att_input_type_date.asp)
+
+----------------------------------------------------------
