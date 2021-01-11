@@ -65,6 +65,7 @@
 7. [Flask configuration files - the best explanation I've come across so far for setting up config.py](https://pythonise.com/series/learning-flask/flask-configuration-files)
 8. [How to set up folder structure for rendering templates](https://flask.palletsprojects.com/en/1.1.x/quickstart/#rendering-templates)
 9. [How to add Flask-Migrate to project](https://blog.miguelgrinberg.com/post/how-to-add-flask-migrate-to-an-existing-project)
+
 ----------------------------------------------------------
 ## January 8, 2021
 
