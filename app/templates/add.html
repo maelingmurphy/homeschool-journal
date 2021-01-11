@@ -11,17 +11,23 @@
     </div>
 
     <div class="formwrapper">
-        <form method="POST" action="/add" class="form" role="form">
+        <form method="POST" action="/add" class="form" role="form" novalidate>
             {{ form.csrf_token() }}
             <div class="form-group">
                 {{ form.title.label }}
                 {{ form.title(size=100, class_='form-control', placeholder='Enter activity title') }}
+                {% for error in form.title.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
             </div>
 
             <div class="form-float">
                 <div class="form-group float-item">
                     {{ form.activity_date.label }}
                     {{ form.activity_date(class_='datepicker form-control') }}
+                    {% for error in form.activity_date.errors %}
+                    <span style="color:red;">[{{ error }}]</span>
+                    {% endfor %}
                 </div>
     
                 <div class="form-group float-item">
@@ -30,8 +36,8 @@
                 </div>
     
                 <div class="form-group float-item">
-                    {{ form.students.label }}
-                    {{ form.students(class_='form-control') }}
+                    {{ form.student.label }}
+                    {{ form.student(class_='form-control') }}
                 </div>  
 
             </div>
@@ -39,18 +45,18 @@
         
             <div class="form-group">
                 {{ form.description.label }}
-                {{ form.description(class_='form-control', placeholder='Enter activity description') }}
+                {{ form.description(size=500, class_='form-control', placeholder='Enter activity description') }}
             </div>
 
             
             <div class="form-group">
                 {{ form.resources.label }}
-                {{ form.resources(class_='form-control', placeholder='List any resources needed for this activity (e.g. supplies, books, links, etc.') }}
+                {{ form.resources(size=500, class_='form-control', placeholder='List any resources needed for this activity (e.g. supplies, books, links, etc.)') }}
             </div>
 
             <div class="form-group">
                 {{ form.notes.label }}
-                {{ form.notes(class_='form-control', placeholder='Add any additional notes or feedback for this activity') }}
+                {{ form.notes(size=500, class_='form-control', placeholder='Add any additional notes or feedback for this activity') }}
             </div>
 
             <div class="form-group">

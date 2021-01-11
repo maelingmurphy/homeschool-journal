@@ -1,15 +1,12 @@
-from app import app
-
-
 from flask import (
     render_template, 
     url_for,
-    redirect
+    redirect,
+    flash
 )
 
-
-# Import AddActivity class from forms.py
-#from forms import AddActivity 
+from app import app
+from app.forms import AddActivity # Import AddActivity class from forms.py
 
 
 
@@ -23,19 +20,26 @@ def index():
 
 
 # Add Activity 
-#@app.route('/add', methods=('GET', 'POST'))
-#def add():
-#    form = AddActivity()
-#    if form.validate_on_submit():
-#        return 'Activity has been added'
+@app.route('/add', methods=('GET', 'POST'))
+def add():
+    
+    # Create mock subject and student objects to populate SelectField choices in forms.py until database is created
+    students = ['James', 'Stephanie', 'Mariah']
+    subjects = ['Math', 'Reading', 'Science', 'Geography', 'Physical Education', 'Music', 'Foreign Language']
 
-#    return render_template(
-#        'add.html',
-#        form=form
-#    )
+    form = AddActivity()
+    form.subject.choices = subjects
+    form.student.choices = students
+
+    if form.validate_on_submit():
+        # Display flash confirmation message
+        flash('"{}" has been successfully added'.format(form.title.data))
+        return redirect(url_for('index'))
+
+    return render_template('add.html',form=form, students=students)
 
 # Activity Log
-@app.route('/log')
+@app.route('/log', methods=('GET', 'POST'))
 def log():
     activities = [
         {'date': 'January 10, 2020',
@@ -43,20 +47,33 @@ def log():
         'subject': 'Math',
         'student': 'James',
         'status': 'completed'},
-        {'date': 'January 10, 2020',
+        {'date': 'January 20, 2020',
         'title': 'Prisms',
         'subject': 'Physics',
         'student': 'James',
+        'status': 'completed'},
+        {'date': 'January 22, 2020',
+        'title': 'Solar Power',
+        'subject': 'Science',
+        'student': 'Mariah',
+        'status': 'completed'},
+        {'date': 'January 24, 2020',
+        'title': 'The Periodic Table of Elements',
+        'subject': 'Science',
+        'student': 'Mariah',
         'status': 'completed'}
+
     ]
 
-    return render_template('log.html', activities=activities)
+    form = AddActivity()
+    if form.validate_on_submit():
+        # Display flash confirmation message
+        flash('"{}" has been successfully added'.format(form.title.data))
 
-#    form = AddActivity()
-#    if form.validate_on_submit():
-#        return 'Activity has been added'
+    return render_template('log.html', activities=activities, form=form)
 
-#    return render_template(
-#        'log.html',
-#        form=form
-#    )
+
+# Attendance History
+@app.route('/attendance')
+def attend():
+    return render_template('attend.html')
