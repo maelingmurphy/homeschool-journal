@@ -3,3 +3,4 @@ instance/
 __pycache__/
 .flaskenv
 config-notes.py
+venv/
