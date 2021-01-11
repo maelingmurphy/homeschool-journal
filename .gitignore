@@ -2,3 +2,4 @@ todo.md
 instance/
 __pycache__/
 .flaskenv
+config-notes.py
