@@ -10,6 +10,31 @@
 
 ----------------------------------------------------------
 
+## January 10, 2021
+
+**Today's Progress**:
+- Created mock objects and control statements to display activity information in table on log.html page until I can start pulling in info from the database. 
+- Added new view function for displaying attendance history ('/attendance')
+- Worked through Flask Mega-Tutorial (Chapter 2: Templates, Chapter 3: Web Forms)
+- Made a dynamic WTForms SelectField with mock `students` and `subjects` object
+- Added field validation with error displays and flash messaging 
+
+**Thoughts**: 
+- Creating mock objects can be useful when you're working on one part of the application but the other aspects of the system haven't been created yet. 
+- Jinja2 is a template engine that comes with the Flask framework. The `render_template()` function takes a template filename and template arguments and then converts the placeholders, indicated by `{{ ... }}` blocks, to actual values. Control statements are given inside `{% ... %}` blocks.
+- `GET` requests typically return information to the client(e.g. web browser). `POST` requests typically used when browser submits form data to the server. 
+- Using the "with" construct in Flask template: From Miguel Grinberg -  " "with" in this situation is that this is more or less similar to using "with" in regular Python code. Basically what you get is that the variable defined as part of the with declaration can be used anywhere between the "with" and the "endwidth"."
+- The `url_for()` function generates URLS, where the argument to url_for() is the endpoint name, which is the name of the view function. 
+- You can use `os.urandom(24).hex()` to generate a random key, after importing the `os` library in Python 
+
+**Resources**
+1. [Form Validation with WTForms](https://flask.palletsprojects.com/en/1.1.x/patterns/wtforms/?highlight=form)
+2. [Using CSRF with FlaskForm](https://flask-wtf.readthedocs.io/en/stable/csrf.html)
+3. [The 'with' construct in Flask templates](https://www.reddit.com/r/flask/comments/8rc3oi/what_does_with_construct_do/)
+4. [Flask Mega-Tutorial Chapter 2: Templates](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates)
+5. [Flask Mega-Tutorial Chapter 3: Web Forms](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms)
+6. [Dynamic WTForms SelectField](https://stackoverflow.com/questions/12850605/how-do-i-generate-dynamic-fields-in-wtforms)
+----------------------------------------------------------
 ## January 9, 2021
 
 **Today's Progress**:
@@ -18,12 +43,17 @@
 - Installed Flask-Migrate via terminal to use with database migration framework, Alembic: `pip install flask-migrate`
 - Added Config class to configuration file (config.py) and added if else logic to app.py for choosing which configuration attributes to apply to the Config class. 
 - Added SQLALCHEMY configuration variables to config.py file 
+- Changed file structure of app. Made the application a package instead of a module. Added routes.py and __init__.py to app/ folder.
+- Created a migration repository using Flask-Migrate. Got STUCK because Flask-Migrate was not detecting the table that I created in models.py. Going to walk through the Flask Mega-Tutorial to see if I detect what the problem is. 
+    - Completed Chapter 1: Hello World!
 
 **Thoughts**: 
 - The 'OS' module in Python provides functions for interacting with the operating system. OS is included in Python's standard utility modules (no need to install externally). `os.path` is a sub-module of OS module and is commonly used for path name manipulation. `os.path.dirname(path)` is a method that gets the directory name from a specified path. `os.path.abspath(path)` is a method that returns the pathname to the path that is passed in as a parameter to this function. 
 - It's important to consider the principle of 'separation of concerns' when deciding the location for your app's configuration variables. Instead of putting them in the same file where you create your application, you can create a configuration class in a separate Python module. For my project, I'm creating a configuration class in config.py in the top-level directory. 
 - Routes are the different URLS that the app serves to the user. Handlers for the app routes are called view functions. These view functions are mapped to one or more route URLs and serves a specific URL depending on the logic defined in the function. The @app.route decorator creates a relationship between the URL given as an argument and the function (miguelgrinberg.com)
 - If your application is a module (e.g. app.py), then the templates folder should be next to that module. If your application is a package (e.g. app/), the templates folder is inside your package
+- Flask-Migrate: The `flask db` sub-command is used to manage various database migration scenarios. `flask db init` creates the migration repository. `flask db migrate` creates a migration automatically. 
+- Make sure to type `python3` in the terminal BEFORE I try to run Python code in the terminal! Forgetting to do so results in a `...can't read /var/mail/...` error 
 
 **Resources**
 1. [Using the aria-labelledby attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute)
@@ -34,6 +64,7 @@
 6. [App Configuration & Web Forms](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms)
 7. [Flask configuration files - the best explanation I've come across so far for setting up config.py](https://pythonise.com/series/learning-flask/flask-configuration-files)
 8. [How to set up folder structure for rendering templates](https://flask.palletsprojects.com/en/1.1.x/quickstart/#rendering-templates)
+9. [How to add Flask-Migrate to project](https://blog.miguelgrinberg.com/post/how-to-add-flask-migrate-to-an-existing-project)
 ----------------------------------------------------------
 ## January 8, 2021
 
