@@ -7,13 +7,13 @@ body {
     background-color: #a8dadc;
 }
 
-.header h1{
+.header h1 {
     text-align: center;
     margin-top: 2rem;
 }
 
 
-#submit {
+#submit, #modal-add-btn {
     background-color: #e76f51;
     text-transform: uppercase;
     border: none;
@@ -21,7 +21,7 @@ body {
 
 /* Index Page */
 h1 {
-    font-size: 55px;
+    font-size: 40px;
 }
 
 
@@ -43,3 +43,4 @@ h1 {
 .activity-log-header {
     padding-top: 30px;
 }
+
