@@ -76,8 +76,6 @@
 - Added a 'notes' field to the form on 'Add An Activity' page 
 - Added modal window for adding a new activity from the log.html page 
 
-
-
 **Thoughts**: 
 This [tutorial](https://www.youtube.com/watch?v=XTpLbBJTOM4) was extremely helpful in learning how to use modals with Bootstrap. 
 
