@@ -14,13 +14,17 @@
 
 **Today's Progress**:
 - Learned how to view previews of my markdown (.md) files in VSCode. Right-click on code editor tab for file and select 'Open Preview'.
+- Completed Chapter 4: Databases in the Flask Mega-Tutorial
+- Integrated Flask-SQLAlchemy with my web app! Added User and Student database models in models.py  
+- Learned how to create a shell context so you can open up a Python interpreter with the relevant elements from your project, pre-imported. Added `make_shell_context()` function to journal.py
+
 **Thoughts**: 
 - When saving datetime information in your database, it is recommended to work with UTC dates and times. This will ensure uniform timestamps regardless of where the users are located. The timestamps will then be converted to the user's local time when they are displayed. - (miguelgrinberg.com)
 - Working with Flask-Migrate (Alembic):
     -  `flask db init`
     - `flask db`
-    - `flask db migrate -m "<optional message>"`
-    - `flask db upgrade`
+    - `flask db migrate -m "<optional message>"`: generates the migration script
+    - `flask db upgrade`: applies the changes to the database
 - Changes to the database are made within the context of a session, which is accessed through `db.session`. Changes that have been added (`db.session.add()`) are not actually committed to the database until `db.session.commit()` is called. `db.session.rollback()` aborts the session and removes any changes stored in it. 
 - Database queries:
     - All models have a query attribute which allows you to run database queries
@@ -39,15 +43,14 @@
     # Query to get all users in reverse alphabetical order
     User.query.order_by(User.username.desc()).all()
     ```
-
-
-
 - SQLAlchemy provides the use of `db.relationship`, which gives you a high-level view of the relationships between tables without having to deal explicitly with foreign keys
-- The `flask shell` command helps to set up a Python interpreter with the imports relevant to your application. You can create a "shell context" that names which symbols you want to pre-import. You can write this "shell context" function in the main file used to run the app with an `app.shell_context_processor` decorator. 
+- The `flask shell` command helps to set up a Python interpreter with the imports relevant to your application. You can create a "shell context" that names which symbols you want to pre-import. You can write this "shell context" function in the main file used to run the app with an `app.shell_context_processor` decorator. When ready to use, run `flask shell` in terminal BEFORE opening up a Python interpreter. 
 
 **Resources**
 1. [Case Styles](https://medium.com/better-programming/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841)
 2. [Flask-SQLAlchemy documentation](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
+3. [Declaring models in Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
+4. [Chapter 4: Databases - Flask Mega-Tutorial by Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database)
 ----------------------------------------------------------
 ## January 10, 2021
 
