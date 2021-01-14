@@ -10,6 +10,10 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db, render_as_batch=True)
 login = LoginManager(app)
 
+# Adds requirement for users to be logged in, in order to view certain pages
+# Redirects user to login page if they visit page that has login requirement and they're not logged in
+login.login_view = 'login'
+
 from app import routes, models
 
 # CODE BELOW THAT NEEDS TO BE TESTED
