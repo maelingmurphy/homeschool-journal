@@ -1,8 +1,27 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, TextAreaField, SelectField, BooleanField, SubmitField # Field Types
 from wtforms.fields.html5 import DateField # Renders datepicker
-from wtforms.validators import DataRequired # Validators
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo # Validators
+from app.models import User
 
+
+
+class RegistrationForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EuqalTo('password')])
+    submit = SubmitField('Register')
+
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user is not None:
+            raise ValidationError('Username already taken.')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is not None:
+            raise ValidationError('This email address is already registered.')
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -37,3 +56,4 @@ class AddActivity(FlaskForm):
 
     # Submit form
     submit = SubmitField('Add Activity')
+
