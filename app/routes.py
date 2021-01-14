@@ -7,7 +7,7 @@ from flask import (
 
 from app import app
 from app.forms import LoginForm, AddActivity # Import LoginForm, AddActivity classes from forms.py
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 
 
@@ -15,6 +15,8 @@ from app.models import User
 
 # Home Page
 @app.route('/')
+@app.route('/index')
+@login_required 
 def index():
     date = 'Sunday - January 10, 2020'
     return render_template('index.html', date=date )
@@ -22,6 +24,7 @@ def index():
 
 # Add Activity 
 @app.route('/add', methods=('GET', 'POST'))
+@login_required
 def add():
     
     # Create mock subject and student objects to populate SelectField choices in forms.py until database is created
@@ -41,6 +44,7 @@ def add():
 
 # Activity Log
 @app.route('/log', methods=('GET', 'POST'))
+@login_required
 def log():
     activities = [
         {'date': 'January 10, 2020',
@@ -76,6 +80,7 @@ def log():
 
 # Attendance History
 @app.route('/attendance')
+@login_required
 def attend():
     return render_template('attend.html')
 
@@ -96,6 +101,7 @@ def login():
 
 # Logout
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('index'))
