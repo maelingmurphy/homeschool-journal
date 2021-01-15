@@ -6,11 +6,12 @@ from flask import (
     request
 )
 
-from app import app
-from app.forms import LoginForm, AddActivity # Import LoginForm, AddActivity classes from forms.py
+from app import app, db
+from app.forms import LoginForm, AddActivity, RegistrationForm # Import LoginForm, AddActivity classes from forms.py
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 from werkzeug.urls import url_parse
+
 
 
 # THE ROUTES 
@@ -22,6 +23,21 @@ from werkzeug.urls import url_parse
 def index():
     date = 'Sunday - January 10, 2020'
     return render_template('index.html', date=date )
+
+# Register User
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Congratulations, you are now a registered user!')
+        return redirect(url_for('login'))
+    return render_template('register.html', form=form)
 
 
 # Add Activity 
