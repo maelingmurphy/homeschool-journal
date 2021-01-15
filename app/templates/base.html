@@ -31,7 +31,7 @@
               <a class="nav-link" href="{{ url_for ('attend') }}">Attendance</a>
             </li>
             <li class="nav-item">
-              {% if current_user.isanonymous %}
+              {% if current_user.is_anonymous %}
               <a class="nav-link" href="{{ url_for ('login') }}">Log In</a>
               {% else %}
               <a class="nav-link" href="{{ url_for ('logout') }}">Log Out</a>
