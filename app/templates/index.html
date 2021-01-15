@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="index-header">
-        <h1>Welcome!</h1>
+        <h1>Welcome {{ current_user.username }}</h1>
     </div>
     <div>
         <h2>Log Attendance</h2>
@@ -14,5 +14,6 @@
 
     <div>
         <h2>Activities for the week of {{ date }}</h2>
+        
     </div>
 {% endblock %}
