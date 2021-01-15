@@ -7,10 +7,10 @@ from app.models import User
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    username = StringField('Username', validators=[DataRequired("Please enter a username")])
+    email = StringField('Email', validators=[DataRequired(), Email("Please enter your email address")])
     password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password', message="Passwords must match")])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -33,7 +33,7 @@ class AddActivity(FlaskForm):
     """Add activity form."""
     
     # Activity Title 
-    title = StringField('Title', validators=[DataRequired()])
+    title = StringField('Title', validators=[DataRequired("Activity title required")])
 
     # Activity Description
     description = TextAreaField('Activity Description')
