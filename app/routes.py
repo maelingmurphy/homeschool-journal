@@ -33,11 +33,30 @@ def register():
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
+
+        # Get student number
+        student_number = int(form.user_student.data)
+
+        # Get student names
+        student_names = []
+        for i in range(1, student_number + 1):
+            student_names.append(request.form.get(f"student_name{i}"))
+
+        # Add student names to database (ADD USER ID!!)
+        for name in student_names:
+            student = Student(student_name=name, user_id="")
+
+        # Test
+        print(student_number)
+        print("Student Names", student_names) 
+        
+        #db.session.add(user)
+        #db.session.commit()
+
+        
         username = form.username.data
         flash('Congratulations {}, you are now a registered user!'.format(username))
-        return redirect(url_for('login'))
+        #return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
 
@@ -55,9 +74,11 @@ def add():
     form.student.choices = students
 
     if form.validate_on_submit():
+        # Add activity info to database 
+        
         # Display flash confirmation message
         flash('"{}" has been successfully added'.format(form.title.data))
-        return redirect(url_for('index'))
+        return redirect(url_for('log'))
 
     return render_template('add.html',form=form, students=students)
 

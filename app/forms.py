@@ -9,6 +9,8 @@ from app.models import User
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired("Please enter a username")])
     email = StringField('Email', validators=[DataRequired(), Email("Please enter your email address")])
+    user_student = SelectField('How many students do you have?', choices=['Select number', 1, 2, 3, 4, 5, 6, 7, 8], validators=[DataRequired()])
+    student_name1 = StringField('Student Name(s)', validators=[DataRequired("Please enter student's name")])
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password', message="Passwords must match")])
     submit = SubmitField('Register')
