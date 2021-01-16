@@ -29,11 +29,11 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
-class AddStudent(FlaskForm):
+class AddStudentForm(FlaskForm):
     user_student = SelectField('How many students do you have?', choices=['Select number', 1, 2, 3, 4, 5, 6, 7, 8], validators=[DataRequired()])
     student_name1 = StringField('Student Name(s)', validators=[DataRequired("Please enter student's name")])
 
-class AddActivity(FlaskForm):
+class AddActivityForm(FlaskForm):
     """Add activity form."""
     
     # Activity Title 
