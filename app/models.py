@@ -13,6 +13,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
+    student_number = db.Column(db.Integer, index=True)
     password_hash = db.Column(db.String(128))
     students = db.relationship('Student', backref='admin', lazy='dynamic')
 
@@ -44,9 +45,11 @@ class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     student_name = db.Column(db.String(64), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    activities = db.relationship('Activity', backref='student(s)', lazy='dynamic')
+    activities = db.relationship('Activity', backref='student', lazy='dynamic')
 
     def __repr__(self):
         return '<Student {}>'.format(self.student_name)
 
-# Add attendance table (date, student, attendance status)
+# Add attendance table (id, date, student, attendance status)
+
+# Add Subjects table (id, subject)
