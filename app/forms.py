@@ -31,10 +31,10 @@ class LoginForm(FlaskForm):
 
 class AddStudentForm(FlaskForm):
     """Add student(s) form."""
-    user_student = SelectField('How many students do you have?', choices=['Select number', 1, 2, 3, 4, 5, 6, 7, 8], validators=[DataRequired()])
+    user_student = SelectField('How many students do you have?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8], validators=[DataRequired()])
     student_name1 = StringField('Student Name(s)', validators=[DataRequired("Please enter student's name")])
     submit = SubmitField('Add Student(s)')
-    
+
 class AddActivityForm(FlaskForm):
     """Add activity form."""
     
