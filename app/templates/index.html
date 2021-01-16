@@ -8,6 +8,8 @@
     <div class="index-header">
         <h1>Welcome {{ current_user.username }}</h1>
     </div>
+
+    {% if not current_user.student_number %}
     <div id="add-students">
         <h2>Add Student(s)</h2>
         <form action="" method="post" novalidate>
@@ -29,9 +31,11 @@
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </div>
-
+            <p>{{ form.submit(class_="btn btn-primary") }}</p>
         </form>
     </div>
+    {% endif %}
+
     <div id="log-attendance">
         <h2>Log Attendance</h2>
     </div>
