@@ -9,8 +9,96 @@
 **Resources**
 
 ----------------------------------------------------------
+## January 15, 2021 (Day 8 #100DaysOfCode)
 
-## January 11, 2021
+**Today's Progress**:
+- Figured out how to dynamically add input fields to a form based on a user's select input. I was able to remove and add fields so the field number matched the user's select number. I learned more about how to interact with the DOM using JavaScript.
+- Added an app.js file to my project and linked it on `base.html`
+
+
+**Thoughts**: 
+- Ran into issues today trying to figure out how to pass data from dynamically generated fields to the route using WTForms. I had to use a specific naming sequence for my input fields and `request.form.get("<name>")` to be able to access the data in those fields that populated based on the user's input. This is my workaround till I learn something better! 
+
+**Resources**
+1. [Dynamically adding HTML form fields based on user's input](https://stackoverflow.com/questions/31988183/dynamically-adding-html-form-fields-based-on-a-number-specified-by-the-user)
+2. [Event Listeners on <select> elements - 1 choice example](https://stackoverflow.com/questions/24875414/addeventlistener-change-and-option-selection)
+3. [Event Listeners - change event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event)
+4. [Adding input elements dynamically to form](https://stackoverflow.com/questions/14853779/adding-input-elements-dynamically-to-form#:~:text=If%20you%20want%20to%20dynamically,of%20them%20to%20the%20container.)
+5. [Input text object properties](https://www.w3schools.com/jsref/dom_obj_text.asp)
+6. [Dynamic Fields WTForms](https://www.rmedgar.com/blog/dynamic-fields-flask-wtf/)
+----------------------------------------------------------
+## January 14, 2021 (Day 7 #100DaysOfCode)
+
+**Today's Progress**:
+- Added `RegistrationForm` class to `forms.py`
+- Installed `Email()` validator external dependency from WTForms: `$ pip install email-validator`
+- Added registration form structure to `register.html`
+- Added link to registration page below login form on `login.html`
+- Added `/register` view on `routes.py` 
+- Added custom messages for WTForms validation errors on `forms.py`
+
+**Thoughts**: 
+- When you define a class in Python, you can create class variables and instance variables. A class variable will be shared by all instances and an instance variable is unique to each instance. A good example of this in my project is my `RegistrationForm` class in `forms.py`. 
+
+**Resources**
+1. [Python Class and Instance Variables](https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables)
+2. [Understanding Class and Instance Variables in Python3](https://www.digitalocean.com/community/tutorials/understanding-class-and-instance-variables-in-python-3)
+-  [Chapter 5: User Logins - Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins)
+3. [Form Validation with WTForms](https://flask.palletsprojects.com/en/1.1.x/patterns/wtforms/)
+
+----------------------------------------------------------
+## January 13, 2021 (Day 6 #100DaysOfCode)
+
+**Today's Progress**:
+- Added password hashing and verification (added to `app/models.py` via Werkzeug package)
+- Added user loader function to `app/models.py`
+- Added login functionality via flask-login
+- Added logout view
+- Added conditional logic for displaying login or logout link in nav bar
+- Added login requirement for certain views with login decorators
+- Added redirect to 'next' page in login view
+
+**Resources**
+-  [Chapter 5: User Logins - Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins)
+
+----------------------------------------------------------
+
+## January 12, 2021 (Day 5 #100DaysOfCode)
+
+**Today's Progress**:
+- Added email field to 'user' database model
+- Added 'login' view to `routes.py`
+- Added LoginForm class to `forms.py`
+- Created login.html to display login form 
+- Added Activity class in `models.py`
+- Fixed Alter table errors due to SQLite, followed [these instructions](https://blog.miguelgrinberg.com/post/). Had to make adjustments to database instance in `app/__init__.py`
+
+**Thoughts**: 
+ - Learned about the concept of multiple inheritance in Python and how it leads to the ability to use mixins to add different features to a class.
+ - You can use a `pass` statement when writing a loop or function in python to serve as a placeholder, since you can't have an empty body. If you left it with an empty body, the interpreter would give an error. 
+ - You can apply `index=True` as an attribute to a database model field in order to speed up queries on this column
+ ```python
+ # Example for the user table in models.py
+
+ class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64), index=True, unique=True)
+    email = db.Column(db.String(120), index=True, unique=True)
+    password_hash = db.Column(db.String(128))
+    students = db.relationship('Student', backref='admin', lazy='dynamic')
+ ```
+ - To view tables you created in sqlite, type `sqlite3` in the terminal. Then at the `sqlite>` command line, type `.tables`. To see schema for a specific table, type `.schema table`
+
+**Resources**
+1. [Mixins and Python](https://www.ianlewis.org/en/mixins-and-python)
+2. [Multiple inheritance in Python](https://www.geeksforgeeks.org/multiple-inheritance-in-python/)
+3. [Python Multiple Inheritance](https://www.programiz.com/python-programming/multiple-inheritance)
+4. [Making Python classes more modular using mixins](https://www.residentmar.io/2019/07/07/python-mixins.html)
+5. [SQLAlchemy Column & Data Types](https://docs.sqlalchemy.org/en/14/core/type_basics.html)
+6. [How to Connect to SQLite from Command Line](https://www.a2hosting.com/kb/developer-corner/sqlite/connect-to-sqlite-from-the-command-line)
+----------------------------------------------------------
+
+## January 11, 2021 (Day 4 #100DaysOfCode)
 
 **Today's Progress**:
 - Learned how to view previews of my markdown (.md) files in VSCode. Right-click on code editor tab for file and select 'Open Preview'.
@@ -21,10 +109,10 @@
 **Thoughts**: 
 - When saving datetime information in your database, it is recommended to work with UTC dates and times. This will ensure uniform timestamps regardless of where the users are located. The timestamps will then be converted to the user's local time when they are displayed. - (miguelgrinberg.com)
 - Working with Flask-Migrate (Alembic):
-    -  `flask db init`
-    - `flask db`
+    -  `flask db init`: initializes the migration repository 
     - `flask db migrate -m "<optional message>"`: generates the migration script
     - `flask db upgrade`: applies the changes to the database
+    - `flask db downgrade`: undoes the last migration 
 - Changes to the database are made within the context of a session, which is accessed through `db.session`. Changes that have been added (`db.session.add()`) are not actually committed to the database until `db.session.commit()` is called. `db.session.rollback()` aborts the session and removes any changes stored in it. 
 - Database queries:
     - All models have a query attribute which allows you to run database queries
@@ -52,7 +140,7 @@
 3. [Declaring models in Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
 4. [Chapter 4: Databases - Flask Mega-Tutorial by Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database)
 ----------------------------------------------------------
-## January 10, 2021
+## January 10, 2021 (Day 3 #100DaysOfCode)
 
 **Today's Progress**:
 - Created mock objects and control statements to display activity information in table on log.html page until I can start pulling in info from the database. 
@@ -78,7 +166,7 @@
 6. [Dynamic WTForms SelectField](https://stackoverflow.com/questions/12850605/how-do-i-generate-dynamic-fields-in-wtforms)
 7. [Message Flashing in Flask](https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/)
 ----------------------------------------------------------
-## January 9, 2021
+## January 9, 2021 (Day 2 #100DaysOfCode)
 
 **Today's Progress**:
 - Added modal windows for editing an activity and viewing activity details on log.html page 
@@ -111,7 +199,7 @@
 
 
 ----------------------------------------------------------
-## January 8, 2021
+## January 8, 2021 (Day 1 #100DaysOfCode)
 
 **Today's Progress**:
 - Started the #100DaysOfCode challenge
