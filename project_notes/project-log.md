@@ -9,6 +9,40 @@
 **Resources**
 
 ----------------------------------------------------------
+# PROJECT LOG
+
+## January 16, 2021
+
+**Today's Progress**:
+- Added student number to User database model
+- Removed 'Add Student' fields from registration form
+- Added 'Add Student(s)' form to index.html and updated the `/index` route so information passed from the form gets added to the database (names added to `student` table associated with user_id, student_number field in `user` table)
+- Added conditional statment to index.html so the 'Add Student' section only shows if a user doesn't have a student number saved in the `user` table (e.g. `{% if not current_user.student_number %}`)
+- Added CSS styling to Flash messaging by category
+
+**Thoughts**: 
+```sqlite
+Open a database file in sqlite
+sqlite> sqlite3 app.db
+
+View all the tables in app.db
+sqlite> .tables
+
+View the schema for all tables in app.db
+sqlite> .schema
+
+Delete all rows from a table
+sqlite> DELETE FROM <table>;
+
+View all content in a table
+sqlite> SELECT * FROM <table>;
+```
+- Flask `flash()` for flash messaging takes an optional second argument, categories. 
+
+**Resources**
+1. [Flashing messages with Flask](https://blog.tecladocode.com/flashing-messages-with-flask/)
+2. [Message Flashing](https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/)
+----------------------------------------------------------
 ## January 15, 2021 (Day 8 #100DaysOfCode)
 
 **Today's Progress**:
@@ -87,7 +121,7 @@
     password_hash = db.Column(db.String(128))
     students = db.relationship('Student', backref='admin', lazy='dynamic')
  ```
- - To view tables you created in sqlite, type `sqlite3` in the terminal. Then at the `sqlite>` command line, type `.tables`. To see schema for a specific table, type `.schema table`
+ - To view tables you created in sqlite, type `sqlite3 app.db` in the terminal. Then at the `sqlite>` command line, type `.tables`. To see schema for a specific table, type `.schema table`. To see all data in a specific table, type 
 
 **Resources**
 1. [Mixins and Python](https://www.ianlewis.org/en/mixins-and-python)
