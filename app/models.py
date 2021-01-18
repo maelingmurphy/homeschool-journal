@@ -24,6 +24,7 @@ class User(UserMixin, db.Model):
     student_number = db.Column(db.Integer, index=True)
     password_hash = db.Column(db.String(128))
     students = db.relationship('Student', backref='admin', lazy='dynamic')
+    subjects = db.relationship('Subject', backref='admin', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
