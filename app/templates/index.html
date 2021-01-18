@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <div class="index-header">
+    <div>
         <h1>Welcome {{ current_user.username }}</h1>
     </div>
 
     {% if not current_user.student_number %}
     <div id="add-students">
         <h2>Add Student(s)</h2>
-        <form action="" method="post" novalidate>
+        <form action="" method="post" id="add-students-index" novalidate>
             {{ form.csrf_token }}
             <div class="form-group">
                 {{ form.user_student.label }}
