@@ -11,7 +11,34 @@
 ----------------------------------------------------------
 # PROJECT LOG
 
-## January 16, 2021
+## January 18, 2021
+
+**Today's Progress**:
+
+**Thoughts**: 
+- I ran into errors when adding my helper tables and updating my models. I was able to create the migration script, but received an error (`raise ValueError("Constraint must have a name")`) when trying to run `flask db upgrade`. I was able to implement [this solution](https://stackoverflow.com/questions/45527323/flask-sqlalchemy-upgrade-failing-after-updating-models-need-an-explanation-on-h) which required adding a naming_convention to my __init__.py file. The solution worked after I deleted `app.db`, `migrations/` folder and then ran `flask db init`, `flask db migrate` and finally `flask db upgrade `.
+
+**Resources**
+1. [Declaring models - Flask SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
+2. [Creating One-To-Many Relationships in Flask-SQLAlchemy](https://www.youtube.com/watch?v=juPQ04_twtA)
+3. [Creating Many-To-Many Relationships in Flask-SQLAlchemy](https://www.youtube.com/watch?v=OvhoYbjtiKc)
+----------------------------------------------------------
+
+## January 17, 2021 (Day 10 #100DaysofCode)
+
+**Today's Progress**:
+- Added `Student` and `Subject` database models to `models.py`
+
+**Thoughts**: 
+- Realized today that the relationship between my students and activities table is many-to-many. A student can have many activities and an activity can have many students. I need to create an association table to be able to join those two tables together for queries.
+
+**Resources**
+1. [Creating Many-To-Many Relationships in Flask-SQLAlchemy](https://www.youtube.com/watch?v=OvhoYbjtiKc)
+2.  [Many to Many - SQLAlchemy Docs](https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html#many-to-many)
+3. [Many to many relationships in SQLAlchemy models (Flask)](https://www.michaelcho.me/article/many-to-many-relationships-in-sqlalchemy-models-flask)
+
+----------------------------------------------------------
+## January 16, 2021 (Day 9 #100DaysofCode)
 
 **Today's Progress**:
 - Added student number to User database model
