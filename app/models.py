@@ -9,10 +9,24 @@ from app import login
 def load_user(id):
     return User.query.get(int(id))
 
+
+# Helper/Association Tables 
+student_activity = db.Table('student_activity',
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id')),
+    db.Column('activity_id', db.Integer, db.ForeignKey('activity.id'))
+)
+
+subject_activity = db.Table('subject_activity',
+    db.Column('subject_id', db.Integer, db.ForeignKey('subject.id')),
+    db.Column('activity_id', db.Integer, db.ForeignKey('activity.id'))
+)
+
+
+# Models
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
+    username = db.Column(db.String(64), nullable=False, index=True, unique=True)
+    email = db.Column(db.String(120), nullable=False, index=True, unique=True)
     student_number = db.Column(db.Integer, index=True)
     password_hash = db.Column(db.String(128))
     students = db.relationship('Student', backref='admin', lazy='dynamic')
@@ -29,15 +43,12 @@ class User(UserMixin, db.Model):
 
 class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
     title = db.Column(db.String(150), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
-    subject_id = db.Column(db.Integer, db.ForeignKey('subject.id'))
     resources = db.Column(db.Text, index=True)
     activity_date = db.Column(db.String(64), index=True, nullable=False)
     notes = db.Column(db.Text, index=True)
     status = db.Column(db.Integer, index=True, nullable=False)
-    subjects = db.relationship('Subject', backref='activity', lazy='dynamic')
 
     def __repr__(self):
         return '<Activity {}>'.format(self.title)
@@ -46,8 +57,8 @@ class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     student_name = db.Column(db.String(64), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    activities = db.relationship('Activity', backref='student', lazy='dynamic')
-    attendance = db.relationship('Attendance', backref='attendance', lazy='dynamic')
+    attendance = db.relationship('Attendance', backref='student', lazy='dynamic')
+    activities = db.relationship('Activity', secondary=student_activity, backref=db.backref('student', lazy='dynamic'))
 
     def __repr__(self):
         return '<Student {}>'.format(self.student_name)
@@ -64,9 +75,8 @@ class Attendance(db.Model):
 class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subject_name = db.Column(db.String(64), index=True)
-    activity_id = db.Column(db.Integer, db.ForeignKey('activity.id'))
+    activities = db.relationship('Activity', secondary=subject_activity, backref=db.backref('subject', lazy='dynamic'))
 
     def __repr__(self):
         return '<Subject>'.format(self.subject_name)
 
-# Update 'student' and 'activity' tables and create association table to join the two 
