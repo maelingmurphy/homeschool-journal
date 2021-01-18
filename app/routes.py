@@ -21,7 +21,7 @@ from werkzeug.urls import url_parse
 @app.route('/index', methods=['GET', 'POST'])
 @login_required 
 def index():
-    date = 'Sunday - January 10, 2020'
+    date = 'Sunday - January 17, 2020'
     
     # Add Student Form Info
     form = AddStudentForm()
