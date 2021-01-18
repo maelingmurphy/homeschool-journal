@@ -32,11 +32,12 @@ class Activity(db.Model):
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
     title = db.Column(db.String(150), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
-    subject = db.Column(db.String(64), index=True, nullable=False)
+    subject_id = db.Column(db.Integer, db.ForeignKey('subject.id'))
     resources = db.Column(db.Text, index=True)
     activity_date = db.Column(db.String(64), index=True, nullable=False)
     notes = db.Column(db.Text, index=True)
     status = db.Column(db.Integer, index=True, nullable=False)
+    subjects = db.relationship('Subject', backref='activity', lazy='dynamic')
 
     def __repr__(self):
         return '<Activity {}>'.format(self.title)
@@ -46,10 +47,26 @@ class Student(db.Model):
     student_name = db.Column(db.String(64), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     activities = db.relationship('Activity', backref='student', lazy='dynamic')
+    attendance = db.relationship('Attendance', backref='attendance', lazy='dynamic')
 
     def __repr__(self):
         return '<Student {}>'.format(self.student_name)
 
-# Add attendance table (id, date, student, attendance status)
+class Attendance(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    attendance_date = db.Column(db.String(64), index=True)
+    student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
+    attendance_status = db.Column(db.Integer, index=True)
+    
+    def __repr__(self):
+        return '<Student {}, Date {}, Attendance {}>'.format(self.student_id, attendance_date, attendance_status)
 
-# Add Subjects table (id, subject)
+class Subject(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    subject_name = db.Column(db.String(64), index=True)
+    activity_id = db.Column(db.Integer, db.ForeignKey('activity.id'))
+
+    def __repr__(self):
+        return '<Subject>'.format(self.subject_name)
+
+# Update 'student' and 'activity' tables and create association table to join the two 
