@@ -16,12 +16,6 @@ student_activity = db.Table('student_activity',
     db.Column('activity_id', db.Integer, db.ForeignKey('activity.id'))
 )
 
-subject_activity = db.Table('subject_activity',
-    db.Column('subject_id', db.Integer, db.ForeignKey('subject.id')),
-    db.Column('activity_id', db.Integer, db.ForeignKey('activity.id'))
-)
-
-
 # Models
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -44,7 +38,7 @@ class User(UserMixin, db.Model):
 class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), index=True, nullable=False)
-    subject_id = db.Column(db.String(64), index=True, nullable=False)
+    subject_id = db.Column(db.String(64), db.ForeignKey('subject.id'), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
     resources = db.Column(db.Text, index=True)
     activity_date = db.Column(db.String(64), index=True, nullable=False)
@@ -76,7 +70,7 @@ class Attendance(db.Model):
 class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subject_name = db.Column(db.String(64), index=True)
-    activities = db.relationship('Activity', backref='subject', lazy='dynamic'))
+    activities = db.relationship('Activity', backref='subject', lazy='dynamic')
 
     def __repr__(self):
         return '<Subject>'.format(self.subject_name)
