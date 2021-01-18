@@ -7,11 +7,11 @@ body {
     background-color: #a8dadc;
 }
 
-.header h1 {
-    text-align: center;
-    margin-top: 2rem;
+h1 {
+    font-size: 40px;
+    margin-top: 25px;
+    margin-bottom: 35px;
 }
-
 
 #submit, #modal-add-btn {
     background-color: #e76f51;
@@ -43,13 +43,17 @@ body {
     border-radius: .25rem;
 }
 
-/* Index Page */
-h1 {
-    font-size: 40px;
+/* index.html PAGE */
+#add-students-index {
+    margin-bottom: 40px;
+}
+
+#student-container input {
+    margin-bottom: 10px;
 }
 
 
-/* Add Activity Page */
+/* add.html PAGE */
 .text-area {
     display: block;
 }
