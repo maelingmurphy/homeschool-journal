@@ -16,6 +16,11 @@ student_activity = db.Table('student_activity',
     db.Column('activity_id', db.Integer, db.ForeignKey('activity.id'))
 )
 
+user_subject = db.Table('user_subject',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('activity_id', db.Integer, db.ForeignKey('subject.id'))
+)
+
 # Models
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,7 +29,7 @@ class User(UserMixin, db.Model):
     student_number = db.Column(db.Integer, index=True)
     password_hash = db.Column(db.String(128))
     students = db.relationship('Student', backref='admin', lazy='dynamic')
-    subjects = db.relationship('Subject', backref='admin', lazy='dynamic')
+    subjects = db.relationship('Subject', secondary=user_subject, backref=db.backref('admin', lazy='dynamic'))
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
