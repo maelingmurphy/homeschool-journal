@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, TextAreaField, SelectField, BooleanField, SubmitField # Field Types
+from wtforms import StringField, PasswordField, TextAreaField, SelectField, SelectMultipleField, BooleanField, SubmitField # Field Types
 from wtforms.fields.html5 import DateField # Renders datepicker
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo # Validators
+from wtforms.validators import ValidationError, DataRequired, InputRequired, Email, EqualTo # Validators
 from app.models import User
 
 
@@ -35,6 +35,12 @@ class AddStudentForm(FlaskForm):
     student_name1 = StringField('Student Name(s)', validators=[DataRequired("Please enter student's name")])
     submit = SubmitField('Add Student(s)')
 
+class AddSubjectForm(FlaskForm):
+    """Add subject(s) form."""
+    user_subject = SelectField('How many subjects do you teach?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], validators=[DataRequired()] )
+    subject_1 = StringField('Subject', validators=[DataRequired("Please enter subject name")])
+    submit = SubmitField('Add Subject(s)')
+
 class AddActivityForm(FlaskForm):
     """Add activity form."""
     
@@ -46,6 +52,8 @@ class AddActivityForm(FlaskForm):
 
     # Select subject
     subject = SelectField(u'Subject', choices=[])
+    
+    # List resources
     resources = TextAreaField('Resources')
 
     # Select student(s)
