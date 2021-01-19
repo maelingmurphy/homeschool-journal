@@ -29,6 +29,15 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
+class AddStudentSubjectForm(FlaskForm):
+    """Add student(s) and subject(s) form."""
+    user_student = SelectField('How many students do you have?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8], validators=[DataRequired()])
+    student_name1 = StringField('Student Name(s)', validators=[DataRequired("Please enter student's name")])
+    submit = SubmitField('Add Student(s)')
+    user_subject = SelectField('How many subjects do you teach?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], validators=[DataRequired()] )
+    subject_1 = StringField('Subject', validators=[DataRequired("Please enter subject name")])
+    submit = SubmitField('Add Subject(s)')
+
 class AddStudentForm(FlaskForm):
     """Add student(s) form."""
     user_student = SelectField('How many students do you have?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8], validators=[DataRequired()])
