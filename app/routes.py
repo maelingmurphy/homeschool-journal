@@ -7,7 +7,7 @@ from flask import (
 )
 
 from app import app, db
-from app.forms import LoginForm, AddStudentForm, AddActivityForm, RegistrationForm # Import classes from forms.py
+from app.forms import LoginForm, AddStudentSubjectForm, AddActivityForm, RegistrationForm # Import classes from forms.py
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Student, Activity
 from werkzeug.urls import url_parse
@@ -23,8 +23,8 @@ from werkzeug.urls import url_parse
 def index():
     date = 'Sunday - January 17, 2020'
     
-    # Add Student Form Info
-    form = AddStudentForm()
+    # Add Student and Subject Form Info
+    form = AddStudentSubjectForm()
     if form.validate_on_submit():
         
         # Get student number
@@ -56,6 +56,8 @@ def index():
         print("User id: ", current_user.id)
         print("Number of students: ", student_number)
         print("Student Names", student_names) 
+
+        
 
     return render_template('index.html', date=date, form=form)
 
