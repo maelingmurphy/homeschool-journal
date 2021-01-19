@@ -53,9 +53,9 @@ def index():
         
         
         # Test
-        print("User id: ", current_user.id)
-        print("Number of students: ", student_number)
-        print("Student Names", student_names) 
+        #print("User id: ", current_user.id)
+        #print("Number of students: ", student_number)
+        #print("Student Names", student_names) 
 
         
 
