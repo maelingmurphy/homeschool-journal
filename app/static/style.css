@@ -44,11 +44,11 @@ h1 {
 }
 
 /* index.html PAGE */
-#add-students-index {
+#add-students-form, #add-subjects-form {
     margin-bottom: 40px;
 }
 
-#student-container input {
+#student-container input, #subject-container input {
     margin-bottom: 10px;
 }
 
