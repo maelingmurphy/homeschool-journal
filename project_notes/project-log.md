@@ -11,12 +11,16 @@
 ----------------------------------------------------------
 # PROJECT LOG
 
-## January 18, 2021
+## January 18, 2021 (Day 11 #100DaysofCode)
 
 **Today's Progress**:
+- Studied the differences between declaring models for one-to-many and many-to-many relationships
+- Added 2 helper/association tables (user_subject, student_activity) (required for many-to-many relationships) to `models.py` and updated the models that required the `db.relationship()` function to relate properly to each other. 
+- Updated form structure on `index.html` so user can add students and subjects to their profile. 
 
-**Thoughts**: 
-- I ran into errors when adding my helper tables and updating my models. I was able to create the migration script, but received an error (`raise ValueError("Constraint must have a name")`) when trying to run `flask db upgrade`. I was able to implement [this solution](https://stackoverflow.com/questions/45527323/flask-sqlalchemy-upgrade-failing-after-updating-models-need-an-explanation-on-h) which required adding a naming_convention to my __init__.py file. The solution worked after I deleted `app.db`, `migrations/` folder and then ran `flask db init`, `flask db migrate` and finally `flask db upgrade `.
+**Thoughts**: -
+- I ran into errors when adding my helper tables and updating my models. I was able to create the migration script, but received an error (`raise ValueError("Constraint must have a name")`) when trying to run `flask db upgrade`. I was able to implement [this solution](https://stackoverflow.com/questions/45527323/flask-sqlalchemy-upgrade-failing-after-updating-models-need-an-explanation-on-h) which required adding a `naming_convention` to my __init__.py file. The solution worked after I deleted my existing database - `app.db`, `migrations/` folder and then ran `flask db init`, `flask db migrate` and finally `flask db upgrade `.
+- To turn on debugger when running app,  run `export FLASK_DEBUG=True` in the terminal before running `flask run`
 
 **Resources**
 1. [Declaring models - Flask SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
