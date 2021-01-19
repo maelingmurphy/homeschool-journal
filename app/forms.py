@@ -35,7 +35,7 @@ class AddStudentSubjectForm(FlaskForm):
     student_name1 = StringField('Student Name(s)', validators=[DataRequired("Please enter student's name")])
     submit = SubmitField('Add Student(s)')
     user_subject = SelectField('How many subjects do you teach?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], validators=[DataRequired()] )
-    subject_1 = StringField('Subject', validators=[DataRequired("Please enter subject name")])
+    subject1 = StringField('Subject', validators=[DataRequired("Please enter subject name")])
     submit = SubmitField('Add Subject(s)')
 
 class AddStudentForm(FlaskForm):
