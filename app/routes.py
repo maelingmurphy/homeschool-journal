@@ -9,7 +9,7 @@ from flask import (
 from app import app, db
 from app.forms import LoginForm, AddStudentForm, AddSubjectForm, AddStudentSubjectForm, AddActivityForm, RegistrationForm # Import classes from forms.py
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, Student, Activity
+from app.models import User, Student, Activity, Subject
 from werkzeug.urls import url_parse
 
 
@@ -23,8 +23,8 @@ from werkzeug.urls import url_parse
 def index():
     date = 'Sunday - January 17, 2020'
     
-    # Add Student and Subject Form Info
-    form = AddStudentForm()
+    # ADD STUDENT & SUBJECT INFO
+    form = AddStudentSubjectForm()
     if form.validate_on_submit():
         
         # Get student number
@@ -39,47 +39,43 @@ def index():
         for name in student_names:
             student = Student(student_name=name, user_id=current_user.id)
             db.session.add(student)
-            db.session.commit() 
+            db.session.commit()
+            flash('You have successfully added {} as a student!'.format(name), 'info')
         
         # Add student_number to user table 
         current_user.student_number = student_number
         db.session.commit()
 
-        # Flash Message Confirmation
-        for name in student_names:
-            flash('You have successfully added {} as a student!'.format(name), 'info')
-
-
         # Get subject number
-        #subject_number = int(form.user_subject.data)
+        subject_number = int(form.user_subject.data)
 
         # Get subject names
-        #subject_names = []
-        #for i in range(1, subject_number + 1):
-            #subject_names.append(request.form.get(f"subject_name{i}"))
+        subject_names = []
+        for i in range(1, subject_number + 1):
+            subject_names.append(request.form.get(f"subject_name{i}"))
+
+        # TEST
+        print("Subject Number", subject_number)
+        print("Subject Names", subject_names)
+        print("Current User ID", current_user.id)
 
         # Add subject names with current user id to database
-        #for name in subject_names:
-            #subject = Subject(subject_name=name, admin=current_user.id)  
-            #db.session.add(subject) 
-            #db.session.commit()
+        for name in subject_names:
+            print(name)
+            subject = Subject(subject_name=name)
+            subject.admins.append(current_user) # Using backref to associate subject with current user
+            db.session.add(subject)
+            db.session.commit()
 
-            
-        
-        # Flash message confirmation
-        #flash('You have successfully added the subject(s): {} '.format(subject_names), 'info')
-
+        flash('You have successfully added the subject(s): {} '.format(subject_names), 'info')
 
         return redirect(url_for('index'))
-       
-        
-        
-        # Test
-        #print("User id: ", current_user.id)
-        #print("Number of students: ", student_number)
-        #print("Student Names", student_names) 
-
-        
+   
+    # Test
+    #print("User id: ", current_user.id)
+    #print("Number of students: ", student_number)
+    #print("Student Names", student_names) 
+    
 
     return render_template('index.html', date=date, form=form)
 
