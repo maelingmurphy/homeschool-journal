@@ -1,6 +1,6 @@
-# PROJECT LOG
+# PROJECT LOG FORMAT
 
-## DATE, 2021
+## DATE, 2021 (Day  #100DaysofCode)
 
 **Today's Progress**:
 
@@ -11,6 +11,34 @@
 ----------------------------------------------------------
 # PROJECT LOG
 
+## January 19, 2021 (Day 12 #100DaysofCode)
+
+**Today's Progress**:
+- Passed 'Add Subject' form data from `index.html` to '/index` route.
+- Linked 'Add Subject' form data to database in `/index` route and learned how to insert data into table using a backref from a many-to-many relationship 
+
+**Thoughts**: 
+- (Referencing the code in the `\index` route in `routes.py`. I kept getting this error (`TypeError: 'int' object is not iterable`) when I was trying to link the student object with the backref ('admin'). I then realized I needed to append the  `current_user.id` to the admin property of the student object I created. I needed to use the 'admin' backref in this manner because I am dealing with a many-to-many relationship betweent the user and subject tables. 
+```python
+# The code that gave me the TypeError: 'int' object is not iterable
+for name in subject_names:
+            subject = Subject(subject_name=name, admins=current_user.id)
+            db.session.add(subject)
+            db.session.commit()
+
+# The correct way to link the current_user to the student object, via the backref
+# 'admin' that was created via the many-to-many relationship between user and subject
+# tables
+for name in subject_names:
+            subject = Subject(subject_name=name)
+            subject.admins.append(current_user) # Using backref to associate subject with current user
+            db.session.add(subject)
+            db.session.commit()
+```
+
+**Resources**
+
+----------------------------------------------------------
 ## January 18, 2021 (Day 11 #100DaysofCode)
 
 **Today's Progress**:
