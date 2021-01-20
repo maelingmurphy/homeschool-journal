@@ -11,10 +11,10 @@
 
    
     <div id="add-user-info">
-        {% if not current_user.student_number %}
-        <h2>Add Student(s)</h2>
+        {% if not current_user.student_number %} 
         <form action="" method="post" id="add-students-form" novalidate>
             {{ form.csrf_token }}
+            <h2>Add Student(s)</h2>
             <div class="form-group">
                 {{ form.user_student.label }}
                 {{ form.user_student(class_="form-control") }}
@@ -32,11 +32,29 @@
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </div>
+            
+            <h2>Add Subject(s)</h2>
+            <div class="form-group">
+                {{ form.user_subject.label }}
+                {{ form.user_subject(class_="form-control") }}
+                {% for error in form.user_subject.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.subject_name1.label }}
+                <div id="subject-container">
+                    {{ form.subject_name1(class_="form-control", placeholder="Enter subject name here") }}
+                </div>
+                {% for error in form.subject_name1.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
             <p>{{ form.submit(class_="btn btn-primary") }}</p>
         </form>
-        {% endif %}
+        {% endif %} 
     </div>
-
 
     <div id="log-attendance">
         <h2>Log Attendance</h2>
