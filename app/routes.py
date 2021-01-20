@@ -7,7 +7,7 @@ from flask import (
 )
 
 from app import app, db
-from app.forms import LoginForm, AddStudentForm, AddSubjectForm, AddStudentSubjectForm, AddActivityForm, RegistrationForm # Import classes from forms.py
+from app.forms import LoginForm, AddStudentSubjectForm, AddActivityForm, RegistrationForm # Import classes from forms.py
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Student, Activity, Subject
 from werkzeug.urls import url_parse
@@ -61,7 +61,6 @@ def index():
 
         # Add subject names with current user id to database
         for name in subject_names:
-            print(name)
             subject = Subject(subject_name=name)
             subject.admins.append(current_user) # Using backref to associate subject with current user
             db.session.add(subject)
