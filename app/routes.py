@@ -7,7 +7,7 @@ from flask import (
 )
 
 from app import app, db
-from app.forms import LoginForm, AddStudentSubjectForm, AddActivityForm, RegistrationForm # Import classes from forms.py
+from app.forms import LoginForm, AddSubjectForm, AddStudentSubjectForm, AddActivityForm, RegistrationForm # Import classes from forms.py
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Student, Activity
 from werkzeug.urls import url_parse
@@ -24,7 +24,7 @@ def index():
     date = 'Sunday - January 17, 2020'
     
     # Add Student and Subject Form Info
-    form = AddStudentSubjectForm()
+    form = AddSubjectForm()
     if form.validate_on_submit():
         
         # Get student number
@@ -35,7 +35,7 @@ def index():
         for i in range(1, student_number + 1):
             student_names.append(request.form.get(f"student_name{i}"))
 
-        # Add student names to database (ADD USER ID!!) and hide 'Add Students' button
+        # Add student names with current user id to database
         for name in student_names:
             student = Student(student_name=name, user_id=current_user.id)
             db.session.add(student)
@@ -45,8 +45,30 @@ def index():
         current_user.student_number = student_number
         db.session.commit()
 
+        # Flash Message Confirmation
         for name in student_names:
             flash('You have successfully added {} as a student!'.format(name), 'info')
+
+
+        # Get subject number
+        #subject_number = int(form.user_subject.data)
+
+        # Get subject names
+        #subject_names = []
+        #for i in range(1, subject_number + 1):
+            #subject_names.append(request.form.get(f"subject_name{i}"))
+
+        # Add subject names with current user id to database
+        #for name in subject_names:
+            #subject = Subject(subject_name=name, admin=current_user.id)  
+            #db.session.add(subject) 
+            #db.session.commit()
+
+            
+        
+        # Flash message confirmation
+        #flash('You have successfully added the subject(s): {} '.format(subject_names), 'info')
+
 
         return redirect(url_for('index'))
        
