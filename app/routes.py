@@ -101,15 +101,19 @@ def register():
 def add():
     
     # Create mock subject and student objects to populate SelectField choices in forms.py until database is created
-    students = ['James', 'Stephanie', 'Mariah']
-    subjects = ['Math', 'Reading', 'Science', 'Geography', 'Physical Education', 'Music', 'Foreign Language']
+    #students = ['James', 'Stephanie', 'Mariah']
+    students = current_user.students
+    subjects = current_user.subjects
 
     form = AddActivityForm()
+
+    # Run queries to display user's students and subjects as choices 
     form.subject.choices = subjects
     form.student.choices = students
 
     if form.validate_on_submit():
         # Add activity info to database 
+
         
         # Display flash confirmation message
         flash('"{}" has been successfully added'.format(form.title.data), 'info')
