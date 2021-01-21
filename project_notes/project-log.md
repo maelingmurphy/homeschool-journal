@@ -10,7 +10,19 @@
 
 ----------------------------------------------------------
 # PROJECT LOG
+## January 20, 2021 (Day 13 #100DaysofCode)
 
+**Today's Progress**:
+- Added string representations of the Student and Subject objects so the names could appear as choices in the the 'Add Activity' form in the `/add` route. 
+- Passed 'Add Activity' form data to database. Removed mock objects for Subject and Student choices and replaced with user's student and subject data from their User object in the database.
+
+**Thoughts**: 
+- If terminal closes and need to run app, make sure to: Change into correct directory; Activate virtual environment `source venv/bin/activate` ; Export Flask environment variables `export FLASK_APP=journal.py`, `export FLASK_DEBUG=True`; Run the app `flask run`
+
+**Resources**
+1. [Python __str__() and __repr__() methods](https://www.journaldev.com/22460/python-str-repr-functions)
+
+----------------------------------------------------------
 ## January 19, 2021 (Day 12 #100DaysofCode)
 
 **Today's Progress**:
