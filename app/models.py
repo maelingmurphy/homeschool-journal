@@ -63,6 +63,9 @@ class Student(db.Model):
 
     def __repr__(self):
         return '<Student {}>'.format(self.student_name)
+    
+    def __str__(self):
+        return self.student_name
 
 class Attendance(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -79,5 +82,9 @@ class Subject(db.Model):
     activities = db.relationship('Activity', backref='subject', lazy='dynamic')
 
     def __repr__(self):
-        return '<Subject>'.format(self.subject_name)
+        return '<Subject {}>'.format(self.subject_name)
 
+    def __str__(self):
+        return self.subject_name
+
+    
