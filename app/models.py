@@ -28,6 +28,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), nullable=False, index=True, unique=True)
     student_number = db.Column(db.Integer, index=True)
     password_hash = db.Column(db.String(128))
+    activities = db.relationship('Activity', backref='admin', lazy='dynamic')
     students = db.relationship('Student', backref='admin', lazy='dynamic')
     subjects = db.relationship('Subject', secondary=user_subject, backref=db.backref('admins', lazy='dynamic'))
 
@@ -44,6 +45,7 @@ class User(UserMixin, db.Model):
 class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), index=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
     subject_id = db.Column(db.String(64), db.ForeignKey('subject.id'), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
     resources = db.Column(db.Text, index=True)
@@ -59,7 +61,7 @@ class Student(db.Model):
     student_name = db.Column(db.String(64), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     attendance = db.relationship('Attendance', backref='student', lazy='dynamic')
-    activities = db.relationship('Activity', secondary=student_activity, backref=db.backref('student', lazy='dynamic'))
+    activities = db.relationship('Activity', secondary=student_activity, backref=db.backref('students', lazy='dynamic'))
 
     def __repr__(self):
         return '<Student {}>'.format(self.student_name)
