@@ -100,21 +100,36 @@ def register():
 @login_required
 def add():
     
-    # Create mock subject and student objects to populate SelectField choices in forms.py until database is created
-    #students = ['James', 'Stephanie', 'Mariah']
+    # Pull user's list of students and objects saved to their User model
     students = current_user.students
     subjects = current_user.subjects
 
     form = AddActivityForm()
 
-    # Run queries to display user's students and subjects as choices 
+    # Display user's students and subjects as choices 
     form.subject.choices = subjects
     form.student.choices = students
 
     if form.validate_on_submit():
-        # Add activity info to database 
+        # Get activity info variables from form data 
+        activity_title = form.title.data
+        activity_date = form.activity_date.data
+        activity_subject = form.subject.data
+        activity_student = form.student.data
+        activity_description = form.description.data
+        activity_resources = form.resources.data
+        activity_notes = form.notes.data
+        activity_status = form.status.data
 
+        # Add activity info to database
+        activity = Activity(
+            title=activity_title, user_id=current_user.id, subject_id=activity_subject, 
+            description=activity_description, resources=activity_resources,
+            activity_date=activity_date, notes=activity_notes, status=activity_status)
         
+        db.session.add(activity)
+        db.session.commit()
+
         # Display flash confirmation message
         flash('"{}" has been successfully added'.format(form.title.data), 'info')
         return redirect(url_for('log'))
