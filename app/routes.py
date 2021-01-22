@@ -182,7 +182,7 @@ def attend():
         # Display flash confirmation message
         flash('Attendance has been successfully updated for {}'.format(form.student.data), 'info')
 
-    return render_template('attend.html', attendance=attendance)
+    return render_template('attend.html', attendance=attendance, form=form)
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
