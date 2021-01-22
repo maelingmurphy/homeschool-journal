@@ -168,7 +168,8 @@ def log():
 @app.route('/attendance')
 @login_required
 def attend():
-    return render_template('attend.html')
+    attendance = current_user.attendance
+    return render_template('attend.html', attendance=attendance)
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
