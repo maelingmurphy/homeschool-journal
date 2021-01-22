@@ -19,6 +19,7 @@ class User(UserMixin, db.Model):
     activities = db.relationship('Activity', backref='admin', lazy='dynamic')
     students = db.relationship('Student', backref='admin', lazy='dynamic')
     subjects = db.relationship('Subject', backref='admin', lazy='dynamic')
+    attendance = db.relationship('Attendance', backref='admin', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
