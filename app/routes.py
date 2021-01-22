@@ -168,7 +168,7 @@ def log():
 @app.route('/attendance', methods=('GET', 'POST'))
 @login_required
 def attend():
-    attendance = current_user.attendance
+    attendance_records = current_user.attendance
 
     # Get user's students
     students = current_user.students
@@ -179,10 +179,16 @@ def attend():
     form.student.choices = students
    
     if form.validate_on_submit():
+        # Get student id
+        student = db.session.query(Student).filter_by(student_name=form.student.data).first()
+        # Add attendance data to database
+        attendance = Attendance(attendance_date=form.attendance_date.data, student_id=student.id)
+        db.session.add(attendance)
+        db.session.commit()
         # Display flash confirmation message
         flash('Attendance has been successfully updated for {}'.format(form.student.data), 'info')
 
-    return render_template('attend.html', attendance=attendance, form=form)
+    return render_template('attend.html', attendance_records=attendance_records, form=form)
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
