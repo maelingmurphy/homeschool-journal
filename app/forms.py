@@ -67,7 +67,7 @@ class AddActivityForm(FlaskForm):
     # Submit form
     submit = SubmitField('Add Activity')
 
-class AttendanceForm(FlaskForm):
+class AddAttendanceForm(FlaskForm):
     """Add attendance form"""
     attendance_date = DateField('Date', format='%m-%d-%Y', validators=[DataRequired()])
     student = SelectField(u'Student', choices=[])
