@@ -140,9 +140,29 @@ def add():
 @app.route('/log', methods=('GET', 'POST'))
 @login_required
 def log():
-    # Get activities associated with current user
-    activities = current_user.activities
-    
+    activities = [
+        {'date': 'January 10, 2020',
+        'title': 'Intro to Multiplication',
+        'subject': 'Math',
+        'student': 'James',
+        'status': 'completed'},
+        {'date': 'January 20, 2020',
+        'title': 'Prisms',
+        'subject': 'Physics',
+        'student': 'James',
+        'status': 'completed'},
+        {'date': 'January 22, 2020',
+        'title': 'Solar Power',
+        'subject': 'Science',
+        'student': 'Mariah',
+        'status': 'completed'},
+        {'date': 'January 24, 2020',
+        'title': 'The Periodic Table of Elements',
+        'subject': 'Science',
+        'student': 'Mariah',
+        'status': 'completed'}
+
+    ]
 
     form = AddActivityForm()
     if form.validate_on_submit():
