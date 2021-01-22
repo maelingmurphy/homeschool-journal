@@ -12,12 +12,36 @@
 ## January 22, 2021 (Day  #100DaysofCode)
 
 **Today's Progress**:
+- Learned about how to undo changes in my repository with `git checkout`, `git revert` and `git reset`
+- Reverted project to its state on 1/20/21
+- Added student_id to Activity model and changed student-activity relationship to one-to-many in `models.py`
+- Correctly passed student_id and subject_id to activity table when adding a new activity in `/add` route 
+- Added `user_id` to `Subject` model. Changed user-subject relationship to one-to-many and removed user_subject helper table
+- Used conditional logic to convert Boolean status data from Activity Form to "Completed"(True=1) or "Not Completed"(False=0), which was passed to the activity object in the database for the status field. 
+- Learned how to implement FontAwesome icons within buttons and read about best practices for accessibility when using icons 
+- Added ability to add attendance data for user's students on `attendance.html`
+- Created a table to display all the attendance records associated with a user 
 
 **Thoughts**: 
+- I'm not sure what happened, but my `venv` folder disappeared from my project. Had to redo the following to setup my virtual environment:
+    - Create a virtual environment: `python3 -m venv venv`
+    - Activate virtual environment: source venv/bin/activate
+    - Install flask: `pip install flask`
+    - Set FLASK_APP environment variable: `export FLASK_APP=journal.py`
+    - Install the python-dotenv package: `pip install python-dotenv`
+    - Create .flaskenv file with environment variables for flask command (e.g. FLASK_APP=journal.py)
+    - Upgrade pip version: `pip install --upgrade pip`
+    - Install Flask-WTF: `pip install flask-wtf`
+    - Install Flask-SQLAlchemy: `pip install flask-sqlalchemy`
+    - Install Flask-Migrate: `pip install flask-migrate`
+    - Install Flask-Login: `pip install flask-login`
+    - Install Email() validator from WTForms: `pip install email-validator`
+- To display headers when you're retrieving results from queries in sqlite terminal: `.headers on`. If you'd like to also display in column format: `.mode column`
 
 **Resources**
 1. [Undoing things with Git & GitHub](https://www.youtube.com/watch?v=RIYrfkZjWmA)
-
+2. [Font Awesome Examples](https://fontawesome.com/v3.2.1/examples/)
+3. [Accessibility with Icons - FontAwesome](https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility)
 ----------------------------------------------------------
 ## January 21, 2021 (Day 14 #100DaysofCode)
 
@@ -26,7 +50,7 @@
 
 **Thoughts**: 
 - I feel like I've gone in loops today trying to understand how to write queries in Flask-SQLAlchemy. I am trying to understand why my subject and student name data don't show up in my Activity Log table. Now I'm not sure if I should save the subject and student names directly as fields in the Activity model OR if I should try to query the database to save the student and subject ids to the Activity model and then run another query when it's time to display the student and subject names in the Activity log (on `/log` view). I've made changes to my files tonight but I'm not pushing anything (except for my project log) because I probably should start with a clean slate for tomorrow since I'm in such a state of confusion. 
-- Activity status type is a a Boolean where (0 = not completed, 1 = completed)
+- Activity status type is a a Boolean where (0 = not completed (FALSE), 1 = completed (TRUE))
 
 **Resources**
 1. [Debugging Queries in Flask-SQLAlchemy](https://www.youtube.com/watch?v=5puPZ3n06EE)
