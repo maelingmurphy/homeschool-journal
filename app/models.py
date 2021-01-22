@@ -62,7 +62,7 @@ class Student(db.Model):
     student_name = db.Column(db.String(64), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     attendance = db.relationship('Attendance', backref='student', lazy='dynamic')
-    activities = db.relationship('Activity', secondary=student_activity, backref=db.backref('students', lazy='dynamic'))
+    activities = db.relationship('Activity', backref='student', lazy='dynamic')
 
     def __repr__(self):
         return '<Student {}>'.format(self.student_name)
