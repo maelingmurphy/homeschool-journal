@@ -23,10 +23,10 @@
         <tbody>
             {% for activity in activities %}
             <tr>
-                <td>{{ activity.date }}</td>
+                <td>{{ activity.activity_date }}</td>
                 <td>{{ activity.title }}</td>
                 <td>{{ activity.subject }}</td>
-                <td>{{ activity. student }}</td>
+                <td>{{ activity.student }}</td>
                 <td>{{ activity.status }}</td>   
                 <td>
                     <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal-edit">Edit(icon)</a>
