@@ -114,17 +114,18 @@ def add():
 
         # Get subject and student objects
         subject = db.session.query(Subject).filter_by(subject_name=form.subject.data).first()
-        
-        
+        student = db.session.query(Student).filter_by(student_name=form.student.data).first()
+
         # TEST
         print('Subject', subject)
         print('Subject id', subject.id)
+        print('Student', student)
+        print('Student id', student.id)
         
 
         # Get activity info variables from form data 
         activity_title = form.title.data
         activity_date = form.activity_date.data
-        activity_student = form.student.data
         activity_description = form.description.data
         activity_resources = form.resources.data
         activity_notes = form.notes.data
@@ -132,7 +133,7 @@ def add():
 
         # FIX: Add activity info to database (student_id, subject_id)
         activity = Activity(
-            title=activity_title, user_id=current_user.id, student_id=activity_student, subject_id=subject.id, 
+            title=activity_title, user_id=current_user.id, student_id=student.id, subject_id=subject.id, 
             description=activity_description, resources=activity_resources,
             activity_date=activity_date, notes=activity_notes, status=activity_status)
         
