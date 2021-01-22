@@ -9,6 +9,24 @@
     <div>
         <h1>Attendance History</h1>
         <h2>Total Number of Days for Date Range</h2>
+        <h2>Update Attendance (insert button that displays form)</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Student</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in attendance %}
+                <tr>
+                    <td>{{ attendance.attendance_date }}</td>
+                    <td>{{ attendance.student_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 
 {% endblock %}
