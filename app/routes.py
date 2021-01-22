@@ -7,9 +7,9 @@ from flask import (
 )
 
 from app import app, db
-from app.forms import LoginForm, AddStudentSubjectForm, AddActivityForm, RegistrationForm # Import classes from forms.py
+from app.forms import LoginForm, AddStudentSubjectForm, AddActivityForm, AddAttendanceForm, RegistrationForm # Import classes from forms.py
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, Student, Activity, Subject
+from app.models import User, Student, Activity, Subject, Attendance
 from werkzeug.urls import url_parse
 
 
