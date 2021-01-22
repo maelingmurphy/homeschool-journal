@@ -186,7 +186,7 @@ def attend():
         db.session.add(attendance)
         db.session.commit()
         # Display flash confirmation message
-        flash('Attendance has been successfully updated for {}'.format(form.student.data), 'info')
+        flash('Attendance on {} has been successfully updated for {}'.format(form.attendance_date.data, form.student.data), 'info')
 
     return render_template('attend.html', attendance_records=attendance_records, form=form)
 
