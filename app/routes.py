@@ -182,7 +182,7 @@ def attend():
         # Get student id
         student = db.session.query(Student).filter_by(student_name=form.student.data).first()
         # Add attendance data to database
-        attendance = Attendance(attendance_date=form.attendance_date.data, student_id=student.id)
+        attendance = Attendance(attendance_date=form.attendance_date.data, student_id=student.id, user_id=current_user.id)
         db.session.add(attendance)
         db.session.commit()
         # Display flash confirmation message
