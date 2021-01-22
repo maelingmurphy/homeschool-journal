@@ -29,9 +29,9 @@
                 <td>{{ activity.student }}</td>
                 <td>{{ activity.status }}</td>   
                 <td>
-                    <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal-edit">Edit(icon)</a>
-                    <a href="" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-details">View Details(icon)</a>
-                    <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')">Delete(icon)</a>
+                    <a href="" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-edit"><i class="icon-edit icon-large"></i>Edit</a>
+                    <a href="" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-details"><i class="icon-list icon-large"></i>Details</a>
+                    <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="icon-remove icon-large"></i>Delete</a>
                 </td>     
             </tr>
             {% endfor %}
