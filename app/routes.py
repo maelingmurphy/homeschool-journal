@@ -111,19 +111,28 @@ def add():
     form.student.choices = students
 
     if form.validate_on_submit():
+
+        # Get subject and student objects
+        subject = db.session.query(Subject).filter_by(subject_name=form.subject.data).first()
+        
+        
+        # TEST
+        print('Subject', subject)
+        print('Subject id', subject.id)
+        
+
         # Get activity info variables from form data 
         activity_title = form.title.data
         activity_date = form.activity_date.data
-        activity_subject = form.subject.data
         activity_student = form.student.data
         activity_description = form.description.data
         activity_resources = form.resources.data
         activity_notes = form.notes.data
         activity_status = form.status.data
 
-        # Add activity info to database
+        # FIX: Add activity info to database (student_id, subject_id)
         activity = Activity(
-            title=activity_title, user_id=current_user.id, subject_id=activity_subject, 
+            title=activity_title, user_id=current_user.id, student_id=activity_student, subject_id=subject.id, 
             description=activity_description, resources=activity_resources,
             activity_date=activity_date, notes=activity_notes, status=activity_status)
         
