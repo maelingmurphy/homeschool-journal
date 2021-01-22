@@ -61,8 +61,7 @@ def index():
 
         # Add subject names with current user id to database
         for name in subject_names:
-            subject = Subject(subject_name=name)
-            subject.admins.append(current_user) # Using backref to associate subject with current user
+            subject = Subject(subject_name=name, user_id=current_user.id)
             db.session.add(subject)
             db.session.commit()
 
@@ -122,7 +121,7 @@ def add():
         print('Student', student)
         print('Student id', student.id)
         
-
+        # Change Boolean to text for status
         # Get activity info variables from form data 
         activity_title = form.title.data
         activity_date = form.activity_date.data
@@ -131,7 +130,7 @@ def add():
         activity_notes = form.notes.data
         activity_status = form.status.data
 
-        # FIX: Add activity info to database (student_id, subject_id)
+        # Add activity info to database
         activity = Activity(
             title=activity_title, user_id=current_user.id, student_id=student.id, subject_id=subject.id, 
             description=activity_description, resources=activity_resources,
