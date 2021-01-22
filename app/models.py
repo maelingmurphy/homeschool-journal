@@ -61,12 +61,12 @@ class Student(db.Model):
 
 class Attendance(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
     attendance_date = db.Column(db.String(64), index=True)
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
-    attendance_status = db.Column(db.Integer, index=True)
     
     def __repr__(self):
-        return '<Student {}, Date {}, Attendance {}>'.format(self.student_id, attendance_date, attendance_status)
+        return '<Student {}, Date {}>'.format(self.student_id, self.attendance_date)
 
 class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
