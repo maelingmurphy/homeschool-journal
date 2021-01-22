@@ -42,7 +42,7 @@ class Activity(db.Model):
     title = db.Column(db.String(150), index=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
     subject_id = db.Column(db.Integer, db.ForeignKey('subject.id'), index=True, nullable=False)
-    student_id = db.Column(db.Integer, db.ForeignKey('student.id'), index=True, nullabel=False)
+    student_id = db.Column(db.Integer, db.ForeignKey('student.id'), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
     resources = db.Column(db.Text, index=True)
     activity_date = db.Column(db.String(64), index=True, nullable=False)
