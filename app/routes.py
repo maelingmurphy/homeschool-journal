@@ -169,6 +169,19 @@ def log():
 @login_required
 def attend():
     attendance = current_user.attendance
+
+    # Get user's students
+    students = current_user.students
+
+    form = AddAttendanceForm()
+
+    # Display user's students and subjects as choices 
+    form.student.choices = students
+   
+    if form.validate_on_submit():
+        # Display flash confirmation message
+        flash('Attendance has been successfully updated for {}'.format(form.student.data), 'info')
+
     return render_template('attend.html', attendance=attendance)
 
 # Login
