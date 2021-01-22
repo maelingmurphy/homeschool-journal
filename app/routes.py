@@ -100,7 +100,7 @@ def register():
 @login_required
 def add():
     
-    # Pull user's list of students and subjects saved to their User model
+    # Pull user's list of students and objects saved to their User model
     students = current_user.students
     subjects = current_user.subjects
 
@@ -111,7 +111,6 @@ def add():
     form.student.choices = students
 
     if form.validate_on_submit():
-   
         # Get activity info variables from form data 
         activity_title = form.title.data
         activity_date = form.activity_date.data
@@ -121,11 +120,10 @@ def add():
         activity_resources = form.resources.data
         activity_notes = form.notes.data
         activity_status = form.status.data
-  
+
         # Add activity info to database
         activity = Activity(
-            title=activity_title, user_id=current_user.id, subject_name=activity_subject, 
-            student_name=activity_student,
+            title=activity_title, user_id=current_user.id, subject_id=activity_subject, 
             description=activity_description, resources=activity_resources,
             activity_date=activity_date, notes=activity_notes, status=activity_status)
         
@@ -142,11 +140,10 @@ def add():
 @app.route('/log', methods=('GET', 'POST'))
 @login_required
 def log():
-
-
     # Get activities associated with current user
     activities = current_user.activities
-     
+    
+
     form = AddActivityForm()
     if form.validate_on_submit():
         # Display flash confirmation message
