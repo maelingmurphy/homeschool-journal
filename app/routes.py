@@ -168,7 +168,7 @@ def log():
 @app.route('/attendance', methods=('GET', 'POST'))
 @login_required
 def attend():
-    attendance_records = current_user.attendance
+    attendance_records = current_user.attendance.all()
 
     # Get user's students
     students = current_user.students
