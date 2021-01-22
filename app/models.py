@@ -46,6 +46,8 @@ class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), index=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
+    subject_name = db.Column(db.String(64, index=True, nullable=False))
+    student_name = db.Column(db.String(64), index=True, nullable=False)
     subject_id = db.Column(db.String(64), db.ForeignKey('subject.id'), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
     resources = db.Column(db.Text, index=True)
