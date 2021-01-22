@@ -165,7 +165,7 @@ def log():
 
 
 # Attendance History
-@app.route('/attendance')
+@app.route('/attendance', methods=('GET', 'POST'))
 @login_required
 def attend():
     attendance = current_user.attendance
