@@ -11,11 +11,6 @@ def load_user(id):
 
 
 # Helper/Association Tables 
-student_activity = db.Table('student_activity', 
-    db.Column('student_id', db.Integer, db.ForeignKey('student.id')),
-    db.Column('activity_id', db.Integer, db.ForeignKey('activity.id'))
-)
-
 user_subject = db.Table('user_subject', 
     db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('activity_id', db.Integer, db.ForeignKey('subject.id'))
