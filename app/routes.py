@@ -122,13 +122,18 @@ def add():
         print('Student id', student.id)
         
         # Change Boolean to text for status
+        if form.status.data:
+            activity_status = "Completed"
+        else:
+            activity_status = "Not Completed"
+
         # Get activity info variables from form data 
         activity_title = form.title.data
         activity_date = form.activity_date.data
         activity_description = form.description.data
         activity_resources = form.resources.data
         activity_notes = form.notes.data
-        activity_status = form.status.data
+
 
         # Add activity info to database
         activity = Activity(
