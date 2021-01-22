@@ -131,7 +131,7 @@ def add():
         activity_notes = form.notes.data
         activity_status = form.status.data
 
-        # Add activity info to database
+        # FIX: Add activity info to database (student_id, subject_id)
         activity = Activity(
             title=activity_title, user_id=current_user.id, student_id=student.id, subject_id=subject.id, 
             description=activity_description, resources=activity_resources,
