@@ -9,6 +9,33 @@
 **Resources**
 
 ----------------------------------------------------------
+## January 22, 2021 (Day  #100DaysofCode)
+
+**Today's Progress**:
+
+**Thoughts**: 
+
+**Resources**
+1. [Undoing things with Git & GitHub](https://www.youtube.com/watch?v=RIYrfkZjWmA)
+
+----------------------------------------------------------
+## January 21, 2021 (Day 14 #100DaysofCode)
+
+**Today's Progress**:
+- I am now able to display the current user's list of activities in `/log` view, although all of the associated data is not populated (see 'Thoughts' below)
+
+**Thoughts**: 
+- I feel like I've gone in loops today trying to understand how to write queries in Flask-SQLAlchemy. I am trying to understand why my subject and student name data don't show up in my Activity Log table. Now I'm not sure if I should save the subject and student names directly as fields in the Activity model OR if I should try to query the database to save the student and subject ids to the Activity model and then run another query when it's time to display the student and subject names in the Activity log (on `/log` view). I've made changes to my files tonight but I'm not pushing anything (except for my project log) because I probably should start with a clean slate for tomorrow since I'm in such a state of confusion. 
+- Activity status type is a a Boolean where (0 = not completed, 1 = completed)
+
+**Resources**
+1. [Debugging Queries in Flask-SQLAlchemy](https://www.youtube.com/watch?v=5puPZ3n06EE)
+2. [Query API - SQLAlchemy Docs](https://docs.sqlalchemy.org/en/13/orm/query.html)
+3. [Flask-SQLAlchemy with examples](https://pythonbasics.org/flask-sqlalchemy/)
+4. [Get list of column names in SQLite](https://stackoverflow.com/questions/685206/how-to-get-a-list-of-column-names/685212)
+5. [Nested queries with Sqlalchemy](https://blog.miguelgrinberg.com/post/nested-queries-with-sqlalchemy-orm)
+
+----------------------------------------------------------
 # PROJECT LOG
 ## January 20, 2021 (Day 13 #100DaysofCode)
 
