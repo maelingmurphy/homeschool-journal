@@ -56,7 +56,7 @@ class AddActivityForm(FlaskForm):
     student = SelectField(u'Student', choices=[])
 
     # Activity date selector
-    activity_date = DateField('Activity Date', format='%m-%d-%Y', validators=[DataRequired()])
+    activity_date = DateField('Activity Date', format='%Y-%m-%d', validators=[DataRequired()])
     
     # Checkbox for marking completed activity
     status = BooleanField('Activity Completed?')
@@ -69,6 +69,6 @@ class AddActivityForm(FlaskForm):
 
 class AddAttendanceForm(FlaskForm):
     """Add attendance form"""
-    attendance_date = DateField('Date', format='%m-%d-%Y', validators=[DataRequired()])
+    attendance_date = DateField('Date', format='%Y-%m-%d', validators=[DataRequired()])
     student = SelectField(u'Student', choices=[])
     submit = SubmitField('Update Attendance')
