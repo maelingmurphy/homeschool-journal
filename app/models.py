@@ -69,6 +69,7 @@ class Attendance(db.Model):
 
 class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True, nullable=False)
     subject_name = db.Column(db.String(64), index=True)
     activities = db.relationship('Activity', backref='subject', lazy='dynamic')
 
