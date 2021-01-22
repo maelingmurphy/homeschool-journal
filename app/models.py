@@ -11,6 +11,11 @@ def load_user(id):
 
 
 # Helper/Association Tables 
+student_activity = db.Table('student_activity', 
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id')),
+    db.Column('activity_id', db.Integer, db.ForeignKey('activity.id'))
+)
+
 user_subject = db.Table('user_subject', 
     db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('activity_id', db.Integer, db.ForeignKey('subject.id'))
@@ -41,7 +46,8 @@ class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), index=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
-    student_id = db.Column(db.Integer, db.ForeignKey('student.id'), index=True)
+    subject_name = db.Column(db.String(64, index=True, nullable=False))
+    student_name = db.Column(db.String(64), index=True, nullable=False)
     subject_id = db.Column(db.String(64), db.ForeignKey('subject.id'), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
     resources = db.Column(db.Text, index=True)
@@ -57,7 +63,7 @@ class Student(db.Model):
     student_name = db.Column(db.String(64), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     attendance = db.relationship('Attendance', backref='student', lazy='dynamic')
-    activities = db.relationship('Activity', backref='students', lazy='dynamic')
+    activities = db.relationship('Activity', secondary=student_activity, backref=db.backref('students', lazy='dynamic'))
 
     def __repr__(self):
         return '<Student {}>'.format(self.student_name)
