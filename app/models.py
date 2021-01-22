@@ -25,7 +25,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     activities = db.relationship('Activity', backref='admin', lazy='dynamic')
     students = db.relationship('Student', backref='admin', lazy='dynamic')
-    subjects = db.relationship('Subject', secondary=user_subject, backref=db.backref('admins', lazy='dynamic'))
+    subjects = db.relationship('Subject', secondary=user_subject, backref=db.backref('admin', lazy='dynamic'))
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -41,8 +41,10 @@ class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), index=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
-    student_id = db.Column(db.Integer, db.ForeignKey('student.id'), index=True)
-    subject_id = db.Column(db.String(64), db.ForeignKey('subject.id'), index=True, nullable=False)
+    student_name = db.Column(db.String(64), index=True, nullable=False)
+    subject_name = db.Column(db.String(64), index=True, nullable=False)
+    #student_id = db.Column(db.Integer, db.ForeignKey('student.id'), index=True)
+    #subject_id = db.Column(db.String(64), db.ForeignKey('subject.id'), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
     resources = db.Column(db.Text, index=True)
     activity_date = db.Column(db.String(64), index=True, nullable=False)
@@ -57,7 +59,7 @@ class Student(db.Model):
     student_name = db.Column(db.String(64), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     attendance = db.relationship('Attendance', backref='student', lazy='dynamic')
-    activities = db.relationship('Activity', backref='students', lazy='dynamic')
+    activities = db.relationship('Activity', backref='student', lazy='dynamic')
 
     def __repr__(self):
         return '<Student {}>'.format(self.student_name)
