@@ -53,10 +53,10 @@ class AddActivityForm(FlaskForm):
     resources = TextAreaField('Resources')
 
     # Select student(s)
-    student = SelectField(u'Student(s)', choices=[])
+    student = SelectField(u'Student', choices=[])
 
     # Activity date selector
-    activity_date = DateField('Activity Date', format='%Y-%m-%d', validators=[DataRequired()])
+    activity_date = DateField('Activity Date', format='%m-%d-%Y', validators=[DataRequired()])
     
     # Checkbox for marking completed activity
     status = BooleanField('Activity Completed?')
@@ -67,3 +67,7 @@ class AddActivityForm(FlaskForm):
     # Submit form
     submit = SubmitField('Add Activity')
 
+class AttendanceForm(FlaskForm):
+    """Add attendance form"""
+    attendance_date = DateField('Date', format='%m-%d-%Y', validators=[DataRequired()])
+    student = SelectField(u'Student', choices=[])
