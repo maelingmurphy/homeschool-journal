@@ -42,8 +42,8 @@
             <tbody>
                 {% for record in attendance_records %}
                 <tr>
-                    <td>{{ attendance.attendance_date }}</td>
-                    <td>{{ attendance.student_id }}</td>
+                    <td>{{ record.attendance_date }}</td>
+                    <td>{{ record.student_id }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
