@@ -168,7 +168,7 @@ def log():
 @app.route('/attendance', methods=('GET', 'POST'))
 @login_required
 def attend():
-    attendance_records = current_user.attendance.all()
+    attendance_records = current_user.attendance.order_by(Attendance.attendance_date.desc()).all()
 
     # Get user's students
     students = current_user.students
@@ -187,7 +187,7 @@ def attend():
         db.session.commit()
         # Display flash confirmation message
         flash('Attendance on {} has been successfully updated for {}'.format(form.attendance_date.data, form.student.data), 'info')
-
+        return redirect(url_for('attend'))
     return render_template('attend.html', attendance_records=attendance_records, form=form)
 
 # Login
