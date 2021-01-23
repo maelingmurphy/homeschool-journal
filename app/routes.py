@@ -154,7 +154,7 @@ def add():
 @app.route('/log', methods=('GET', 'POST'))
 @login_required
 def log():
-    activities = current_user.activities
+    activities = current_user.activities.order_by(Activity.activity_date).all()
 
     form = AddActivityForm()
     if form.validate_on_submit():
