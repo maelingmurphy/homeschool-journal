@@ -24,7 +24,7 @@
                 <div class="form-group">
                     {{ form.student.label }}
                     {{ form.student(class_='form-control') }}
-                    {% for error in form.attendance_date.errors %}
+                    {% for error in form.student.errors %}
                     <span style="color:red;">[{{ error }}]</span>
                     {% endfor %}
                 </div>  
