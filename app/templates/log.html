@@ -135,7 +135,7 @@
                     <div class="form-float">
                         <div class="form-group float-item">
                             {{ form.activity_date.label }}
-                            {{ form.activity_date(class_='datepicker form-control', value='{{ activity.activity_date }}') }}
+                            {{ form.activity_date(class_='datepicker form-control', value=activity.activity_date) }}
                             {% for error in form.activity_date.errors %}
                             <span style="color:red;">[{{ error }}]</span>
                             {% endfor %}
@@ -143,7 +143,7 @@
             
                         <div class="form-group float-item">
                             {{ form.subject.label }}
-                            {{ form.subject(class_='form-control') }}
+                            {{ form.subject(class_='form-control')}}
                         </div>
             
                         <div class="form-group float-item">
@@ -156,23 +156,27 @@
                 
                     <div class="form-group">
                         {{ form.description.label }}
-                        {{ form.description(size=500, class_='form-control', placeholder='Enter activity description') }}
+                        {{ form.description(size=500, class_='form-control', value=activity.description) }}
                     </div>
 
                     
                     <div class="form-group">
                         {{ form.resources.label }}
-                        {{ form.resources(size=500, class_='form-control', placeholder='List any resources needed for this activity (e.g. supplies, books, links, etc.)') }}
+                        {{ form.resources(size=500, class_='form-control', value=activity.resources) }}
                     </div>
 
                     <div class="form-group">
                         {{ form.notes.label }}
-                        {{ form.notes(size=500, class_='form-control', placeholder='Add any additional notes or feedback for this activity') }}
+                        {{ form.notes(size=500, class_='form-control', value=activity.notes) }}
                     </div>
 
                     <div class="form-group">
                         {{ form.status.label }}
-                        {{ form.status }}
+                        {% if activity.status == "Not Completed" %}   
+                            {{ form.status }}
+                        {% else %}
+                            {{ form.status }}
+                        {% endif %}
                     </div>
                 </form>
             </div>
