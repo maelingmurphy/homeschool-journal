@@ -4,7 +4,7 @@
 /* MY CUSTOM CSS */
 
 body {
-    background-color: #a8dadc;
+    background-color: #fff;
 }
 
 h1 {
@@ -70,5 +70,11 @@ h1 {
 /* Log */
 .activity-log-header {
     padding-top: 30px;
+}
+
+@media screen and (min-width: 676px) {
+    .modal-dialog {
+        max-width: 600px;
+    }
 }
 
