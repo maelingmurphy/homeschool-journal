@@ -121,7 +121,7 @@ def add():
         print('Student', student)
         print('Student id', student.id)
         
-        # Change Boolean to text for status
+        # ADD-ON: Change Boolean to text for status
         if form.status.data:
             activity_status = "Completed"
         else:
@@ -165,7 +165,7 @@ def log():
      # Display user's students and subjects as choices 
     form.subject.choices = subjects
     form.student.choices = students
-    
+
     if form.validate_on_submit():
         # Display flash confirmation message
         flash('"{}" has been successfully added'.format(form.title.data), 'info')
