@@ -9,7 +9,20 @@
 **Resources**
 
 ----------------------------------------------------------
-## January 22, 2021 (Day  #100DaysofCode)
+## January 23, 2021 (Day 16 #100DaysofCode)
+
+**Today's Progress**:
+- Displayed attendance records in table in descending order: `attendance_records = current_user.attendance.order_by(Attendance.attendance_date.desc()).all()`
+- Diplayed activity records in table in ascending order: `activities = current_user.activities.order_by(Activity.activity_date).all()`
+- Worked on 'Update Activity' modal on log.html. Modal window now shows field data associated with the specific activity record, to allow user to update an activity. Still working on how to prepopulate the checkbox if activity has already been completed (linked to WTForms BooleanField object). Still need to pass data to '/update' route to actually add any changes from form data to the database. Also need to learn how to prepopulate the student and subject dropdown fields in the modal window. 
+
+**Resources**
+1. [Build a CRUD web app with Python & Flask - Part Two](https://scotch.io/tutorials/build-a-crud-web-app-with-python-and-flask-part-two)
+2. [Jinja, Flask and WTForms - how to pass parameters in field?](https://stackoverflow.com/questions/35768370/jinja-flask-and-wtforms-how-to-pass-parameters-in-field)
+3. [Template Designer Documentation - Jinja](https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments)
+4. [How to change the default width of Bootstrap modal box](https://www.tutorialrepublic.com/faq/how-to-change-the-default-width-of-bootstrap-modal-box.php)
+----------------------------------------------------------
+## January 22, 2021 (Day 15 #100DaysofCode)
 
 **Today's Progress**:
 - Learned about how to undo changes in my repository with `git checkout`, `git revert` and `git reset`
