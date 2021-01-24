@@ -151,10 +151,10 @@ def add():
     return render_template('add.html',form=form, students=students)
 
 # Activity Log
-@app.route('/log')
-@app.route('/log/<id>', methods=('GET', 'POST'))
+@app.route('/log', defaults={'id': None})
+@app.route('/log/<int:id>', methods=('GET', 'POST'))
 @login_required
-def log():
+def log(id):
 
     if request.method == 'GET':
         activities = current_user.activities.order_by(Activity.activity_date).all()
