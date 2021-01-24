@@ -156,12 +156,38 @@ def add():
 def log():
     activities = current_user.activities.order_by(Activity.activity_date).all()
 
+    # Pull user's list of students and objects saved to their User model
+    students = current_user.students
+    subjects = current_user.subjects
+
     form = AddActivityForm()
+
+     # Display user's students and subjects as choices 
+    form.subject.choices = subjects
+    form.student.choices = students
+    
     if form.validate_on_submit():
         # Display flash confirmation message
         flash('"{}" has been successfully added'.format(form.title.data), 'info')
 
     return render_template('log.html', activities=activities, form=form)
+
+# Update Activity
+@app.route('/update', methods=('GET', 'POST'))
+def update():
+    if request.method == 'POST':
+        activity = Activity.query.get(request.form.get('id'))
+
+        activity.title = form.title.data
+        activity.date = form.activity_date.data
+        activity.description = form.description.data
+        activity.resources = form.resources.data
+        activity.notes = form.notes.data
+
+        db.session.commit()
+        flash('{} updated successfully!'.format(activity.title))
+
+# Delete Activity
 
 
 # Attendance History
