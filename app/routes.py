@@ -151,7 +151,8 @@ def add():
     return render_template('add.html',form=form, students=students)
 
 # Activity Log
-@app.route('/log', methods=('GET', 'POST'))
+@app.route('/log')
+@app.route('/log/<id>', methods=('GET', 'POST'))
 @login_required
 def log():
 
