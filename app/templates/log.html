@@ -29,7 +29,7 @@
                 <td>{{ activity.student }}</td>
                 <td>{{ activity.status }}</td>   
                 <td>
-                    <a href="/update/{{ activity.id }}" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-edit{{ activity.id }}"><i class="icon-edit icon-large"></i>Update</a>
+                    <a href="/log/{{ activity.id }}" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-edit{{ activity.id }}"><i class="icon-edit icon-large"></i>Update</a>
                     <a href="/details/{{ activity.id }}" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-details{{ activity.id }}"><i class="icon-list icon-large"></i>Details</a>
                     <a href="/delete/{{ activity.id }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="icon-remove icon-large"></i>Delete</a>
                 </td>     
@@ -116,7 +116,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modal-editTitle">Edit Activity</h5>
+                <h5 class="modal-title" id="modal-editTitle">Update Activity</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -156,18 +156,18 @@
                 
                     <div class="form-group">
                         {{ form.description.label }}
-                        {{ form.description(size=500, class_='form-control', value=activity.description) }}
+                        {{ form.description(size=500, class_='form-control') }}
                     </div>
 
                     
                     <div class="form-group">
                         {{ form.resources.label }}
-                        {{ form.resources(size=500, class_='form-control', value=activity.resources) }}
+                        {{ form.resources(size=500, class_='form-control') }}
                     </div>
 
                     <div class="form-group">
                         {{ form.notes.label }}
-                        {{ form.notes(size=500, class_='form-control', value=activity.notes) }}
+                        {{ form.notes(size=500, class_='form-control') }}
                     </div>
 
                     <div class="form-group">
