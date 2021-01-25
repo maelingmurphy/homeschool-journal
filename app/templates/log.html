@@ -29,9 +29,9 @@
                 <td>{{ activity.student }}</td>
                 <td>{{ activity.status }}</td>   
                 <td>
-                    <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-info btn-xs" data-toggle="" data-target=""><i class="icon-edit icon-large"></i>Update</a>
-                    <a href="/details/{{ activity.id }}" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-details{{ activity.id }}"><i class="icon-list icon-large"></i>Details</a>
-                    <a href="/delete/{{ activity.id }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="icon-remove icon-large"></i>Delete</a>
+                    <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-info btn-xs" data-toggle="" data-target=""><i class="far fa-edit"></i>Update</a>
+                    <a href="/details/{{ activity.id }}" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-details{{ activity.id }}"><i class="fas fa-list"></i></i>Details</a>
+                    <a href="/delete/{{ activity.id }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
                 </td>     
             </tr>
 
