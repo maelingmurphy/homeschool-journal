@@ -154,7 +154,7 @@ def add():
 @app.route('/log', methods = ('GET', 'POST'))
 @login_required
 def log():
-    
+
     activities = current_user.activities.order_by(Activity.activity_date).all()
 
     return render_template('log.html', activities=activities)
@@ -165,19 +165,31 @@ def log():
 def update(title):
 
     # Get activity record by title
+    activity = Activity.query.filter_by(title=title).first()
+
+    # Get activity field variables for matched record
+    activity_title = activity.title
+    activity_subject = activity.subject
+    activity_student = activity.student
+    #activity_description = activity.description
+    
 
     # Pull user's list of students and objects saved to their User model so it can be displayed in form
     students = current_user.students
     subjects = current_user.subjects
 
-    activity = {'description':'Autofill me!', 'resources': 'Autofill me!', 'notes': 'Autofill me!'}
-    form = AddActivityForm(data=activity)
+    # Populate form with user's activity record details
+    # (dict key names must match AddActivityForm field names)
+    # (dict value names must match Activity model properties in models.py)
+    activity_record = {'title': activity_title, 'subject': activity_subject, 'resources': 'Autofill me!', 'student': activity_student, 'notes': 'Autofill me!'}
+    form = AddActivityForm(data=activity_record)
+    #form.description.data = "TEST ME OUT"
 
     # Display user's students and subjects as choices 
     form.subject.choices = subjects
     form.student.choices = students
 
-    return render_template('update.html', title=title, form=form)
+    return render_template('update.html', title=title, form=form, activity=activity)
 
     
 # Delete Activity
