@@ -151,10 +151,9 @@ def add():
     return render_template('add.html',form=form, students=students)
 
 # Activity Log
-@app.route('/log', defaults={'id': None})
-@app.route('/log/<int:id>', methods=('GET', 'POST'))
+@app.route('/log', methods = ('GET', 'POST'))
 @login_required
-def log(id):
+def log():
 
     if request.method == 'GET':
         activities = current_user.activities.order_by(Activity.activity_date).all()
@@ -166,11 +165,13 @@ def log(id):
         activity = {'description':'Autofill me!', 'resources': 'Autofill me!', 'notes': 'Autofill me!'}
         form = AddActivityForm(data=activity)
 
-        #form = AddActivityForm()
-
         # Display user's students and subjects as choices 
         form.subject.choices = subjects
         form.student.choices = students
+
+        # TEST: Is specific activity id being passed through when update button is clicked?
+        print("Activity id", id)
+        print("Hello")
 
     if form.validate_on_submit():
         # Display flash confirmation message
