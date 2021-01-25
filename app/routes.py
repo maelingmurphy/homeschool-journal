@@ -171,9 +171,7 @@ def update(title):
     activity_title = activity.title
     activity_subject = activity.subject
     activity_student = activity.student
-    #activity_description = activity.description
     
-
     # Pull user's list of students and objects saved to their User model so it can be displayed in form
     students = current_user.students
     subjects = current_user.subjects
@@ -182,12 +180,25 @@ def update(title):
     # (dict key names must match AddActivityForm field names)
     # (dict value names must match Activity model properties in models.py)
     activity_record = {'title': activity_title, 'subject': activity_subject, 'resources': 'Autofill me!', 'student': activity_student, 'notes': 'Autofill me!'}
+    
     form = AddActivityForm(data=activity_record)
-    #form.description.data = "TEST ME OUT"
 
     # Display user's students and subjects as choices 
     form.subject.choices = subjects
     form.student.choices = students
+
+    # Populate TextAreaFields (description, resources, notes)
+    form.description.data = activity.description
+    form.resources.data = activity.resources
+    form.notes.data = activity.notes
+
+    # Set status checkbox 
+    if activity.status == "Completed":
+        form.status.data = True
+    else:
+        form.status.data = False
+
+    
 
     return render_template('update.html', title=title, form=form, activity=activity)
 
