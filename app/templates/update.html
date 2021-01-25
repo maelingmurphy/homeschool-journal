@@ -22,7 +22,7 @@
             <div class="form-float">
                 <div class="form-group float-item">
                     {{ form.activity_date.label }}
-                    {{ form.activity_date(class_='datepicker form-control') }}
+                    {{ form.activity_date(class_='datepicker form-control', value=activity.activity_date) }}
                     {% for error in form.activity_date.errors %}
                     <span style="color:red;">[{{ error }}]</span>
                     {% endfor %}
