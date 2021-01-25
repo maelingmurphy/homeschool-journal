@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content %}
+    <a href="{{ url_for('log') }}"><i class="fas fa-chevron-circle-left"></i>All Activities</a>
+
     <h1> Update Activity: {{ title }}</h1>
     <div class="formwrapper">
         <form method="POST" action="/add" class="form" role="form" novalidate>
