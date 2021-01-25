@@ -176,8 +176,11 @@ def log():
     return render_template('log.html', activities=activities, form=form)
 
 # Update Activity
-@app.route('/update', methods=('GET', 'POST'))
-def update():
+@app.route('/update/<int:id>', methods=('GET', 'POST'))
+@login_required
+def update(id):
+    return render_template('update.html', id=id)
+
     
     if request.method == 'POST':
         activity = Activity.query.get(request.form.get('id'))
