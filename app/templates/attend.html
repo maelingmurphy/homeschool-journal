@@ -8,30 +8,31 @@
 
     <div>
         <h1>Attendance History</h1>
-        <h2>Total Number of Days for Date Range</h2>
-        <h2>Update Attendance (insert button that displays form)</h2>
-        <div class="formwrapper">
-            <form method="POST" action="/attendance" class="form" role="form" novalidate>
-                {{ form.csrf_token() }}
-                <div class="form-group">
-                    {{ form.attendance_date.label }}
-                    {{ form.attendance_date(class_='form-control') }}
-                    {% for error in form.attendance_date.errors %}
-                    <span style="color:red;">[{{ error }}]</span>
-                    {% endfor %}
-                </div>
-        
-                <div class="form-group">
-                    {{ form.student.label }}
-                    {{ form.student(class_='form-control') }}
-                    {% for error in form.student.errors %}
-                    <span style="color:red;">[{{ error }}]</span>
-                    {% endfor %}
-                </div>  
-                <p>{{ form.submit(class_='btn btn-primary') }}</p>
-            </form>
+        <div id="update-attendance">
+            <h2>Update Attendance</h2>
+            <div class="formwrapper">
+                <form method="POST" action="/attendance" class="form" role="form" novalidate>
+                    {{ form.csrf_token() }}
+                    <div class="form-group">
+                        {{ form.attendance_date.label }}
+                        {{ form.attendance_date(class_='form-control') }}
+                        {% for error in form.attendance_date.errors %}
+                        <span style="color:red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+            
+                    <div class="form-group">
+                        {{ form.student.label }}
+                        {{ form.student(class_='form-control') }}
+                        {% for error in form.student.errors %}
+                        <span style="color:red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>  
+                    <p>{{ form.submit(class_='btn btn-primary') }}</p>
+                </form>
+            </div>
         </div>
-
+        
         <table class="table table-hover">
             <thead>
                 <tr>
