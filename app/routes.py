@@ -235,10 +235,15 @@ def attend():
 @login_required
 def delete_attendance(id):
     # Get attendance object by id
-    attendance_record = Attendance.query.filter_by(id=id).first()
+    attendance_record = db.session.query(Attendance).filter_by(id=id).first()
 
     # Delete attendance record from db
+    db.session.delete(attendance_record)
+    db.session.commit()
 
+    flash('Attendance record has been removed', 'info')
+
+    return redirect(url_for('attend'))
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
