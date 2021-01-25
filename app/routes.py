@@ -169,10 +169,6 @@ def log():
         form.subject.choices = subjects
         form.student.choices = students
 
-        # TEST: Is specific activity id being passed through when update button is clicked?
-        print("Activity id", id)
-        print("Hello")
-
     if form.validate_on_submit():
         # Display flash confirmation message
         flash('"{}" has been successfully added'.format(form.title.data), 'info')
