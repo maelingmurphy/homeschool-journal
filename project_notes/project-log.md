@@ -9,6 +9,50 @@
 **Resources**
 
 ----------------------------------------------------------
+## January 24, 2021 (Day 17 #100DaysofCode)
+
+**Today's Progress**:
+- Learned how to pass an object into a WTForms form to be able to autofill certain form fields 
+- Learned how to pass URL arguments to Flask routes
+- Added `/update` route which takes the activity title as an argument (passed from 'Update' button in table on `log.html`) and displays a form to edit activity details (need to populate with user's data for the specific activity record and link to database in order to commit changes)
+- Figured out how to prepopulate data for all fields in the form shown when a user clicks to update their activity record. Form details are populated via the `/update` route and shown on `update.html`.
+
+**Thoughts**: 
+- The code below, which links to a WTForms TextAreaField, does NOT show the user's description that was saved to the db. Setting the value in this case does not prepopulate the form with this data from `activity.description`. 
+```html
+ <div class="form-group">
+        {{ form.description.label }}
+        {{ form.description(size=500, class_='form-control', value=activity.description) }}
+</div>
+```
+but the code blocks for other WTForm fields (StringField, DateField) work at populating the user data from the db using the following code:
+```html
+<div class="form-group">
+    {{ form.title.label }}
+    {{ form.title(size=100, class_='form-control', value=activity.title) }} 
+    {% for error in form.title.errors %}
+    <span style="color:red;">[{{ error }}]</span>
+    {% endfor %}
+</div>
+
+<div class="form-group float-item">
+    {{ form.activity_date.label }}
+    {{ form.activity_date(class_='datepicker form-control', value=activity.activity_date) }}
+    {% for error in form.activity_date.errors %}
+    <span style="color:red;">[{{ error }}]</span>
+    {% endfor %}
+</div>
+```
+- I'm having issues prepopulating my Update Activity form with user data because I cannot get the modal links to pass the activity id to the `/log` route. I think I may be able to avoid some issues by creating a separate `/update` route and view function and remove the modal windows from `log.html`.
+
+
+**Resources**
+1. [Populating WTForms form fields with data](https://stackoverflow.com/questions/42984453/wtforms-populate-form-with-data-if-data-exists)
+2. [Passing URL Arguments in Flask Using URL Converter](https://www.youtube.com/watch?v=qYeWemghBxI)
+3. [Passing variables into url_for](https://stackoverflow.com/questions/48265877/how-to-access-variables-within-html-template-url-for)
+4. [FontAwesome Icon Gallery - Latest Version](https://fontawesome.com/icons?d=gallery)
+
+----------------------------------------------------------
 ## January 23, 2021 (Day 16 #100DaysofCode)
 
 **Today's Progress**:
