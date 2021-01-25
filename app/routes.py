@@ -182,7 +182,9 @@ def update(title):
 
     # Get activity record by title
 
-    return render_template('update.html', title=title)
+    form = AddActivityForm()
+
+    return render_template('update.html', title=title, form=form)
 
     
 # Delete Activity
