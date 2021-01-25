@@ -154,26 +154,10 @@ def add():
 @app.route('/log', methods = ('GET', 'POST'))
 @login_required
 def log():
+    
+    activities = current_user.activities.order_by(Activity.activity_date).all()
 
-    if request.method == 'GET':
-        activities = current_user.activities.order_by(Activity.activity_date).all()
-
-        # Pull user's list of students and objects saved to their User model so it can be displayed in form
-        students = current_user.students
-        subjects = current_user.subjects
-
-        activity = {'description':'Autofill me!', 'resources': 'Autofill me!', 'notes': 'Autofill me!'}
-        form = AddActivityForm(data=activity)
-
-        # Display user's students and subjects as choices 
-        form.subject.choices = subjects
-        form.student.choices = students
-
-    if form.validate_on_submit():
-        # Display flash confirmation message
-        flash('"{}" has been successfully added'.format(form.title.data), 'info')
-
-    return render_template('log.html', activities=activities, form=form)
+    return render_template('log.html', activities=activities)
 
 # Update Activity
 @app.route('/update/<string:title>', methods=('GET', 'POST'))
@@ -182,7 +166,16 @@ def update(title):
 
     # Get activity record by title
 
-    form = AddActivityForm()
+    # Pull user's list of students and objects saved to their User model so it can be displayed in form
+    students = current_user.students
+    subjects = current_user.subjects
+
+    activity = {'description':'Autofill me!', 'resources': 'Autofill me!', 'notes': 'Autofill me!'}
+    form = AddActivityForm(data=activity)
+
+    # Display user's students and subjects as choices 
+    form.subject.choices = subjects
+    form.student.choices = students
 
     return render_template('update.html', title=title, form=form)
 
