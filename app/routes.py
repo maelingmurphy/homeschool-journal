@@ -176,24 +176,15 @@ def log():
     return render_template('log.html', activities=activities, form=form)
 
 # Update Activity
-@app.route('/update/<int:id>', methods=('GET', 'POST'))
+@app.route('/update/<string:title>', methods=('GET', 'POST'))
 @login_required
-def update(id):
-    return render_template('update.html', id=id)
+def update(title):
+
+    # Get activity record by title
+
+    return render_template('update.html', title=title)
 
     
-    if request.method == 'POST':
-        activity = Activity.query.get(request.form.get('id'))
-
-        activity.title = form.title.data
-        activity.date = form.activity_date.data
-        activity.description = form.description.data
-        activity.resources = form.resources.data
-        activity.notes = form.notes.data
-
-        db.session.commit()
-        flash('{} updated successfully!'.format(activity.title))
-
 # Delete Activity
 
 
