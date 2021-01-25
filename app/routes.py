@@ -165,7 +165,7 @@ def log():
 def update(title):
 
     # Get activity record by title
-    activity = Activity.query.filter_by(title=title).first()
+    activity = db.session.query(Activity).filter_by(title=title).first()
 
     # Get activity field variables for matched record
     activity_title = activity.title
@@ -229,6 +229,16 @@ def attend():
         flash('Attendance on {} has been successfully updated for {}'.format(form.attendance_date.data, form.student.data), 'info')
         return redirect(url_for('attend'))
     return render_template('attend.html', attendance_records=attendance_records, form=form)
+
+# Delete Attendance Record
+@app.route('/delete/attendance/<int:id>')
+@login_required
+def delete_attendance(id):
+    # Get attendance object by id
+    attendance_record = Attendance.query.filter_by(id=id).first()
+
+    # Delete attendance record from db
+
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
