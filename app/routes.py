@@ -183,7 +183,7 @@ def update(title):
     
     form = AddActivityForm(data=activity_record)
 
-    # Display user's students and subjects as choices 
+    # Display user's students and subjects as choices for dropdown
     form.subject.choices = subjects
     form.student.choices = students
 
@@ -197,8 +197,6 @@ def update(title):
         form.status.data = True
     else:
         form.status.data = False
-
-    
 
     return render_template('update.html', title=title, form=form, activity=activity)
 
