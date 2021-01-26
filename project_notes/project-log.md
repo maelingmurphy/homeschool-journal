@@ -9,6 +9,19 @@
 **Resources**
 
 ----------------------------------------------------------
+## January 25, 2021 (Day 18 #100DaysofCode)
+
+**Today's Progress**:
+- Added column for a delete button in attendance log table on `attend.html`. Linked to database in `/delete/attendance` route to commit the deletion changes. 
+- Linked form data to database in`/update` route so user can update an activity record. User selects activity record on `log.html`, which takes them to `update.html`. They are then presented with a form with the current activity data populating the form. The user can then make changes in the form and upon submission, the changes are updated and committed in the database.
+- Added some CSS styling (`display:flex`) to the attendance log form. Will need to add media queries to display as block for smaller viewports
+
+**Thoughts**: 
+- Having trouble updating the description, resources, notes and status fields when updating an activity 
+
+**Resources**
+
+----------------------------------------------------------
 ## January 24, 2021 (Day 17 #100DaysofCode)
 
 **Today's Progress**:
