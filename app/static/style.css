@@ -14,9 +14,13 @@ h1 {
 }
 
 #submit, #modal-add-btn {
-    background-color: #e76f51;
+    background-color: #000;
     text-transform: uppercase;
     border: none;
+}
+
+.btn-delete {
+    background-color: #cbc0d3;
 }
 
 /* Flash Messaging */
@@ -78,3 +82,25 @@ h1 {
     }
 }
 
+/* attendance.html */
+#log-container {
+    background-color: #83c5be;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#log-attendance {
+    margin: 0 auto;
+}
+
+#log-attendance-form {
+    display: flex;
+    justify-content: center;
+}
+#log-attendance-form div {
+    margin-right: 30px;
+}
+
+#log-attendance-form p {
+    margin-top: 33px;
+}

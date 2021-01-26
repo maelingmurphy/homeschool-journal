@@ -8,10 +8,9 @@
 
     <div>
         <h1>Attendance History</h1>
-        <div id="update-attendance">
-            <h2>Update Attendance</h2>
-            <div class="formwrapper">
-                <form method="POST" action="/attendance" class="form" role="form" novalidate>
+        <div id="log-container">
+            <div class="formwrapper" id="log-attendance">
+                <form method="POST" action="/attendance" class="form" role="form" id="log-attendance-form" novalidate>
                     {{ form.csrf_token() }}
                     <div class="form-group">
                         {{ form.attendance_date.label }}
@@ -46,7 +45,7 @@
                 <tr>
                     <td>{{ record.attendance_date }}</td>
                     <td>{{ record.student }}</td>
-                    <td><a href="{{ url_for('delete_attendance', id=record.id) }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a></td>
+                    <td><a href="{{ url_for('delete_attendance', id=record.id) }}" class="btn btn-delete btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
