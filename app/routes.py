@@ -160,26 +160,28 @@ def log():
     return render_template('log.html', activities=activities)
 
 # Update Activity
+@app.route('/update', methods=('GET', 'POST'))
 @app.route('/update/<string:title>', methods=('GET', 'POST'))
 @login_required
 def update(title):
 
     # Get activity record by title
     activity = db.session.query(Activity).filter_by(title=title).first()
-
-    # Get activity field variables for matched record
-    activity_title = activity.title
-    activity_subject = activity.subject
-    activity_student = activity.student
     
     # Pull user's list of students and objects saved to their User model so it can be displayed in form
     students = current_user.students
     subjects = current_user.subjects
 
+    # Set status checkbox 
+    if activity.status == "Completed":
+        activity_status = True
+    else:
+        activity_status = False
+
     # Populate form with user's activity record details
     # (dict key names must match AddActivityForm field names)
     # (dict value names must match Activity model properties in models.py)
-    activity_record = {'title': activity_title, 'subject': activity_subject, 'resources': 'Autofill me!', 'student': activity_student, 'notes': 'Autofill me!'}
+    activity_record = {'title': activity.title, 'subject': activity.subject, 'student': activity.student, 'description': activity.description, 'resources': activity.resources, 'notes': activity.notes, 'status': activity_status}
     
     form = AddActivityForm(data=activity_record)
 
@@ -187,16 +189,38 @@ def update(title):
     form.subject.choices = subjects
     form.student.choices = students
 
-    # Populate TextAreaFields (description, resources, notes)
-    form.description.data = activity.description
-    form.resources.data = activity.resources
-    form.notes.data = activity.notes
+    if form.validate_on_submit():
+        
+        # Get subject and student objects for accessing student id and subject id
+        subject = db.session.query(Subject).filter_by(subject_name=form.subject.data).first()
+        student = db.session.query(Student).filter_by(student_name=form.student.data).first()
 
-    # Set status checkbox 
-    if activity.status == "Completed":
-        form.status.data = True
-    else:
-        form.status.data = False
+        # TEST
+        print('Subject', subject)
+        print('Subject id', subject.id)
+        print('Student', student)
+        print('Student id', student.id)
+        
+        # ADD-ON: Change Boolean to text for status
+        if form.status.data:
+            activity.status = "Completed"
+        else:
+            activity.status = "Not Completed"
+
+        # Get activity info from form data to update activity record
+        activity.title = form.title.data
+        activity.activity_date = form.activity_date.data
+        activity.description = form.description.data
+        activity.resources = form.resources.data
+        activity.notes = form.notes.data
+        activity.subject_id = subject.id
+        activity.student_id = student.id
+
+        # Add activity info to database 
+        db.session.commit()
+
+        return redirect(url_for('log'))
+
 
     return render_template('update.html', title=title, form=form, activity=activity)
 
