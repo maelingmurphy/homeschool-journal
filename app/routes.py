@@ -189,6 +189,9 @@ def update(title):
     form.subject.choices = subjects
     form.student.choices = students
 
+    # Change submit button label text 
+    form.submit.label.text = "Update Activity"
+
     if form.validate_on_submit():
         
         # Get subject and student objects for accessing student id and subject id
@@ -224,7 +227,16 @@ def update(title):
 
     return render_template('update.html', title=title, form=form, activity=activity)
 
+# Activity Details
+@app.route('/details/<string:title>')
+@login_required
+def details(title):
     
+    activity = db.session.query(Activity).filter_by(title=title).first()
+
+    return render_template('details.html', title=title, activity=activity)
+
+
 # Delete Activity
 
 
