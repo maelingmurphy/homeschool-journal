@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Activity Details
+{% endblock %}
+
+{% block content %}
+    <h1> Activity Details: {{ title }}</h1>
+    <div class="content-wrapper">
+        <div>
+            <div class="content-group">
+                <h2>Title:</h2>
+                <p>{{ activity.title }}</p>
+            </div>
+
+            <div class="content-group">
+                <h2>Date:</h2>
+                <p>{{ activity.activity_date }}</p>
+            </div>
+
+            <div class="content-group">
+                <h2>Subject:</h2>
+                <p>{{ activity.subject }}</p>
+            </div>
+
+            <div class="content-group">
+                <h2>Student:</h2>
+                <p>{{ activity.student }}</p>
+            </div>  
+ 
+            <div class="content-group">
+                <h2>Description:</h2>
+                <p>{{ activity.description }}</p>
+            </div>
+
+            
+            <div class="content-group">
+                <h2>Resources:</h2>
+                <p>{{ activity.resources }}</p>
+            </div>
+
+            <div class="content-group">
+                <h2>Notes:</h2>
+                <p>{{ activity.notes }}</p>  
+            </div>
+
+            <div class="content-group">
+                <h2>Status:</h2>
+                <p>{{ activity.status }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
