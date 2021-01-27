@@ -9,6 +9,13 @@
 **Resources**
 
 ----------------------------------------------------------
+## January 26, 2021 (Day 19 #100DaysofCode)
+
+**Today's Progress**:
+- Changed submit button label text to 'Update Activity' on `update.html`: `form.submit.label.text = "Update Activity"`
+- Added `/details` route and `details.html` to template files in order to display activity record details 
+
+----------------------------------------------------------
 ## January 25, 2021 (Day 18 #100DaysofCode)
 
 **Today's Progress**:
