@@ -15,16 +15,28 @@
         <div class="profile-flex">
             <div class="profile-flex-item">
                 <p class="profile-heading">Students</p>
-                <a href="#" class="btn btn-primary profile-btn">Add Student</a>
+                <form method="POST" action="/profile-edit" class="form" role="form" novalidate>
+                    {{ form.csrf_token() }}
+                    <div class="form-group">
+                        {{ form.student_name.label }}
+                        <div id="student-container">    
+                            {{ form.student_name(class_="form-control", placeholder="Enter student's name") }}       
+                        </div>
+                        {% for error in form.student_name.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ form.submit(class_='btn btn-primary') }}</p>
+                </form>
                 {% for student in current_user.students %}
-                    <p>{{ student }}</p>
+                    <p>{{ student }}<a href="" class="btn btn-danger profile-edit-btn">Remove</a></p>
                 {% endfor %}
             </div>
             <div class="profile-flex-item">
                 <p class="profile-heading">Subjects</p>
                 <a href="#" class="btn btn-primary profile-btn">Add Subject</a>
                 {% for subject in current_user.subjects %}
-                    <p>{{ subject }}</p>
+                    <p>{{ subject }}<a href="" class="btn btn-danger profile-edit-btn">Remove</a></p>
                 {% endfor %}
             </div>
         </div>
