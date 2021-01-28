@@ -74,5 +74,4 @@ studentSelect.addEventListener('change', (event) => {
             studentContainer.removeChild(studentContainer.lastElementChild);
         }
     }
-})
-
+}) 
