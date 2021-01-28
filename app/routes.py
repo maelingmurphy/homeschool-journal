@@ -300,6 +300,12 @@ def delete_attendance(id):
 
     return redirect(url_for('attend'))
 
+# Profile
+@app.route('/profile', methods=['GET', 'POST'])
+@login_required
+def profile():
+    return render_template('profile.html')
+
 # Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
