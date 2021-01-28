@@ -313,14 +313,21 @@ def edit_profile():
     form = AddStudentForm()
     form2 = AddSubjectForm()
     if form.validate_on_submit():
-        student = form.student_name.data
-        print(student)
-        flash('Student {} has been added'.format(student), 'info')
-    return render_template('profile-edit.html', form=form)
+        student_name = form.student_name.data
+
+        # Add student to database
+        student = Student(student_name=student_name, user_id=current_user.id)
+        db.session.add(student)
+        db.session.commit()
+        flash('Student: {} has been added'.format(student), 'info')
+        return redirect(url_for('edit_profile'))
+
     if form2.validate_on_submit():
         subject = form2.subject_name.data
         print(subject)
-        flash('Subject {} has been added'.format(subject), 'info')
+        flash('Subject: {} has been added'.format(subject), 'info')
+
+    return render_template('profile-edit.html', form=form, form2=form2)
 
 
 # Login
