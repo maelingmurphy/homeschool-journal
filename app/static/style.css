@@ -23,6 +23,9 @@ h1 {
     background-color: #cbc0d3;
 }
 
+/* TYPOGRAPHY */
+
+
 /* Flash Messaging */
 
 .info {
@@ -103,4 +106,26 @@ h1 {
 
 #log-attendance-form p {
     margin-top: 33px;
+}
+
+/* profile.html */
+.profile-container {
+    margin-top: 50px;
+}
+
+.profile-flex {
+    display: flex;
+    margin-top: 50px;
+}
+
+.profile-flex-item {
+}
+
+.profile-heading {
+    font-size: 33px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.profile-btn {
+    margin-bottom: 20px;
 }
