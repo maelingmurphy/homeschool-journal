@@ -129,3 +129,14 @@ h1 {
 .profile-btn {
     margin-bottom: 20px;
 }
+
+/* Bootstrap Filter Control Table */
+.container {
+	width: 1024px;
+	padding: 2em;
+}
+
+.bold-blue {
+	font-weight: bold;
+	color: #0277BD;
+}
