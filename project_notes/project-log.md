@@ -9,6 +9,22 @@
 **Resources**
 
 ----------------------------------------------------------
+## January 27, 2021 (Day 20 #100DaysofCode)
+
+**Today's Progress**:
+- Updated `/delete` route so activity records can be removed from the db via the delete button on the `log.html` page
+- Added flash messaging to `update` route 
+- Created user profile page (`profile.html`) that displays user's current list of students and subjects 
+- Started working on an edit profile page (`profile-edit.html`) where user can add/remove students and subjects from their account.
+    - Added functionality for user to add students and subjects to their account
+
+**Thoughts**: 
+- Glad to find out I can display two different FlaskForm classes on one html page. I did this so a user can add a student or a subject on the `profile-edit.html` page. When instantiating the forms in the route (`/profile-edit`), I made sure to have two different variable names for the forms and pass those two names through the render_template function to display the form fields via Jinja template variable names in `profile-edit.html`. 
+
+**Resources**
+1. [Bootstrap Filter Control Table](https://examples.bootstrap-table.com/#extensions/filter-control.html)
+
+----------------------------------------------------------
 ## January 26, 2021 (Day 19 #100DaysofCode)
 
 **Today's Progress**:
@@ -22,11 +38,6 @@
 - Added column for a delete button in attendance log table on `attend.html`. Linked to database in `/delete/attendance` route to commit the deletion changes. 
 - Linked form data to database in`/update` route so user can update an activity record. User selects activity record on `log.html`, which takes them to `update.html`. They are then presented with a form with the current activity data populating the form. The user can then make changes in the form and upon submission, the changes are updated and committed in the database.
 - Added some CSS styling (`display:flex`) to the attendance log form. Will need to add media queries to display as block for smaller viewports
-
-**Thoughts**: 
-- Having trouble updating the description, resources, notes and status fields when updating an activity 
-
-**Resources**
 
 ----------------------------------------------------------
 ## January 24, 2021 (Day 17 #100DaysofCode)
