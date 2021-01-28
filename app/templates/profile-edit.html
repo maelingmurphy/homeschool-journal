@@ -29,7 +29,7 @@
                     <p>{{ form.submit(class_='btn btn-primary') }}</p>
                 </form>
                 {% for student in current_user.students %}
-                    <p>{{ student }}<a href="" class="btn btn-danger profile-edit-btn">Remove</a></p>
+                    <p>{{ student }}<a href="{{ url_for('remove_student', id=student.id) }}" class="btn btn-danger profile-edit-btn">Remove</a></p>
                 {% endfor %}
             </div>
             <div class="profile-flex-item">
@@ -39,7 +39,7 @@
                     <div class="form-group">
                         {{ form2.subject_name.label }}
                         <div id="student-container">    
-                            {{ form2.subject_name(class_="form-control", placeholder="Enter student's name") }}       
+                            {{ form2.subject_name(class_="form-control", placeholder="Enter subject name") }}       
                         </div>
                         {% for error in form2.subject_name.errors %}
                             <span style="color: red;">[{{ error }}]</span>
@@ -48,7 +48,7 @@
                     <p>{{ form2.submit(class_='btn btn-primary') }}</p>
                 </form>
                 {% for subject in current_user.subjects %}
-                    <p>{{ subject }}<a href="" class="btn btn-danger profile-edit-btn">Remove</a></p>
+                    <p>{{ subject }}<a href="{{ url_for('remove_subject', id=subject.id) }}" class="btn btn-danger profile-edit-btn">Remove</a></p>
                 {% endfor %}
             </div>
         </div>
