@@ -7,7 +7,7 @@ from flask import (
 )
 
 from app import app, db
-from app.forms import LoginForm, AddStudentSubjectForm, AddActivityForm, AddAttendanceForm, RegistrationForm # Import classes from forms.py
+from app.forms import LoginForm, AddStudentForm, AddStudentSubjectForm, AddActivityForm, AddAttendanceForm, RegistrationForm # Import classes from forms.py
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Student, Activity, Subject, Attendance
 from werkzeug.urls import url_parse
@@ -305,6 +305,17 @@ def delete_attendance(id):
 @login_required
 def profile():
     return render_template('profile.html')
+
+# Edit Profile
+@app.route('/profile-edit', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    form = AddStudentForm()
+    if form.validate_on_submit():
+        student = form.student_name.data
+        print(student)
+        flash('Student {} has been added'.format(student), 'info')
+    return render_template('profile-edit.html', form=form)
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
