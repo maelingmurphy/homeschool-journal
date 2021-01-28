@@ -31,7 +31,7 @@
                 <td>
                     <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-info btn-xs"><i class="far fa-edit"></i>Update</a>
                     <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-info btn-xs"><i class="fas fa-list"></i></i>Details</a>
-                    <a href="/delete/{{ activity.id }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
+                    <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
                 </td>     
             </tr>
             {% endfor %}
