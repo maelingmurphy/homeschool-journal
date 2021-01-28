@@ -7,7 +7,7 @@ from flask import (
 )
 
 from app import app, db
-from app.forms import LoginForm, AddStudentForm, AddStudentSubjectForm, AddActivityForm, AddAttendanceForm, RegistrationForm # Import classes from forms.py
+from app.forms import LoginForm, AddStudentForm, AddSubjectForm, AddStudentSubjectForm, AddActivityForm, AddAttendanceForm, RegistrationForm # Import classes from forms.py
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Student, Activity, Subject, Attendance
 from werkzeug.urls import url_parse
@@ -311,11 +311,17 @@ def profile():
 @login_required
 def edit_profile():
     form = AddStudentForm()
+    form2 = AddSubjectForm()
     if form.validate_on_submit():
         student = form.student_name.data
         print(student)
         flash('Student {} has been added'.format(student), 'info')
     return render_template('profile-edit.html', form=form)
+    if form2.validate_on_submit():
+        subject = form2.subject_name.data
+        print(subject)
+        flash('Subject {} has been added'.format(subject), 'info')
+
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
