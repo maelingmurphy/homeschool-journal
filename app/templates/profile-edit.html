@@ -29,7 +29,7 @@
                     <p>{{ form.submit(class_='btn btn-primary') }}</p>
                 </form>
                 {% for student in current_user.students %}
-                    <p>{{ student }}<a href="{{ url_for('remove_student', id=student.id) }}" class="btn btn-danger profile-edit-btn">Remove</a></p>
+                    <p>{{ student }}<a href="{{ url_for('remove_student', id=student.id) }}" class="btn btn-danger profile-edit-btn" onclick="return confirm('Are you sure you want to delete?')">Remove</a></p>
                 {% endfor %}
             </div>
             <div class="profile-flex-item">
@@ -48,7 +48,7 @@
                     <p>{{ form2.submit(class_='btn btn-primary') }}</p>
                 </form>
                 {% for subject in current_user.subjects %}
-                    <p>{{ subject }}<a href="{{ url_for('remove_subject', id=subject.id) }}" class="btn btn-danger profile-edit-btn">Remove</a></p>
+                    <p>{{ subject }}<a href="{{ url_for('remove_subject', id=subject.id) }}" class="btn btn-danger profile-edit-btn" onclick="return confirm('Are you sure you want to delete?')">Remove</a></p>
                 {% endfor %}
             </div>
         </div>
