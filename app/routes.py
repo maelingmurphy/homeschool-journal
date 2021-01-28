@@ -312,6 +312,8 @@ def profile():
 def edit_profile():
     form = AddStudentForm()
     form2 = AddSubjectForm()
+
+    # Add a student
     if form.validate_on_submit():
         student_name = form.student_name.data
 
@@ -322,10 +324,16 @@ def edit_profile():
         flash('Student: {} has been added'.format(student), 'info')
         return redirect(url_for('edit_profile'))
 
+    # Add a subject
     if form2.validate_on_submit():
-        subject = form2.subject_name.data
-        print(subject)
+        subject_name = form2.subject_name.data
+
+        # Add subject to database
+        subject = Subject(subject_name=subject_name, user_id=current_user.id)
+        db.session.add(subject)
+        db.session.commit()
         flash('Subject: {} has been added'.format(subject), 'info')
+        return redirect(url_for('edit_profile'))
 
     return render_template('profile-edit.html', form=form, form2=form2)
 
