@@ -222,6 +222,9 @@ def update(title):
         # Add activity info to database 
         db.session.commit()
 
+        # Flash confirmation message
+        flash('Activity: {} has been updated'.format(activity.title), 'info')
+
         return redirect(url_for('log'))
 
 
@@ -238,6 +241,22 @@ def details(title):
 
 
 # Delete Activity
+@app.route('/delete/<int:id>')
+@login_required
+def delete(id):
+
+    # Get activity object by id
+    activity = db.session.query(Activity).filter_by(id=id).first()
+
+    # Delete activity from database
+    db.session.delete(activity)
+    db.session.commit()
+
+    # Flash confirmation message
+    flash('Activity record has been removed', 'info')
+
+    return redirect(url_for('log'))
+
 
 
 # Attendance History
