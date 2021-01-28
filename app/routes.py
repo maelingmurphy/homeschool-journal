@@ -337,6 +337,45 @@ def edit_profile():
 
     return render_template('profile-edit.html', form=form, form2=form2)
 
+# Edit Profile - Remove Student & Associated Activities
+@app.route('/remove_student/<int:id>')
+@login_required
+def remove_student(id):
+    # Get student id
+    student = db.session.query(Student).filter_by(id=id).first()
+
+    # Get activities associated with student id
+    activities = student.activities
+
+    for activity in activities:
+        print(activity)
+        db.session.delete(activity)
+
+    db.session.delete(student)
+    db.session.commit()
+    flash('Student has been removed', 'info')
+    return redirect(url_for('edit_profile'))
+
+# Edit Profile - Remove Subject & Associated Activities
+@app.route('/remove_subject/<int:id>')
+@login_required
+def remove_subject(id):
+    # Get subject id
+    subject = db.session.query(Subject).filter_by(id=id).first()
+
+    # Get activities associated with student id
+    activities = subject.activities
+
+    for activity in activities:
+        print(activity)
+        db.session.delete(activity)
+
+    db.session.delete(subject)
+    db.session.commit()
+    flash('Subject has been removed', 'info')
+    return redirect(url_for('edit_profile'))
+
+
 
 # Login
 @app.route('/login', methods=['GET', 'POST'])
