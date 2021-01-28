@@ -40,7 +40,11 @@ class AddStudentSubjectForm(FlaskForm):
 class AddStudentForm(FlaskForm):
     student_name = StringField('Student Name(s)', validators=[DataRequired("Please enter student's name")])
     submit = SubmitField('Add')
-    
+
+class AddSubjectForm(FlaskForm):
+    subject_name = StringField('Subject', validators=[DataRequired("Please enter subject name")])
+    submit = SubmitField('Add')
+
 class AddActivityForm(FlaskForm):
     """Add activity form."""
     
