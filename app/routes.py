@@ -68,14 +68,28 @@ def index():
         flash('You have successfully added the subject(s): {} '.format(subject_names), 'info')
 
         return redirect(url_for('index'))
-   
-    # Test
-    #print("User id: ", current_user.id)
-    #print("Number of students: ", student_number)
-    #print("Student Names", student_names) 
-    
 
-    return render_template('index.html', date=date, form=form)
+    # Attendance Log Form (todo: display current date)   
+
+    # Get user's students
+    students = current_user.students 
+    form2 = AddAttendanceForm()
+
+    # Display user's students and subjects as choices 
+    form2.student.choices = students
+   
+    if form2.validate_on_submit():
+        # Get student id
+        student = db.session.query(Student).filter_by(student_name=form2.student.data).first()
+        # Add attendance data to database
+        attendance = Attendance(attendance_date=form2.attendance_date.data, student_id=student.id, user_id=current_user.id)
+        db.session.add(attendance)
+        db.session.commit()
+        # Display flash confirmation message
+        flash('Attendance on {} has been successfully updated for {}'.format(form2.attendance_date.data, form2.student.data), 'info')
+        return redirect(url_for('index'))
+
+    return render_template('index.html', date=date, form=form, form2=form2)
 
 # Register User
 @app.route('/register', methods=['GET', 'POST'])
