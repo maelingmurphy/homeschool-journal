@@ -55,15 +55,16 @@
         {% endif %} 
     </div>
 
+    {% if current_user.student_number %} 
     <div id="log-attendance">
         <h2>Log Attendance</h2>
         <div id="log-container">
             <div class="formwrapper" id="log-attendance">
                 <form method="POST" action="/index" class="form" role="form" id="log-attendance-form" novalidate>
                     {{ form2.csrf_token() }}
-                    <div class="form-group">
+                    <div id="display-date" class="form-group">
                         {{ form2.attendance_date.label }}
-                        {{ form2.attendance_date(class_='form-control') }}
+                        {{ form2.attendance_date(class_='datepicker form-control', value=today) }}
                         {% for error in form2.attendance_date.errors %}
                         <span style="color:red;">[{{ error }}]</span>
                         {% endfor %}
@@ -81,9 +82,11 @@
             </div>
         </div>
     </div>
+   
 
     <div id="activity-week">
         <h2>Activities for the week of {{ date }}</h2>
         
     </div>
+    {% endif %}
 {% endblock %}
