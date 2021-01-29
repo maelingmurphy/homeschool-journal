@@ -9,6 +9,31 @@
 **Resources**
 
 ----------------------------------------------------------
+## January 28, 2021 (Day  #100DaysofCode)
+
+**Today's Progress**:
+- Added ability for user to remove students and subjects (and their associated activities) from their Profile Edit pag (`profile-edit`)
+- Learned how to use datetime module to create variable that holds current date. I had to pass the `today` variable to `index.html` and set it to the value attribute for the `{{ form2.attendance_date }}` field. 
+```python
+import datetime
+
+today = datetime.date.today()
+```
+**Thoughts**: 
+- I received errors when I removed a student from the database. Since I still had activities trying to show on `log.html` that were associated with that particular student id, the errors I received were SQL-related dealing with a NOT NULL constraint. I then realized I needed to also delete all associated student activities when deleting a student by accessing `student.activities`.
+- I was able to get a static data HTML table working with Bootstrap Table with a filter extension that allows me to filter by the data in each column. However, I have not been able to get it to work with the dynamic data inserted via the Jinja template variables that are linked to my database queries. If I do end up getting this to work with my data, I will need to change my activity.status 'Not Completed' variable to 'Incomplete' so it will sort properly in the bootstrap-table. I may come back to trying to add this feature later but I did want to note what external dependencies I had to include to get the static TEST table on `log.html` working for Bootstrap Table - Filter Control:
+    - CSS (place in <head> of `base.html`): 
+        - `<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">`
+    - JS (place right before `</body>` in `base.html`):
+        -  `<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.js"></script>`
+        - `<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>`
+**Resources**
+1. [The Figma 2021 Crash Course by Example - Gary Simon](https://www.youtube.com/watch?v=Gu1so3pz4bA)
+2. [Bootstrap Table Filter Control & Export Example](https://codepen.io/AurelieT/pen/JGxMgo)
+3. [Bootstrap Table Options](https://bootstrap-table.com/docs/api/table-options/)
+4. [Bootstrap Table - Getting Started](https://bootstrap-table.com/docs/getting-started/introduction/)
+5. [datetime - Python docs](https://docs.python.org/3/library/datetime.html)
+----------------------------------------------------------
 ## January 27, 2021 (Day 20 #100DaysofCode)
 
 **Today's Progress**:
