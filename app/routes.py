@@ -11,6 +11,7 @@ from app.forms import LoginForm, AddStudentForm, AddSubjectForm, AddStudentSubje
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Student, Activity, Subject, Attendance
 from werkzeug.urls import url_parse
+import datetime
 
 
 
@@ -73,6 +74,9 @@ def index():
 
     # Get user's students
     students = current_user.students 
+    today = datetime.date.today()
+    print("Today's date:", today)
+
     form2 = AddAttendanceForm()
 
     # Display user's students and subjects as choices 
@@ -89,7 +93,7 @@ def index():
         flash('Attendance on {} has been successfully updated for {}'.format(form2.attendance_date.data, form2.student.data), 'info')
         return redirect(url_for('index'))
 
-    return render_template('index.html', date=date, form=form, form2=form2)
+    return render_template('index.html', date=date, form=form, form2=form2, today=today)
 
 # Register User
 @app.route('/register', methods=['GET', 'POST'])
