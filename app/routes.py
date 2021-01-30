@@ -294,13 +294,22 @@ def attend():
     if form.validate_on_submit():
         # Get student id
         student = db.session.query(Student).filter_by(student_name=form.student.data).first()
-        # Add attendance data to database
-        attendance = Attendance(attendance_date=form.attendance_date.data, student_id=student.id, user_id=current_user.id)
-        db.session.add(attendance)
-        db.session.commit()
-        # Display flash confirmation message
-        flash('Attendance on {} has been successfully updated for {}'.format(form.attendance_date.data, form.student.data), 'info')
-        return redirect(url_for('attend'))
+
+        # Check if attendance record already exists for that student on the date submitted
+        record = db.session.query(Attendance).filter_by(attendance_date=form.attendance_date.data, student_id=student.id).first()
+
+        if record is None:
+
+            # Add attendance data to database
+            attendance = Attendance(attendance_date=form.attendance_date.data, student_id=student.id, user_id=current_user.id)
+            db.session.add(attendance)
+            db.session.commit()
+            # Display flash confirmation message
+            flash('Attendance on {} has been successfully updated for {}'.format(form.attendance_date.data, form.student.data), 'info')
+            return redirect(url_for('attend'))
+        else:
+            flash('Attendance record already exists for this date', 'error')
+
     return render_template('attend.html', attendance_records=attendance_records, form=form)
 
 # Delete Attendance Record
