@@ -70,7 +70,7 @@ def index():
 
         return redirect(url_for('index'))
 
-    # Attendance Log Form (todo: display current date)   
+    # Attendance Log Form   
 
     # Get user's students
     students = current_user.students 
@@ -85,13 +85,20 @@ def index():
     if form2.validate_on_submit():
         # Get student id
         student = db.session.query(Student).filter_by(student_name=form2.student.data).first()
-        # Add attendance data to database
-        attendance = Attendance(attendance_date=form2.attendance_date.data, student_id=student.id, user_id=current_user.id)
-        db.session.add(attendance)
-        db.session.commit()
-        # Display flash confirmation message
-        flash('Attendance on {} has been successfully updated for {}'.format(form2.attendance_date.data, form2.student.data), 'info')
-        return redirect(url_for('index'))
+
+        # Check if attendance record already exists for that student on the date submitted
+        record = db.session.query(Attendance).filter_by(attendance_date=form2.attendance_date.data, student_id=student.id).first()
+
+        if record is None:
+            # Add attendance data to database
+            attendance = Attendance(attendance_date=form2.attendance_date.data, student_id=student.id, user_id=current_user.id)
+            db.session.add(attendance)
+            db.session.commit()
+            # Display flash confirmation message
+            flash('Attendance on {} has been successfully updated for {}'.format(form2.attendance_date.data, form2.student.data), 'info')
+            return redirect(url_for('index'))
+        else:
+            flash('Attendance record already exists for this date', 'error')
 
     return render_template('index.html', date=date, form=form, form2=form2, today=today)
 
