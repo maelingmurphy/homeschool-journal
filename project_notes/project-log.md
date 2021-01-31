@@ -9,7 +9,46 @@
 **Resources**
 
 ----------------------------------------------------------
-## January 28, 2021 (Day  #100DaysofCode)
+## January 30, 2021 (Day 23 #100DaysofCode)
+
+**Today's Progress**:
+- Completed Scrimba's Learn UI Design Fundamentals course
+- Added logic to `/attendance` and `/index` routes that checks if attendance record already exists for a student before adding it to the database 
+
+**Thoughts**: 
+
+**Links to Work**:
+1. [Learn UI Design Fundamentals - The Final Challenge](https://scrimba.com/scrim/co1674fe78bf180844353256c)
+2. [Learn UI Design Fundamentals - Design Challenge 4: Visual Hierarchy](https://scrimba.com/scrim/co2c0433387188c01ecbd9341)
+3. [Learn UI Design Fundamentals - Design Challenge 3: Color](https://scrimba.com/scrim/co8ec4c2a9b9b25989a37081c)
+
+**Resources**
+1. [StyleStage.dev - View how multiple people style one HTML page](https://stylestage.dev/styles/)
+
+----------------------------------------------------------
+## January 29, 2021 (Day 22 #100DaysofCode)
+
+**Today's Progress**:
+- Started Scrimba's Learn UI Design Fundamentals course to help me with the design aspect of my web app project
+
+**Thoughts**: 
+- Some of the fundamentals to consider for great design:
+    - White Space
+    - Color
+    - Contrast
+    - Scale
+    - Alignment
+    - Typography
+    - Visual Hierarchy 
+- WCAG has issued contrast guidelines for the visual representation of text and images of text. You can use contrast checking tools to help your projects adhere to these guidelines when designing (e.g. browser plugins, websites, UI design application plugins)
+
+**Resources**
+1. [WAVE - Web Accessibility Evaluation Tool](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh/related?hl=en-US)
+2. [Contrast Checker - WebAim](https://webaim.org/resources/contrastchecker/) and their [API](https://webaim.org/resources/contrastchecker/?fcolor=EBE6EB&bcolor=1F76C7&api)
+3. [Learn UI Design Fundamentals - Free course on Scrimba taught by Gary Simon](https://www.freecodecamp.org/news/learn-ui-design-fundamentals-with-this-free-one-hour-course/)
+
+----------------------------------------------------------
+## January 28, 2021 (Day 21 #100DaysofCode)
 
 **Today's Progress**:
 - Added ability for user to remove students and subjects (and their associated activities) from their Profile Edit pag (`profile-edit`)
