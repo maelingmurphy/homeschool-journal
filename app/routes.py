@@ -100,7 +100,10 @@ def index():
         else:
             flash('Attendance record already exists', 'error')
 
-    return render_template('index.html', date=date, form=form, form2=form2, today=today)
+    # Get all activities linked to current user
+    activities = current_user.activities.order_by(Activity.activity_date).all()
+    
+    return render_template('index.html', date=date, form=form, form2=form2, today=today, activities=activities)
 
 # Register User
 @app.route('/register', methods=['GET', 'POST'])
