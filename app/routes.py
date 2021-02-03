@@ -82,7 +82,7 @@ def index():
     # Display user's students and subjects as choices 
     form2.student.choices = students
    
-    if form2.validate_on_submit():
+    if "submit" in request.form and form2.validate_on_submit():
         # Get student id
         student = db.session.query(Student).filter_by(student_name=form2.student.data).first()
 
@@ -102,11 +102,20 @@ def index():
 
     # DISPLAY ACTIVITIES FORM
     form3 = DisplayActivitiesForm()
+
+    if "display_submit" in request.form and form3.display.validate(form3):
+        flash('This form works now!', 'info')
+
+    # Choose which activities to display based on form selection
+        # If there are no activities that match selection, return flash message 
     
     # Get all activities linked to current user
-    activities = current_user.activities.order_by(Activity.activity_date).all()
+    activities_all = current_user.activities.order_by(Activity.activity_date).all()
+
+    # Get activities for current date
+    activities_today = db.session.query(Activity).filter_by(activity_date=today).all()
     
-    return render_template('index.html', date=date, form=form, form2=form2, today=today, form3=form3, activities=activities)
+    return render_template('index.html', date=date, form=form, form2=form2, today=today, form3=form3, activities_all=activities_all, activities_today=activities_today)
 
 # Register User
 @app.route('/register', methods=['GET', 'POST'])
