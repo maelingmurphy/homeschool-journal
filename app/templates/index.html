@@ -86,6 +86,20 @@
 
     <div id="activity-week">
         <h2>Activities</h2>
+        <div class="formwrapper">
+            <form method="POST" action="/index" class="form" novalidate>
+                {{ form3.csrf_token() }}
+                <div class="form-group">
+                    {{ form3.display.label }}
+                    {{ form3.display(class_='form-control') }}
+                    {% for error in form3.display.errors %}
+                    <span style="color:red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+                <p>{{ form3.submit(class_='btn btn-primary') }}</p>
+            </form>
+        </div>
+        
         <section>
             <table class="table">
                 <thead>
