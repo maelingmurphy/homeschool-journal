@@ -58,7 +58,10 @@
       {% with messages = get_flashed_messages(with_categories=True) %}
       {% if messages %}
         {% for category, message in messages %}
-        <div class="{{ category }}">{{ message }}</div>
+        <div class="{{ category }}" id="flask-flash">
+          {{ message }}
+          <button type="button" class="close" onclick="this.parentElement.style.display='none'"><i class="far fa-times-circle"></i></button>
+        </div>
         {% endfor %}
       {% endif %}
       {% endwith %}  
