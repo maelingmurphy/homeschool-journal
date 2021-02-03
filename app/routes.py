@@ -70,7 +70,7 @@ def index():
 
         return redirect(url_for('index'))
 
-    # Attendance Log Form   
+    # ATTENDANCE LOG FORM 
 
     # Get user's students
     students = current_user.students 
@@ -100,10 +100,13 @@ def index():
         else:
             flash('Attendance record already exists', 'error')
 
+    # DISPLAY ACTIVITIES FORM
+    form3 = DisplayActivitiesForm()
+    
     # Get all activities linked to current user
     activities = current_user.activities.order_by(Activity.activity_date).all()
     
-    return render_template('index.html', date=date, form=form, form2=form2, today=today, activities=activities)
+    return render_template('index.html', date=date, form=form, form2=form2, today=today, form3=form3, activities=activities)
 
 # Register User
 @app.route('/register', methods=['GET', 'POST'])
