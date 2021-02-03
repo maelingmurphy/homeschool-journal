@@ -98,7 +98,7 @@ def index():
             flash('Attendance on {} has been successfully updated for {}'.format(form2.attendance_date.data, form2.student.data), 'info')
             return redirect(url_for('index'))
         else:
-            flash('Attendance record already exists for this date', 'error')
+            flash('Attendance record already exists', 'error')
 
     return render_template('index.html', date=date, form=form, form2=form2, today=today)
 
