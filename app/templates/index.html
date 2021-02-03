@@ -96,7 +96,7 @@
                     <span style="color:red;">[{{ error }}]</span>
                     {% endfor %}
                 </div>
-                <p>{{ form3.submit(class_='btn btn-primary') }}</p>
+                <p>{{ form3.display_submit(class_='btn btn-primary') }}</p>
             </form>
         </div>
         
@@ -113,7 +113,7 @@
                     </tr>  
                 </thead>
                 <tbody>
-                    {% for activity in activities %}
+                    {% for activity in activities_today %}
                     <tr>
                         <td>{{ activity.activity_date }}</td>
                         <td>{{ activity.title }}</td>
