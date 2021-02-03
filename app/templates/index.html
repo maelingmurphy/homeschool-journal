@@ -85,7 +85,37 @@
    
 
     <div id="activity-week">
-        <h2>Activities for the week of {{ date }}</h2>
+        <h2>Activities</h2>
+        <section>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Activity</th>
+                        <th>Subject</th>
+                        <th>Student</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>  
+                </thead>
+                <tbody>
+                    {% for activity in activities %}
+                    <tr>
+                        <td>{{ activity.activity_date }}</td>
+                        <td>{{ activity.title }}</td>
+                        <td>{{ activity.subject }}</td>
+                        <td>{{ activity.student }}</td>
+                        <td>{{ activity.status }}</td>
+                        <td>
+                            <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-info btn-xs"><i class="far fa-edit"></i>Update</a>
+                            <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-info btn-xs"><i class="fas fa-list"></i></i>Details</a>
+                            <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
         
     </div>
     {% endif %}
