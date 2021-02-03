@@ -9,13 +9,36 @@
 **Resources**
 
 ----------------------------------------------------------
+## February 2, 2021 (Day 25 #100DaysofCode)
+
+**Today's Progress**:
+- Started Scrimba's Frontend Development Career Path and completed Module 1.
+
+**Thoughts**: 
+- In one of the introductory projects in the Frontend Development Career Path, I was introduced to using CSS custom properties(variables). This is something I need to incorporate in this project's design! CSS custom properties allow you to define a value in one place and then reference it multiple times in other places. 
+
+**Resources**
+1. Emojis: [getemoji.com](https://getemoji.com/), [emojipedia.com](https://emojipedia.org/) 
+2. [CSS custom properties(variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+----------------------------------------------------------
+
+## January 31, 2021 (Day 24 #100DaysofCode)
+
+**Today's Progress**: 
+- Studied `onclick` event handlers and created a CodePen that shows/hides a box based via onclick event
+- Added ability to dismiss Flask flash messages with button `onclick` event
+
+**Link to Work**:
+1. [Show/Hide a box based on button onclick event](https://codepen.io/maelingcodes/pen/eYBmMQa)
+
+**Resources**
+1. [How to - Alerts](https://www.w3schools.com/howto/howto_js_alert.asp)
+----------------------------------------------------------
 ## January 30, 2021 (Day 23 #100DaysofCode)
 
 **Today's Progress**:
 - Completed Scrimba's Learn UI Design Fundamentals course
 - Added logic to `/attendance` and `/index` routes that checks if attendance record already exists for a student before adding it to the database 
-
-**Thoughts**: 
 
 **Links to Work**:
 1. [Learn UI Design Fundamentals - The Final Challenge](https://scrimba.com/scrim/co1674fe78bf180844353256c)
