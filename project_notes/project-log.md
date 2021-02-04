@@ -9,6 +9,55 @@
 **Resources**
 
 ----------------------------------------------------------
+## February 3, 2021 (Day 26 #100DaysofCode)
+
+**Today's Progress**:
+- Continued with Frontend Development Career Path: Started Module 2
+    - HTML elements
+    - Basic HTML file structure
+    - Headings and paragraphs
+    - Strong `<strong>` and emphasis `<em>` inline elements
+- Worked on Homeschool Web App:
+    - Add activity table to `index.html`
+    - Wrote query to select activity data for current date (`today`) in `/index` route
+    - Added select dropdown form that will eventually link to queries to show activities based on selection (Today, This Week, Next Week)
+
+**Thoughts**: 
+- I've started taking notes for my coding courses in Notion and it's been extremely helpful for organizing my notes and embedding code snippets. It is also a database system, so it's also great for organizing the various resources I've been collecting for future review.
+- I ran into an issue where I was trying to test submission in one form and it would display errors in a different form on the same page even though the original form passed validation and I had not clicked the submit button on the different form. I then realized that I had to change the names of the variables attributed to the `SubmitField` so they would be different for both forms (they were previously both named `submit`). Then I updated the conditional statement in the `/index` route that checked for the the name of the submit button passed from the form(input name is passed from WTForms field name) & checked form validation before continuing with further actions. Now validation works correctly for both forms on the `index.html` page. 
+
+```python
+# In forms.py
+
+class AddAttendanceForm(FlaskForm):
+    """Add attendance form"""
+    attendance_date = DateField('Date', format='%Y-%m-%d')
+    student = SelectField(u'Student', choices=[])
+    submit = SubmitField('Log Attendance')
+
+class DisplayActivitiesForm(FlaskForm):
+    """Display activites form"""
+    display = SelectField(u'Display', choices=['Today','This Week','Next Week'])
+    display_submit = SubmitField('Display')
+
+# In routes.py
+
+# Validation for form
+if "submit" in request.form and form2.validate_on_submit():
+    # Continue with further steps
+
+# Validation for form
+if "display_submit" in request.form and form3.display.validate(form3):
+    # Continue with further steps
+```
+
+**Resources**
+1. [Combining multiple forms in WTForms](https://dev.to/sampart/combining-multiple-forms-in-flask-wtforms-but-validating-independently-cbm)
+2. [Flask multiple forms on the same page](https://stackoverflow.com/questions/58122969/flask-multiple-forms-on-the-same-page)
+3. [Notion](https://www.notion.so/)
+4. [Scrimba's Frontend Development Career Path](https://scrimba.com/learn/frontend)
+
+----------------------------------------------------------
 ## February 2, 2021 (Day 25 #100DaysofCode)
 
 **Today's Progress**:
@@ -20,6 +69,7 @@
 **Resources**
 1. Emojis: [getemoji.com](https://getemoji.com/), [emojipedia.com](https://emojipedia.org/) 
 2. [CSS custom properties(variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+3. [Scrimba's Frontend Development Career Path](https://scrimba.com/learn/frontend)
 ----------------------------------------------------------
 
 ## January 31, 2021 (Day 24 #100DaysofCode)
