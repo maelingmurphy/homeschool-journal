@@ -83,6 +83,6 @@ class AddAttendanceForm(FlaskForm):
 
 class DisplayActivitiesForm(FlaskForm):
     """Display activites form"""
-    display = SelectField(u'Display', choices=['Today','This Week','Next Week'])
+    display = SelectField(u'Display', choices=['Today','This Week','Next Week', 'Previous Week'])
     student = SelectField(u'Student', choices=[])
     display_submit = SubmitField('Display')
