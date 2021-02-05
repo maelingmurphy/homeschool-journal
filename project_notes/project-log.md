@@ -9,6 +9,39 @@
 **Resources**
 
 ----------------------------------------------------------
+## February 5, 2021 (Day 28 #100DaysofCode)
+
+**Today's Progress**:
+- Learned how to use the `datetime` module and `timedelta` to calculate the week's start and end date based on a given date (current date). Created a repl to illustrate how the basic logic works (see resources).
+- Added ability for user to update the data the activity table displays on `index.html` by selecting a date range and student. Wrote the appropriate database queries and logic for displaying the associated data in the table. 
+
+**Thoughts**: 
+```python
+# This query does not work and yields the error: TypeError: Boolean value of this clause is not defined
+activities_currentweek = db.session.query(Activity).filter(Activity.activity_date >= current_week_start and Activity.activity_date <= current_week_end).all()    
+```
+[This post](https://stackoverflow.com/questions/42681231/sqlalchemy-unexpected-results-when-using-and-and-or) gives a good explanation of why the above doesn't work and helped me to figure out the proper syntax below
+```python
+activities_currentweek = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end)).all()
+```
+
+**Resources**
+1. [Give start and end of week data based on given date](https://stackoverflow.com/questions/19216334/python-give-start-and-end-of-week-data-from-a-given-date)
+2. [Repl - How to calculate start and end dates of a week based on current date](https://repl.it/@maelingmurphy/Date-Ranges-from-Given-Date#main.py)
+3. [Filtering on a datetime object](https://stackoverflow.com/questions/51451768/sqlalchemy-querying-with-datetime-columns-to-filter-by-month-day-year/51468737)
+4. [Using boolean SQL expressions: and_(), or_(), not_(), etc.](https://stackoverflow.com/questions/42681231/sqlalchemy-unexpected-results-when-using-and-and-or)
+----------------------------------------------------------
+## February 4, 2021 (Day 27 #100DaysofCode)
+
+**Today's Progress**:
+- Continued with Frontend Development Career Path (Module 2)
+    - 
+
+**Thoughts**: 
+
+**Resources**
+
+----------------------------------------------------------
 ## February 3, 2021 (Day 26 #100DaysofCode)
 
 **Today's Progress**:
