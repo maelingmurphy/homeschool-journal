@@ -103,19 +103,24 @@ def index():
     # DISPLAY ACTIVITIES FORM
     form3 = DisplayActivitiesForm()
 
-    if "display_submit" in request.form and form3.display.validate(form3):
-        flash('This form works now!', 'info')
-
-    # Choose which activities to display based on form selection
-        # If there are no activities that match selection, return flash message 
-    
     # Get all activities linked to current user
-    activities_all = current_user.activities.order_by(Activity.activity_date).all()
+    activities = current_user.activities.order_by(Activity.activity_date).all()
 
     # Get activities for current date
     activities_today = db.session.query(Activity).filter_by(activity_date=today).all()
+
+    # Choose which activities to display based on form selection
+    if "display_submit" in request.form and form3.display.validate(form3):
+        # If "Today" is selected and there are records in activities_today
+        if form3.display.data == "Today" and activities_today:
+            activities = activities_today
+            flash('Displaying activities scheduled for today', 'info')
+
+        # If there are no activities that match selection, return flash message
+        else:
+            flash('There are no activities that match this selection', 'error') 
     
-    return render_template('index.html', date=date, form=form, form2=form2, today=today, form3=form3, activities_all=activities_all, activities_today=activities_today)
+    return render_template('index.html', date=date, form=form, form2=form2, today=today, form3=form3, activities=activities)
 
 # Register User
 @app.route('/register', methods=['GET', 'POST'])
