@@ -121,12 +121,12 @@ def index():
         # Get activities for current week
         current_week_start = today - timedelta(days=current_weekday)
         current_week_end = current_week_start + timedelta(days=6)
-        activities_currentweek = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end)).all()
+        activities_currentweek = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end) & (Activity.student == student)).all()
 
         # Get activities for next week
         next_week_start = current_week_start + timedelta(days=7)
         next_week_end = current_week_end + timedelta(days=7)
-        activities_nextweek = current_user.activities.filter((Activity.activity_date >= next_week_start) & (Activity.activity_date <= next_week_end)).all()
+        activities_nextweek = current_user.activities.filter((Activity.activity_date >= next_week_start) & (Activity.activity_date <= next_week_end) & (Activity.student == student)).all()
 
         # Get activities for previous week 
         # previous_week_start =
