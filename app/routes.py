@@ -113,20 +113,21 @@ def index():
     activities_today = db.session.query(Activity).filter_by(activity_date=today).all()
 
     # Get activities for current week
-    activities_currentweek = db.session.query(Activity).filter(Activity.activity_date >= today).all()
     current_week_start = today - timedelta(days=current_weekday)
     current_week_end = current_week_start + timedelta(days=6)
-
+    activities_currentweek = db.session.query(Activity).filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end)).all()
+    
     print("Sunday", current_week_start)
     print("Saturday", current_week_end)
 
     # Get activities for next week
-    # next_week_start = 
-    # next_week_end = 
+    next_week_start = current_week_start + timedelta(days=7)
+    next_week_end = current_week_end + timedelta(days=7)
+    activities_nextweek = db.session.query(Activity).filter((Activity.activity_date >= next_week_start) & (Activity.activity_date <= next_week_end)).all()
 
-    # Get activities for last week 
-    # last_week_start =
-    # last_week_end = 
+    # Get activities for previous week 
+    # previous_week_start =
+    # previous_week_end = 
 
     # Choose which activities to display based on form selection
     if "display_submit" in request.form and form3.display.validate(form3):
@@ -139,6 +140,11 @@ def index():
         elif form3.display.data == "This Week" and activities_currentweek:
             activities = activities_currentweek
             flash('Displaying activities scheduled for this week', 'info')
+
+        # If "Next Week" is selected and records exist in activities_nextweek
+        elif form3.display.data == "Next Week" and activities_nextweek:
+            activities = activities_nextweek
+            flash('Displaying activities scheduled for next week', 'info')
 
         # If there are no activities that match selection, return flash message
         else:
