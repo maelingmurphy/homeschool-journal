@@ -12,6 +12,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Student, Activity, Subject, Attendance
 from werkzeug.urls import url_parse
 import datetime
+from datetime import timedelta
 
 
 
@@ -22,7 +23,6 @@ import datetime
 @app.route('/index', methods=['GET', 'POST'])
 @login_required 
 def index():
-    date = 'Sunday - January 17, 2020'
     
     # ADD STUDENT & SUBJECT INFO
     form = AddStudentSubjectForm()
@@ -74,9 +74,7 @@ def index():
 
     # Get user's students
     students = current_user.students 
-    today = datetime.date.today()
-    print("Today's date:", today)
-
+   
     form2 = AddAttendanceForm()
 
     # Display user's students and subjects as choices 
@@ -100,6 +98,11 @@ def index():
         else:
             flash('Attendance record already exists', 'error')
 
+    # Get date info related to current date
+    today = datetime.date.today() # Gets current date 
+    current_weekday = today.isoweekday()
+    
+
     # DISPLAY ACTIVITIES FORM
     form3 = DisplayActivitiesForm()
 
@@ -109,6 +112,22 @@ def index():
     # Get activities for current date
     activities_today = db.session.query(Activity).filter_by(activity_date=today).all()
 
+    # Get activities for current week
+    activities_currentweek = db.session.query(Activity).filter(Activity.activity_date >= today).all()
+    current_week_start = today - timedelta(days=current_weekday)
+    current_week_end = current_week_start + timedelta(days=6)
+
+    print("Sunday", current_week_start)
+    print("Saturday", current_week_end)
+
+    # Get activities for next week
+    # next_week_start = 
+    # next_week_end = 
+
+    # Get activities for last week 
+    # last_week_start =
+    # last_week_end = 
+
     # Choose which activities to display based on form selection
     if "display_submit" in request.form and form3.display.validate(form3):
         # If "Today" is selected and there are records in activities_today
@@ -116,11 +135,16 @@ def index():
             activities = activities_today
             flash('Displaying activities scheduled for today', 'info')
 
+        # If "This Week" is selected and records exist in activities_currentweek
+        elif form3.display.data == "This Week" and activities_currentweek:
+            activities = activities_currentweek
+            flash('Displaying activities scheduled for this week', 'info')
+
         # If there are no activities that match selection, return flash message
         else:
             flash('There are no activities that match this selection', 'error') 
     
-    return render_template('index.html', date=date, form=form, form2=form2, today=today, form3=form3, activities=activities)
+    return render_template('index.html', form=form, form2=form2, today=today, form3=form3, activities=activities)
 
 # Register User
 @app.route('/register', methods=['GET', 'POST'])
