@@ -17,6 +17,13 @@ naming_convention = {
     "pk": "pk_%(table_name)s" 
 }
 
+@app.template_filter()
+def datetimefilter(value, format='%m-%d-%Y'):
+    """Convert a datetime to a different format."""
+    return value.strftime(format)
+
+app.jinja_env.filters['datetimefilter'] = datetimefilter
+
 db = SQLAlchemy(app=app, metadata=MetaData(naming_convention=naming_convention))
 migrate = Migrate(app, db, render_as_batch=True)
 login = LoginManager(app)
