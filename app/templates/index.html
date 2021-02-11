@@ -81,6 +81,8 @@
     </div>
    
 
+
+    
     <div id="activity-week">
         <h2>Activities</h2>
         <div class="formwrapper">
@@ -105,6 +107,9 @@
         </div>
         
         <section>
+            <div class="activity-log-header">
+                <h2>Activity Log <a href="{{ url_for('add') }}" id="add-btn" class="btn btn-success float-right">Add New Activity</a></h2>
+            </div>
             <table class="table">
                 <thead>
                     <tr>
@@ -133,8 +138,8 @@
                     {% endfor %}
                 </tbody>
             </table>
-        </section>
-        
+        </section>    
     </div>
     {% endif %}
+
 {% endblock %}
