@@ -113,7 +113,7 @@ def index():
     form3.student.choices = student_list
 
     # Show all activites for current date for all students as default
-    activities = db.session.query(Activity).filter_by(activity_date=today).all()
+    activities = current_user.activities.filter_by(activity_date=today).all()
 
     # Choose which activities to display based on form selection
     if "display_submit" in request.form and form3.display.validate(form3):
@@ -174,7 +174,7 @@ def index():
                 activities = current_user.activities.filter((Activity.activity_date >= previous_week_start) & (Activity.activity_date <= previous_week_end) & (Activity.student == student)).all()
                 if not activities:
                     flash('No activity scheduled', 'error')
-                    
+
         # If there are no activities that match selection, return flash message
         else:
             flash('There are no activities that match this selection', 'error') 
