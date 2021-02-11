@@ -52,7 +52,7 @@
     </div>
 
     {% if current_user.student_number %} 
-    <p class="date-header">Today's Date: {{ today | datetimefilter }}</p>
+    <p class="date-header">Today's Date: {{ today | datetime_format_filter }}</p>
     <div id="log-attendance">
         <h2>Log Attendance</h2>
         <div id="log-container">
@@ -119,7 +119,7 @@
                 <tbody>
                     {% for activity in activities %}
                     <tr>
-                        <td>{{ activity.activity_date }}</td>
+                        <td>{{ activity.activity_date | string_to_datetime_filter | datetime_format_filter }}</td>
                         <td>{{ activity.title }}</td>
                         <td>{{ activity.subject }}</td>
                         <td>{{ activity.student }}</td>
