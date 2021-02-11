@@ -52,6 +52,7 @@
     </div>
 
     {% if current_user.student_number %} 
+    <p class="date-header">Today's Date: {{ today | datetimefilter }}</p>
     <div id="log-attendance">
         <h2>Log Attendance</h2>
         <div id="log-container">
