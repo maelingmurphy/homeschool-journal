@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from flask_migrate import Migrate
 from flask_login import LoginManager
+import datetime
 
 
 app = Flask(__name__)
@@ -17,12 +18,23 @@ naming_convention = {
     "pk": "pk_%(table_name)s" 
 }
 
+# Create custom filters to use on Jinja template variables
 @app.template_filter()
-def datetimefilter(value, format='%m-%d-%Y'):
+def datetime_format_filter(value, format='%m-%d-%Y'):
     """Convert a datetime to a different format."""
     return value.strftime(format)
 
-app.jinja_env.filters['datetimefilter'] = datetimefilter
+app.jinja_env.filters['datetime_format_filter'] = datetime_format_filter
+
+@app.template_filter()
+def string_to_datetime_filter(value):
+    """Convert string to datetime object."""
+    return datetime.datetime.strptime(value, '%Y-%m-%d')
+
+app.jinja_env.filters['string_to_datetime'] = string_to_datetime_filter
+
+
+# Create database instance 
 
 db = SQLAlchemy(app=app, metadata=MetaData(naming_convention=naming_convention))
 migrate = Migrate(app, db, render_as_batch=True)
