@@ -5,6 +5,7 @@ from sqlalchemy import MetaData
 from flask_migrate import Migrate
 from flask_login import LoginManager
 import datetime
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -29,7 +30,7 @@ app.jinja_env.filters['datetime_format_filter'] = datetime_format_filter
 @app.template_filter()
 def string_to_datetime_filter(value):
     """Convert string to datetime object."""
-    return datetime.datetime.strptime(value, '%Y-%m-%d')
+    return datetime.strptime(value, '%Y-%m-%d')
 
 app.jinja_env.filters['string_to_datetime'] = string_to_datetime_filter
 
