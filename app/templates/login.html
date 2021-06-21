@@ -12,14 +12,14 @@
             {{ form.csrf_token }}
             <p>
                 {{ form.username.label }}
-                {{ form.username(size=32, class_='form-control input-field') }}
+                {{ form.username(size=32, class_='form-control input-field', placeholder='Enter username') }}
                 {% for error in form.username.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
                 {{ form.password.label }}
-                {{ form.password(size=32, class_='form-control input-field') }}
+                {{ form.password(size=32, class_='form-control input-field', placeholder='Enter password') }}
                 {% for error in form.username.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
