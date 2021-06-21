@@ -87,14 +87,53 @@ h1 {
     margin-top: 3.44em;
 }
 
-.input-field:focus {
+.input-field:focus { 
     border-left: 6px solid #6354F7;
 }
 
+/* custom checkbox styling */
 
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
 
+.checkbox__input {
+    display: none;
+}
 
+.checkbox__box {
+    width: 1.25em;
+    height: 1.25em;
+    border: 2px solid #CCC;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+    transition: background 150ms, border-color 150ms;
+}
 
+.checkbox__box::after {
+    content: '\2714';
+    color: #FFF;
+    transform: scale(0); /* initially at 0% scale */
+    transition: transform 150ms;
+} 
+
+/* when checkbox input is checked it will select checkbox__box element (sibling after checkbox) */
+.checkbox__input:checked + .checkbox__box {
+    background: #2266dc;
+    border-color: #2266dc;
+    transition: background 150ms, border-color 150ms;
+}
+
+.checkbox__input:checked + .checkbox__box::after {
+    transform: scale(1);
+    transition: transform 150ms;
+}
 
 /* index.html PAGE */
 #add-students-form, #add-subjects-form {
