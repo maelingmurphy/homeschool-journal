@@ -1,4 +1,4 @@
-{% extends "base-no-nav.html" %}
+{% extends "base.html" %}
 
 {% block title %}
     Login
@@ -23,7 +23,7 @@
             {% endfor %}
         </p>
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit(class_='btn btn-primary') }}</p>
+        <p>{{ form.submit(class_='btn btn-primary', value='sign in') }}</p>
     </form>
     <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
 {% endblock %}
