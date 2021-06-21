@@ -87,7 +87,7 @@ h1 {
     margin-top: 3.44em;
 }
 
-.input-field:hover, .input-field:focus {
+.input-field:focus {
     border-left: 6px solid #6354F7;
 }
 
