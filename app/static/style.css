@@ -28,6 +28,10 @@ h1 {
 /* ====================
  TYPOGRAPHY
 ======================= */
+.heading {
+    font-family: "Zilla Slab", serif;
+    font-size: 3.3rem;
+}
 
 /* ====================
  GENERAL LAYOUT
@@ -68,6 +72,10 @@ h1 {
 ======================= */
 .container-sign-in {
     width: 100%;  
+}
+
+.heading-sign-in {
+    text-align: center;
 }
 
 
