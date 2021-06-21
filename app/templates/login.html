@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="header">Welcome back!</h1>
+    <div class="container-sign-in">
+        <h1 class="header">Welcome back!</h1>
     <form action="" method="post" novalidate>
         {{ form.csrf_token }}
         <p>
@@ -26,4 +27,6 @@
         <p>{{ form.submit(class_='btn btn-primary', value='sign in') }}</p>
     </form>
     <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+    </div>
+    
 {% endblock %}

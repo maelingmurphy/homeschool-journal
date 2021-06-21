@@ -1,5 +1,12 @@
 /* CSS RESET */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    padding: 0;
+}
 
 /* MY CUSTOM CSS */
 
@@ -16,8 +23,16 @@ h1 {
 
 
 
-/* TYPOGRAPHY */
+/* ====================
+ TYPOGRAPHY
+======================= */
 
+/* ====================
+ GENERAL LAYOUT
+======================= */
+.container-no-nav {
+    border: 2px solid pink;
+}
 
 /* Flash Messaging */
 
@@ -42,6 +57,19 @@ h1 {
     border: 1px solid transparent;
     border-radius: .25rem;
 }
+
+/* ====================
+ SIGN IN PAGE - login.html 
+======================= */
+.container-sign-in {
+    width: 90%;
+}
+
+
+
+
+
+
 
 /* index.html PAGE */
 #add-students-form, #add-subjects-form {
@@ -121,12 +149,6 @@ h1 {
 
 .profile-btn {
     margin-bottom: 20px;
-}
-
-/* Bootstrap Filter Control Table */
-.container {
-	width: 1024px;
-	padding: 2em;
 }
 
 .bold-blue {
