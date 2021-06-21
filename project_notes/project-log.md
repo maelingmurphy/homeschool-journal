@@ -9,6 +9,93 @@
 **Resources**
 
 ----------------------------------------------------------
+## February 14, 2021 
+
+**Today's Progress**:
+
+**Thoughts**: 
+
+**Resources**
+
+----------------------------------------------------------
+## February 13, 2021 (Day 33 #100DaysofCode)
+
+**Today's Progress**:
+- Scrimba's CSS Crash Course:
+    - `background-image` property
+**Thoughts**: 
+
+**Resources**
+
+----------------------------------------------------------
+## February 12, 2021 (Day 32 #100DaysofCode)
+
+**Today's Progress**:
+- Scrimba's CSS Crash Course:
+    - Block element content wrapping: https://codepen.io/maelingcodes/pen/GRNrRaG
+**Thoughts**: 
+
+**Resources**
+
+----------------------------------------------------------
+## February 11, 2021 (Day 31 #100DaysofCode)
+
+**Today's Progress**:
+- Started Scrimba's CSS Crash Course and covered:
+    - CSS syntax: selectors + property-value pairs = CSS rules 
+    - Ways of adding CSS to doc (inline, embedded, external stylesheet)
+    - Inheritance: Elements inherit properties from their parents (usually applies to type and fonts)
+    - Cascade: Declarations that are made lower down in the stylesheet will override earlier declarations 
+- Learned how to use `strptime()` to convert a string to a datetime object and `strftime()` to change the format of a datetime object. Applied this to my project by changing the date display format for the Activity and Attendance tables.
+- Created custom Jinja template filters to format date-related Jinja template variables within my project 
+
+**Thoughts**: 
+- I learned that you can create your own Jinja filters to modify your template variables. I created a custom filter to change the date display format. I had to add the following lines of code to my `__init__.py` file, right under the creation of the Flask app instance.
+```python
+# Create custom filters to use on Jinja template variables
+@app.template_filter()
+def datetime_format_filter(value, format='%m-%d-%Y'):
+    """Convert a datetime to a different format."""
+    return value.strftime(format)
+
+app.jinja_env.filters['datetime_format_filter'] = datetime_format_filter
+
+@app.template_filter()
+def string_to_datetime_filter(value):
+    """Convert string to datetime object."""
+    return datetime.datetime.strptime(value, '%Y-%m-%d')
+
+app.jinja_env.filters['string_to_datetime'] = string_to_datetime_filter
+```
+To apply the filter to the variable, use pipe `|` within the template variable code block in the html file: `{{ today | datetime_format_filter }}`
+You can also chain multiple filters that will be applied to the variable from left to right. This was useful when I needed to first convert a string to a datetime object so I could then change the date format using `strftime()` via the datetime_format_filter: `<td>{{ activity.activity_date | string_to_datetime_filter | datetime_format_filter }}</td>`
+
+**Resources**
+1. [Formatting dates - strftime() and strptime() behavior](https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior)
+2. [Primer on Jinja templating](https://realpython.com/primer-on-jinja-templating/#custom-filters)
+3. [Jinja template filters](https://ttl255.com/jinja2-tutorial-part-4-template-filters/)
+
+----------------------------------------------------------
+## February 9, 2021 (Day 30 #100DaysofCode)
+
+**Today's Progress**:
+- Read about Flask routes
+- Completed Scrimba's HTML Crash Course and built a mini site with the skills I've reviewed so far:
+https://scrimba.com/scrim/co1614f8f9ccb8679bbcf0430
+
+**Resources**
+1. [Flask routes](https://hackersandslackers.com/flask-routes/)
+2. [Passing functions into flask routes](https://www.reddit.com/r/flask/comments/a31lh0/reusing_functions_for_different_pages/)
+3. [Pluggable views - Flask](https://flask.palletsprojects.com/en/1.1.x/views/#pluggable-views)
+
+----------------------------------------------------------
+
+## February 7, 2021 (Day 29 #100DaysofCode)
+
+**Today's Progress**:
+- Continued with the HTML Crash Course section of The Frontend Development Career Path
+
+----------------------------------------------------------
 ## February 5, 2021 (Day 28 #100DaysofCode)
 
 **Today's Progress**:
@@ -31,15 +118,12 @@ activities_currentweek = current_user.activities.filter((Activity.activity_date 
 3. [Filtering on a datetime object](https://stackoverflow.com/questions/51451768/sqlalchemy-querying-with-datetime-columns-to-filter-by-month-day-year/51468737)
 4. [Using boolean SQL expressions: and_(), or_(), not_(), etc.](https://stackoverflow.com/questions/42681231/sqlalchemy-unexpected-results-when-using-and-and-or)
 ----------------------------------------------------------
+
 ## February 4, 2021 (Day 27 #100DaysofCode)
 
 **Today's Progress**:
 - Continued with Frontend Development Career Path (Module 2)
-    - 
 
-**Thoughts**: 
-
-**Resources**
 
 ----------------------------------------------------------
 ## February 3, 2021 (Day 26 #100DaysofCode)
