@@ -33,6 +33,11 @@ h1 {
     font-size: 3.3rem;
 }
 
+.subheading {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
 /* ====================
  GENERAL LAYOUT
 ======================= */
@@ -74,9 +79,11 @@ h1 {
     width: 100%;  
 }
 
-.heading-sign-in {
+.heading-sign-in, .subheading {
     text-align: center;
 }
+
+
 
 
 
