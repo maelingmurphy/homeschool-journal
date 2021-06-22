@@ -217,6 +217,7 @@ a:hover, a:focus {
 
     .header-sign-in {
         display: block;
+        background: var(--bg-dark);
     }
 
 }
