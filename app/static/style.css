@@ -73,6 +73,34 @@ h1 {
 }
 
 /* ====================
+ BUTTON STYLES
+======================= */
+.btn-delete {
+    background-color: #521450;
+    color: #FFFFFF;
+}
+
+.btn-details {
+    background-color: #832080;
+    color: #FFFFFF; 
+}
+
+.btn-update {
+    background-color: #AA50CC;
+    color: #FFFFFF;
+}
+
+.btn-add {
+    background-color: #17B890;
+    color: #FFFFFF;
+}
+
+#submit, #modal-add-btn {
+    background-color: #000;
+    border: none;
+}
+
+/* ====================
  SIGN IN PAGE - login.html 
 ======================= */
 .container-sign-in {
@@ -97,6 +125,7 @@ h1 {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+    margin: 1em 0 1.5em 0;
 }
 
 .checkbox__input {
@@ -135,7 +164,9 @@ h1 {
     transition: transform 150ms;
 }
 
-/* index.html PAGE */
+/* ====================
+ HOME PAGE - index.html 
+======================= */
 #add-students-form, #add-subjects-form {
     margin-bottom: 40px;
 }
@@ -145,7 +176,9 @@ h1 {
 }
 
 
-/* add.html PAGE */
+/* ====================
+ ADD STUDENTS & SUBJECTS - add.html 
+======================= */
 .text-area {
     display: block;
 }
@@ -226,29 +259,3 @@ h1 {
     color: #FFFFFF;
 }
 
-/* BUTTONS */
-.btn-delete {
-    background-color: #521450;
-    color: #FFFFFF;
-}
-
-.btn-details {
-    background-color: #832080;
-    color: #FFFFFF; 
-}
-
-.btn-update {
-    background-color: #AA50CC;
-    color: #FFFFFF;
-}
-
-.btn-add {
-    background-color: #17B890;
-    color: #FFFFFF;
-}
-
-#submit, #modal-add-btn {
-    background-color: #000;
-    text-transform: uppercase;
-    border: none;
-}
