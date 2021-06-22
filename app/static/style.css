@@ -11,17 +11,27 @@ body {
     font-weight: 300;
 }
 
+/* ====================
+ TYPOGRAPHY
+======================= */
 h1 {
     font-size: 40px;
     margin-top: 25px;
     margin-bottom: 35px;
 }
 
+a {
+    text-decoration:none;
+    color: #6354F7;
+    cursor: pointer;
+}
+
+a:hover, a:focus {
+    color: #872CA7;
+    text-decoration: none;
+}
 
 
-/* ====================
- TYPOGRAPHY
-======================= */
 .heading {
     font-family: "Zilla Slab", serif;
     font-size: 3.3rem;
