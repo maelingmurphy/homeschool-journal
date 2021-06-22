@@ -49,6 +49,10 @@ h1, h2, h3, h4 {
     font-size: 3.3rem;
 }
 
+.heading-sans-serif {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
 .subheading {
     font-family: 'Lexend Deca', sans-serif;
     font-size: 1.4rem;
@@ -258,6 +262,14 @@ h1, h2, h3, h4 {
     }
 
 }
+/* ====================
+ SIGN UP PAGE - register.html 
+======================= */
+.heading-sign-up {
+    font-size: 2rem;
+    text-align: center;
+}
+
 
 /* ====================
  HOME PAGE - index.html 
