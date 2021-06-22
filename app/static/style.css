@@ -47,8 +47,6 @@ a:hover, a:focus {
 ======================= */
 .container-no-nav {
     /* border: 2px solid pink; */
-    max-width: 500px;
-    margin: 0 auto;
     padding: 2em 1.5em;
 }
 
@@ -106,6 +104,8 @@ a:hover, a:focus {
 ======================= */
 .container-sign-in {
     width: 100%;  
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .header-sign-in {
@@ -188,6 +188,15 @@ a:hover, a:focus {
 @media screen and (min-width: 1000px) {
     body {
         background: #EBF6F2;
+    }
+
+    .container-sign-in {
+        display: flex;
+        border: 1px solid green;
+    }
+
+    .header-sign-in {
+        display: block;
     }
 
 }
