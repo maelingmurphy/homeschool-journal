@@ -5,44 +5,47 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-sign-in">
-        <header class="header-sign-in">
-            <h1 class="header-title">homeschool</br>journal</h1>
-            <p class="header-description">
-                An online tool to help you schedule lessons, log learning activities & more. 
-            </p>
-        </header>
-        <main class="content-sign-in">
-            <h1 class="heading heading-sign-in">Welcome back!</h1>
-            <p class="subheading">Sign in to Homeschool Journal</p>
-            <form class="form form-sign-in" action="" method="post" novalidate>
-                {{ form.csrf_token }}
-                <p>
-                    {{ form.username.label }}
-                    {{ form.username(size=32, class_='form-control input-field', placeholder='Enter username') }}
-                    {% for error in form.username.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
+    <div class="wrapper-sign-in">
+        <div class="container-sign-in">
+            <header class="header-sign-in">
+                <h1 class="header-title">homeschool</br>journal</h1>
+                <p class="header-description">
+                    An online tool to help you schedule lessons, log learning activities & more. 
                 </p>
-                <p>
-                    {{ form.password.label }}
-                    {{ form.password(size=32, class_='form-control input-field', placeholder='Enter password') }}
-                    {% for error in form.username.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-
-                <label class="checkbox" for="remember_me">
-                    {{ form.remember_me(class='checkbox__input') }}
-                    <div class="checkbox__box"></div>
-                    Remember Me
-                </label>
-                
-                <p>{{ form.submit(class_='btn btn-primary btn-sign-in', value='Sign In') }}</p>
-                
-            </form>
-            <p class="form-footer">Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a></p>
-        </main>
-    </div><!--close container-sign-in-->
+            </header>
+            <main class="content-sign-in">
+                <h1 class="heading heading-sign-in">Welcome back!</h1>
+                <p class="subheading">Sign in to Homeschool Journal</p>
+                <form class="form form-sign-in" action="" method="post" novalidate>
+                    {{ form.csrf_token }}
+                    <p>
+                        {{ form.username.label }}
+                        {{ form.username(size=32, class_='form-control input-field', placeholder='Enter username') }}
+                        {% for error in form.username.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.password.label }}
+                        {{ form.password(size=32, class_='form-control input-field', placeholder='Enter password') }}
+                        {% for error in form.username.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+    
+                    <label class="checkbox" for="remember_me">
+                        {{ form.remember_me(class='checkbox__input') }}
+                        <div class="checkbox__box"></div>
+                        Remember Me
+                    </label>
+                    
+                    <p>{{ form.submit(class_='btn btn-primary btn-sign-in', value='Sign In') }}</p>
+                    
+                </form>
+                <p class="form-footer">Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a></p>
+            </main>
+        </div><!--close container-sign-in-->
+    </div>
+  
     
 {% endblock %}

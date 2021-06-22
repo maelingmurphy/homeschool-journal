@@ -62,10 +62,7 @@ h1, h2, h3, h4 {
 /* ====================
  GENERAL LAYOUT
 ======================= */
-.container-no-nav {
-    /* border: 2px solid pink; */
-    padding: 2em 1.5em;
-}
+
 
 /* ====================
  FLASH MESSAGE STYLES
@@ -123,6 +120,7 @@ h1, h2, h3, h4 {
     width: 100%;  
     max-width: 500px;
     margin: 0 auto;
+    padding: 2em 1.5em;
 }
 
 .header-sign-in {
@@ -203,17 +201,17 @@ h1, h2, h3, h4 {
 
 /* media queries */
 @media screen and (min-width: 1180px) {
-    body {
+    .wrapper-sign-in {
         background: var(--bg-light);
         display: flex;
         justify-content: center;
         height: 100vh;
         align-items: center;
-
     }
   
     .container-sign-in {
         display: flex;
+        padding: 0;
         box-shadow: 0 3px 20px rgba(0,0,0,0.2);
         border-radius: 25px;
         max-width: 1000px;
@@ -229,7 +227,6 @@ h1, h2, h3, h4 {
         flex-direction: column;
         justify-content: center;
         color: var(--off-white);
-        /* max-width: 650px; */
         flex-grow: 1;
     }
 
