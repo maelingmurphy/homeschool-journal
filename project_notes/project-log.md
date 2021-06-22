@@ -9,23 +9,22 @@
 **Resources**
 
 ----------------------------------------------------------
-## February 14, 2021 
+## June 22, 2021 
 
 **Today's Progress**:
-
-**Thoughts**: 
+- Made figma design for sign in page (mobile & desktop)
+- Started CSS styling of sign in page (mobile view)
+- Learned how to style checkboxes with CSS (not straightforward: involves hiding the default input checkbox and creating your own box & checkmark)
 
 **Resources**
-
+- [How to create a custom checkbox with pure HTML + CSS](https://www.youtube.com/watch?v=xNtT8NGinxU )
 ----------------------------------------------------------
 ## February 13, 2021 (Day 33 #100DaysofCode)
 
 **Today's Progress**:
 - Scrimba's CSS Crash Course:
     - `background-image` property
-**Thoughts**: 
 
-**Resources**
 
 ----------------------------------------------------------
 ## February 12, 2021 (Day 32 #100DaysofCode)
@@ -33,9 +32,6 @@
 **Today's Progress**:
 - Scrimba's CSS Crash Course:
     - Block element content wrapping: https://codepen.io/maelingcodes/pen/GRNrRaG
-**Thoughts**: 
-
-**Resources**
 
 ----------------------------------------------------------
 ## February 11, 2021 (Day 31 #100DaysofCode)
