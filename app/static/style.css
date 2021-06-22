@@ -210,7 +210,8 @@ h1, h2, h3, h4 {
   
     .container-sign-in {
         display: flex;
-        /* border: 1px solid green; */
+        box-shadow: 0 3px 20px rgba(0,0,0,0.2);
+        border-radius: 25px;
         max-width: 1000px;
         margin: 3em 2.5em;
     }
@@ -218,6 +219,7 @@ h1, h2, h3, h4 {
     .header-sign-in {
         display: block;
         background: var(--bg-dark);
+        border-radius: 25px 0 0 25px;
         padding: 0 3.5em;
         display: flex;
         flex-direction: column;
@@ -229,6 +231,7 @@ h1, h2, h3, h4 {
 
     .content-sign-in {
         background: var(--off-white);
+        border-radius: 0 25px 25px 0;
         display: flex;
         flex-direction: column;
         padding: 2em 3.8em;
