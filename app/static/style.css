@@ -1,20 +1,9 @@
-*, *:before, *:after {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #FFF;
-    color: #000;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-}
 /* ====================
  CSS VARIABLES
 ======================= */
 :root {
     --black: #131313;
+    --off-white: hsla(240, 7%, 100%, 1);
     --bg-light: #EBF6F2;
     --bg-dark: #167973;
     --link-color: #6354F7;
@@ -22,6 +11,20 @@ body {
     --highlight-color: #6354F7;
 
 }
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--off-white);
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
 /* ====================
  TYPOGRAPHY
 ======================= */
