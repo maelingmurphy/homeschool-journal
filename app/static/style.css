@@ -136,7 +136,7 @@ a:hover, a:focus {
 .checkbox__box {
     width: 1.25em;
     height: 1.25em;
-    border: 2px solid #CCC;
+    border: 2px solid #ced4da;
     border-radius: 3px;
     display: flex;
     align-items: center;
@@ -155,8 +155,8 @@ a:hover, a:focus {
 
 /* when checkbox input is checked it will select checkbox__box element (sibling after checkbox) */
 .checkbox__input:checked + .checkbox__box {
-    background: #2266dc;
-    border-color: #2266dc;
+    background: #6354F7;
+    border-color: #6354F7;
     transition: background 150ms, border-color 150ms;
 }
 
