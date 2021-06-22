@@ -46,9 +46,9 @@ a:hover, a:focus {
 }
 
 
-.heading {
+h1, h2, h3, h4 {
     font-family: "Zilla Slab", serif;
-    font-size: 3.3rem;
+
 }
 
 .subheading {
@@ -124,6 +124,10 @@ a:hover, a:focus {
 
 .header-sign-in {
     display: none;
+}
+
+.heading-sign-in {
+    font-size: 3.3rem;
 }
 
 .heading-sign-in, .subheading {
@@ -218,10 +222,26 @@ a:hover, a:focus {
     .header-sign-in {
         display: block;
         background: var(--bg-dark);
+        padding: 0 3.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--off-white);
     }
 
     .content-sign-in {
         background: var(--off-white);
+        flex-shrink: 0;
+    }
+
+    .header-title {
+        font-size: 4rem;
+    }
+
+    .header-description {
+        font-size: 1.6rem;
+        font-weight: 200;
+        margin-top: 1.3em;
     }
 
 }
