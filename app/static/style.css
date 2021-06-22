@@ -180,6 +180,14 @@ a:hover, a:focus {
     margin-top: 1.5em;
 }
 
+/* media queries */
+@media screen and (min-width: 1000px) {
+    body {
+        background: #EBF6F2;
+    }
+
+}
+
 /* ====================
  HOME PAGE - index.html 
 ======================= */
