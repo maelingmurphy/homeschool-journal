@@ -101,11 +101,6 @@ a:hover, a:focus {
     color: #FFFFFF;
 }
 
-#submit, #modal-add-btn {
-    background-color: #000;
-    border: none;
-}
-
 /* ====================
  SIGN IN PAGE - login.html 
 ======================= */
@@ -171,7 +166,14 @@ a:hover, a:focus {
 }
 
 .btn-sign-in {
+    border: none;
     width: 100%;
+    background: #131313;
+}
+
+.btn-sign-in:hover, .btn-sign-in:focus {
+    background: #167973;
+    color: #FFF;
 }
 
 .form-footer {
