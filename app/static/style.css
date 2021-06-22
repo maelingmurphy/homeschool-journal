@@ -108,6 +108,10 @@ a:hover, a:focus {
     width: 100%;  
 }
 
+.header-sign-in {
+    display: none;
+}
+
 .heading-sign-in, .subheading {
     text-align: center;
 }
