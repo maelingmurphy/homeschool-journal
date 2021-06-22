@@ -134,7 +134,7 @@ h1, h2, h3, h4 {
 }
 
 .input-field:focus { 
-    border-left: 6px solid var(--highlight-color);
+    outline: 1px solid var(--highlight-color);
 }
 
 /* custom checkbox styling */
