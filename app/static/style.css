@@ -188,11 +188,17 @@ a:hover, a:focus {
 @media screen and (min-width: 1000px) {
     body {
         background: #EBF6F2;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+
     }
 
     .container-sign-in {
         display: flex;
         border: 1px solid green;
+        max-width: 820px;
     }
 
     .header-sign-in {
