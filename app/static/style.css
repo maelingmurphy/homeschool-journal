@@ -52,6 +52,7 @@ h1, h2, h3, h4 {
 }
 
 .subheading {
+    font-family: 'Lexend Deca', sans-serif;
     font-size: 1.4rem;
     font-weight: 400;
 }
