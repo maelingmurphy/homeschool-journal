@@ -220,6 +220,10 @@ a:hover, a:focus {
         background: var(--bg-dark);
     }
 
+    .content-sign-in {
+        background: var(--off-white);
+    }
+
 }
 
 /* ====================
