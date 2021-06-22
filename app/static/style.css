@@ -160,6 +160,10 @@ h1 {
     transition: transform 150ms;
 }
 
+.btn-sign-in {
+    width: 100%;
+}
+
 /* ====================
  HOME PAGE - index.html 
 ======================= */
