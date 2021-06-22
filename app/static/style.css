@@ -45,6 +45,10 @@ h1, h2, h3, h4 {
 
 }
 
+.heading {
+    font-size: 3.3rem;
+}
+
 .subheading {
     font-family: 'Lexend Deca', sans-serif;
     font-size: 1.4rem;
@@ -119,10 +123,6 @@ h1, h2, h3, h4 {
 
 .header-sign-in {
     display: none;
-}
-
-.heading-sign-in {
-    font-size: 3.3rem;
 }
 
 .heading-sign-in, .subheading {
