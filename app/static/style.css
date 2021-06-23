@@ -69,9 +69,39 @@ h1, h2, h3, h4 {
     padding: 2em 1.5em;
 }
 
+.header-form {
+    display: none;
+}
+
+@media screen and (min-width: 1180px) {
+    
+    .container-form {
+        display: flex;
+        padding: 0;
+        box-shadow: 0 3px 20px rgba(0,0,0,0.2);
+        border-radius: 25px;
+        max-width: 1000px;
+        margin: 3em 2.5em;
+    }
+
+    .header-form {
+        display: block;
+        background: var(--bg-dark);
+        border-radius: 25px 0 0 25px;
+        padding: 0 3.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--off-white);
+        flex-grow: 1;
+    }
+}
+
 .form {
     margin-top: 3.44em;
 }
+
+
 
 /* ====================
  FLASH MESSAGE STYLES
@@ -136,11 +166,6 @@ h1, h2, h3, h4 {
 /* ====================
  SIGN IN PAGE - login.html 
 ======================= */
-
-.header-sign-in {
-    display: none;
-}
-
 .heading-sign-in, .subheading {
     text-align: center;
 }
@@ -207,28 +232,7 @@ h1, h2, h3, h4 {
         height: 100vh;
         align-items: center;
     }
-  
-    .container-sign-in {
-        display: flex;
-        padding: 0;
-        box-shadow: 0 3px 20px rgba(0,0,0,0.2);
-        border-radius: 25px;
-        max-width: 1000px;
-        margin: 3em 2.5em;
-    }
-
-    .header-sign-in {
-        display: block;
-        background: var(--bg-dark);
-        border-radius: 25px 0 0 25px;
-        padding: 0 3.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: var(--off-white);
-        flex-grow: 1;
-    }
-
+    
     .content-sign-in {
         background: var(--off-white);
         border-radius: 0 25px 25px 0;
