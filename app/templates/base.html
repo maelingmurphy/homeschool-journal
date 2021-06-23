@@ -26,11 +26,15 @@
     <body>
       <!-- My Custom Header & Navbar -->
       <header>
-        <button class="navbar-toggle" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-        <a class="navbar-logo" href="{{ url_for('index') }}">homeschool journal</a>
-        <i class="fas fa-user-circle"></i>
+        <nav class="navbar-custom">
+          <button class="navbar-toggle" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a class="navbar-logo" href="{{ url_for('index') }}">homeschool journal</a>
+          <button class="navbar-profile">
+            <i class="fas fa-user-circle"></i>
+          </button>
+        </nav> 
       </header>
       
       
