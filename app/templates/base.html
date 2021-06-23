@@ -24,7 +24,14 @@
     </head>
     <title>{% block title %} {% endblock %}</title>
     <body>
-      <!-- My Custom Navbar -->
+      <!-- My Custom Header & Navbar -->
+      <header>
+        <button class="navbar-toggle" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a class="navbar-logo" href="{{ url_for('index') }}">homeschool journal</a>
+        <i class="fas fa-user-circle"></i>
+      </header>
       
       
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -65,7 +72,7 @@
       {% endif %}
       {% endwith %}  
 
-      
+
       <div class ="container">
           {% block content %} {% endblock %}
       </div>
