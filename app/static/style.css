@@ -195,6 +195,11 @@ h1, h2, h3, h4 {
     display: none;
 }
 
+/* custom navbar styles */
+.navbar-custom {
+    padding: 2.7em 1.5em;
+}
+
 
 /* ====================
  SIGN IN PAGE - login.html 
