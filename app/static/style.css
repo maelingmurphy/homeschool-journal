@@ -211,6 +211,10 @@ h1, h2, h3, h4 {
     color: #131313;
 }
 
+.navbar-logo-text:hover, .navbar-logo:focus {
+    color: #167973;
+}
+
 .navbar-btn {
     border: unset;
     background: unset;
