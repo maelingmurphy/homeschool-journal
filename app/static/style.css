@@ -102,6 +102,12 @@ h1, h2, h3, h4 {
 /* ====================
  BUTTON STYLES
 ======================= */
+.btn-form {
+    border: none;
+    width: 100%;
+    background: var(--black);
+}
+
 .btn-delete {
     background-color: #521450;
     color: #FFFFFF;
@@ -181,12 +187,6 @@ h1, h2, h3, h4 {
 .checkbox__input:checked + .checkbox__box::after {
     transform: scale(1);
     transition: transform 150ms;
-}
-
-.btn-sign-in {
-    border: none;
-    width: 100%;
-    background: var(--black);
 }
 
 .btn-sign-in:hover, .btn-sign-in:focus {
