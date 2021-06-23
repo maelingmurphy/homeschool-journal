@@ -62,7 +62,9 @@ h1, h2, h3, h4 {
 /* ====================
  GENERAL LAYOUT
 ======================= */
-
+.form {
+    margin-top: 3.44em;
+}
 
 /* ====================
  FLASH MESSAGE STYLES
@@ -129,10 +131,6 @@ h1, h2, h3, h4 {
 
 .heading-sign-in, .subheading {
     text-align: center;
-}
-
-.form-sign-in {
-    margin-top: 3.44em;
 }
 
 .input-field:focus { 
