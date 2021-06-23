@@ -75,6 +75,14 @@ h1, h2, h3, h4 {
 
 @media screen and (min-width: 1180px) {
     
+    .wrapper-form {
+        background: var(--bg-light);
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+    }
+    
     .container-form {
         display: flex;
         padding: 0;
@@ -232,7 +240,7 @@ h1, h2, h3, h4 {
         height: 100vh;
         align-items: center;
     }
-    
+
     .content-sign-in {
         background: var(--off-white);
         border-radius: 0 25px 25px 0;
