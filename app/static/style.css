@@ -188,6 +188,15 @@ h1, h2, h3, h4 {
 }
 
 /* ====================
+ HEADER & NAV 
+======================= */
+/* temporarily hide bootstrap navbar */
+.navbar {
+    display: none;
+}
+
+
+/* ====================
  SIGN IN PAGE - login.html 
 ======================= */
 .heading-sign-in, .subheading {
