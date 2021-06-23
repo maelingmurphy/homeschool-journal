@@ -212,6 +212,11 @@ h1, h2, h3, h4 {
 .navbar-btn {
     border: unset;
     background: unset;
+    font-size: 1.5rem;
+}
+
+.navbar-btn:hover, .navbar-btn:focus {
+    color: #FE6146
 }
 
 
