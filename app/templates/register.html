@@ -15,6 +15,8 @@
                 <h1 class="heading-sans-serif heading-sign-up">Sign up for</br> Homeschool Journal</h1>
                 <form class="form" action="" method="post" novalidate>
                     {{ form.csrf_token }}
+                    <p class="form-alert"><strong>*This is a mock site. Please do not enter real email or password information. You can test the site with non-sensitive mock information*</strong></p>
+
                     <div class="form-group">
                         {{ form.username.label }}
                         {{ form.username(size=32, class_="form-control input-field" )}}
@@ -44,6 +46,8 @@
                         {% endfor %}
                     </div>
                     <p>{{ form.submit(class_="btn btn-primary btn-form") }}</p>
+                    <p class="form-footer">Already a member? <a href="{{ url_for('login') }}">Sign In</a></p>
+
                 </form>
             </main>
         </div><!--close container-sign-up-->

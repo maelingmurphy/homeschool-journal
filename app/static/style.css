@@ -9,7 +9,7 @@
     --link-color: #6354F7;
     --link-hover-color: #872CA7;
     --highlight-color: #6354F7;
-
+    --alert-color: rgba(196, 61, 55, 0.3);
 }
 
 *, *:before, *:after {
@@ -274,6 +274,14 @@ h1, h2, h3, h4 {
 
 .btn-form {
     margin-top: 1.4em;
+}
+
+.form-alert {
+    padding: 0.6em 0.4em;
+    background: var(--alert-color);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1.2em;
 }
 
 
