@@ -108,6 +108,11 @@ h1, h2, h3, h4 {
     background: var(--black);
 }
 
+.btn-form:hover, .btn-form:focus {
+    background: var(--bg-dark);
+    color: #FFF;
+}
+
 .btn-delete {
     background-color: #521450;
     color: #FFFFFF;
@@ -189,11 +194,6 @@ h1, h2, h3, h4 {
     transition: transform 150ms;
 }
 
-.btn-sign-in:hover, .btn-sign-in:focus {
-    background: var(--bg-dark);
-    color: #FFF;
-}
-
 .form-footer {
     margin-top: 1.5em;
 }
@@ -264,6 +264,10 @@ h1, h2, h3, h4 {
 .heading-sign-up {
     font-size: 2rem;
     text-align: center;
+}
+
+.btn-form {
+    margin-top: 1.4em;
 }
 
 
