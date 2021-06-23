@@ -24,73 +24,76 @@
     </head>
     <title>{% block title %} {% endblock %}</title>
     <body>
-      <!-- My Custom Header & Navbar -->
-      <header>
-        <nav class="navbar-custom">
-          <button class="navbar-btn navbar-toggle" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+      <div class="container-main">
+        <!-- My Custom Header & Navbar -->
+        <header>
+          <nav class="navbar-custom">
+            <button class="navbar-btn navbar-toggle" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <h1><a class="navbar-logo" href="{{ url_for('index') }}">homeschool journal</a></h1>
+            <button class="navbar-btn navbar-profile">
+              <i class="fas fa-user-circle"></i>
+            </button>
+          </nav> 
+        </header>
+        
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="{{ url_for('index') }}">Homeschool Journal</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-logo" href="{{ url_for('index') }}">homeschool journal</a>
-          <button class="navbar-btn navbar-profile">
-            <i class="fas fa-user-circle"></i>
-          </button>
-        </nav> 
-      </header>
-      
-      
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index') }}">Homeschool Journal</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('log') }}">Activities</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for ('attend') }}">Attendance</a>
-            </li> 
-            <li class="nav-item">
-              {% if current_user.is_anonymous %}
-              <a class="nav-link" href="{{ url_for ('login') }}">Log In</a>
-              {% else %}
-              <a class="nav-link" href="{{ url_for ('logout') }}">Log Out</a>
-              {% endif %}
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for ('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
-            </li>
-          </ul>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('log') }}">Activities</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for ('attend') }}">Attendance</a>
+              </li> 
+              <li class="nav-item">
+                {% if current_user.is_anonymous %}
+                <a class="nav-link" href="{{ url_for ('login') }}">Log In</a>
+                {% else %}
+                <a class="nav-link" href="{{ url_for ('logout') }}">Log Out</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for ('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+          {% for category, message in messages %}
+          <div class="{{ category }}" id="flask-flash">
+            {{ message }}
+            <button type="button" class="close" onclick="this.parentElement.style.display='none'"><i class="far fa-times-circle"></i></button>
+          </div>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}  
+
+
+        <div class ="container">
+            {% block content %} {% endblock %}
         </div>
-      </nav>
-      <!-- Display Flash Messages -->
-      {% with messages = get_flashed_messages(with_categories=True) %}
-      {% if messages %}
-        {% for category, message in messages %}
-        <div class="{{ category }}" id="flask-flash">
-          {{ message }}
-          <button type="button" class="close" onclick="this.parentElement.style.display='none'"><i class="far fa-times-circle"></i></button>
-        </div>
-        {% endfor %}
-      {% endif %}
-      {% endwith %}  
 
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- My Custom JS -->
+        <script src="{{ url_for('static', filename='app.js') }}"></script>
 
-      <div class ="container">
-          {% block content %} {% endblock %}
-      </div>
-
-      <!-- Bootstrap JS Bundle -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      <!-- My Custom JS -->
-      <script src="{{ url_for('static', filename='app.js') }}"></script>
-
-      <!-- Bootstrap Table Filter Control Extensions -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
-    
+        <!-- Bootstrap Table Filter Control Extensions -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+      
+      </div><!--close container-main-->   
     </body>
 </html>

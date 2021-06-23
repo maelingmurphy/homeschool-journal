@@ -202,6 +202,13 @@ h1, h2, h3, h4 {
     justify-content: space-between;
 }
 
+.navbar-logo {
+    white-space: pre-line;
+    font-size: 2rem;
+    text-align: center;
+    color: #131313;
+}
+
 .navbar-btn {
     border: unset;
     background: unset;
