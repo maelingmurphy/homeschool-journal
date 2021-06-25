@@ -254,6 +254,8 @@ h1, h2, h3, h4 {
 
 .navbar-list {
     margin-top: 4.75em;
+    padding: 0;
+    list-style-type: none;
 }
 
 .nav-item--link {
