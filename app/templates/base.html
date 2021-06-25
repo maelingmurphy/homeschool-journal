@@ -35,18 +35,18 @@
               <button class="navbar-icon navbar-icon--close" type="button" aria-controls="navbarPanel">
                 <i class="fas fa-times"></i>
               </button>
-              <ul class="navbar-nav">
+              <ul class="navbar-list">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('log') }}"><i class="fas fa-star menu-icon"></i>Activities</a>
+                  <a class="nav-item--link" href="{{ url_for('log') }}"><i class="fas fa-star menu-icon"></i>Activities</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for ('attend') }}"><i class="fas fa-calendar menu-icon"></i>Attendance</a>
+                  <a class="nav-item--link" href="{{ url_for ('attend') }}"><i class="fas fa-calendar menu-icon"></i>Attendance</a>
                 </li> 
                 <li class="nav-item">
                   {% if current_user.is_anonymous %}
-                  <a class="nav-link nav-link--sign" href="{{ url_for ('login') }}">Sign In</a>
+                  <a class="nav-item--link nav-link--sign" href="{{ url_for ('login') }}">Sign In</a>
                   {% else %}
-                  <a class="nav-link nav-link--sign" href="{{ url_for ('logout') }}">Sign Out</a>
+                  <a class="nav-item--link nav-link--sign" href="{{ url_for ('logout') }}">Sign Out</a>
                   {% endif %}
                 </li>
               </ul>

@@ -252,10 +252,16 @@ h1, h2, h3, h4 {
     margin-left: 0.6em;
 }
 
-.navbar-nav {
+.navbar-list {
     margin-top: 4.75em;
 }
 
+.nav-item--link {
+    display: block;
+    width: 100%;
+    padding: .6em 1.3em;
+    background: pink;
+}
 
 /* ====================
  SIGN IN PAGE - login.html 
