@@ -219,7 +219,7 @@ h1, h2, h3, h4 {
 .navbar-btn {
     border: unset;
     background: unset;
-    font-size: 1.5rem;
+    font-size: 2.3rem;
 }
 
 .navbar-btn:hover, .navbar-btn:focus {
