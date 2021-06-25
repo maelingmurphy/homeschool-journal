@@ -243,11 +243,13 @@ h1, h2, h3, h4 {
     height: 100vh;
     width: 40vw;
     max-width: 200px;
+    padding: 1.2em 0.6em;
 }
 
 .navbar-icon--close {
     font-size: 2em;
     padding: 0;
+    margin-left: 0.6em;
 }
 
 
