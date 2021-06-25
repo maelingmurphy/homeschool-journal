@@ -252,6 +252,10 @@ h1, h2, h3, h4 {
     margin-left: 0.6em;
 }
 
+.navbar-nav {
+    margin-top: 4.75em;
+}
+
 
 /* ====================
  SIGN IN PAGE - login.html 
