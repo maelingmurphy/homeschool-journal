@@ -1,4 +1,26 @@
-// Add the correct number of student name input fields based on user's registration form input on register.html
+/* SLIDER NAV MENU - MOBILE */
+
+// Get elements from the DOM 
+const navbarPanel = document.getElementById('navbarPanel');
+const navbarClose = document.getElementById('navbarClose');
+const navbarOpen = document.getElementById('navbarOpen') ; 
+
+// test
+console.log(navbarPanel);
+console.log(navbarOpen);
+console.log(navbarClose);
+
+
+// add event listeners
+navbarOpen.addEventListener('click', () => navbarPanel.style.transform = 'translateX(0)');
+navbarClose.addEventListener('click', () => navbarPanel.style.transform = 'translateX(-100%)');
+
+
+
+/* ADD STUDENT & SUBJECTS - register.html */ 
+
+/* Add the correct number of student name input fields based on 
+user's registration form input on register.html */
 
 // Get necessary elements from the DOM
 

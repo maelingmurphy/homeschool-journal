@@ -247,6 +247,8 @@ h1, h2, h3, h4 {
     height: 100vh;
     padding: 1.2em 0.6em;
     box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    transform: translateX(-100%);
+    transition: transform .3s ease-in-out;
 }
 
 .navbar-icon--close {
