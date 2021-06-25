@@ -44,9 +44,9 @@
                 </li> 
                 <li class="nav-item">
                   {% if current_user.is_anonymous %}
-                  <a class="nav-link" href="{{ url_for ('login') }}">Log In</a>
+                  <a class="nav-link" href="{{ url_for ('login') }}">Sign In</a>
                   {% else %}
-                  <a class="nav-link" href="{{ url_for ('logout') }}">Log Out</a>
+                  <a class="nav-link" href="{{ url_for ('logout') }}">Sign Out</a>
                   {% endif %}
                 </li>
               </ul>
