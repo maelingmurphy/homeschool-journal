@@ -216,13 +216,16 @@ h1, h2, h3, h4 {
     color: #167973;
 }
 
-.navbar-btn {
+.navbar-icon {
+    background: #131313;
+    color: #131313;
     border: unset;
     background: unset;
     font-size: 2.3rem;
+    border: 1px solid pink;
 }
 
-.navbar-btn:hover, .navbar-btn:focus {
+.navbar-icon:hover, .navbar-icon:focus {
     color: #FE6146
 }
 
