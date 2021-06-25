@@ -201,6 +201,7 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .navbar-logo {
@@ -228,6 +229,10 @@ h1, h2, h3, h4 {
 
 .navbar-icon:hover, .navbar-icon:focus {
     color: #FE6146
+}
+
+.navbar-panel {
+    position: absolute;
 }
 
 
