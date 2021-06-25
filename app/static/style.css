@@ -258,6 +258,10 @@ h1, h2, h3, h4 {
     list-style-type: none;
 }
 
+.nav-item {
+    margin-bottom: 0.3em;
+}
+
 .nav-item--link {
     display: block;
     width: 100%;
