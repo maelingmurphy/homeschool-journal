@@ -12,6 +12,7 @@
     --highlight-color: #6354F7;
     --btn-bg-color-light: #C7C4E3;
     --alert-color: rgba(196, 61, 55, 0.3);
+    --header-icon-hover-color: #872CA7;
 }
 
 *, *:before, *:after {
@@ -234,7 +235,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar-icon:hover, .navbar-icon:focus {
-    color: #FE6146
+    color: var(--header-icon-hover-color);
 }
 
 .navbar-panel {
