@@ -37,10 +37,10 @@
               </button>
               <ul class="navbar-list">
                 <li class="nav-item">
-                  <a class="nav-item--link" href="{{ url_for('log') }}"><i class="fas fa-star menu-icon"></i>Activities</a>
+                  <a class="nav-item--link" href="{{ url_for('log') }}"><i class="fas fa-fw fa-star menu-icon"></i>Activities</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-item--link" href="{{ url_for ('attend') }}"><i class="fas fa-calendar menu-icon"></i>Attendance</a>
+                  <a class="nav-item--link" href="{{ url_for ('attend') }}"><i class="fas fa-fw fa-calendar menu-icon"></i>Attendance</a>
                 </li> 
                 <li class="nav-item">
                   {% if current_user.is_anonymous %}

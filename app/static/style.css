@@ -243,8 +243,6 @@ h1, h2, h3, h4 {
     top: 0;
     left: 0;
     height: 100vh;
-    width: 40vw;
-    max-width: 200px;
     padding: 1.2em 0.6em;
 }
 
@@ -266,6 +264,7 @@ h1, h2, h3, h4 {
     padding: .6em 1.3em;
     color: var(--black);
     font-weight: 600;
+    font-size: 1.125rem;
 }
 
 .nav-item--link:hover, .nav-item--link:focus {
@@ -274,7 +273,8 @@ h1, h2, h3, h4 {
 }
 
 .menu-icon {
-    font-size: 1.4em; 
+    font-size: 1.4em;
+    margin-right: 1.125em;
 }
 
 /* ====================
