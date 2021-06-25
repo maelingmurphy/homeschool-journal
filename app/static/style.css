@@ -5,6 +5,7 @@
     --black: #131313;
     --off-white: hsla(240, 7%, 100%, 1);
     --bg-light: #EBF6F2;
+    --bg-navbar: #DEDBFE;
     --bg-dark: #167973;
     --link-color: #6354F7;
     --link-hover-color: #872CA7;
@@ -239,11 +240,12 @@ h1, h2, h3, h4 {
 .navbar-panel {
     position: absolute;
     z-index: 1;
-    background: var(--off-white);
+    background: var(--bg-navbar);
     top: 0;
     left: 0;
     height: 100vh;
     padding: 1.2em 0.6em;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
 }
 
 .navbar-icon--close {
