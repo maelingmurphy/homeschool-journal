@@ -9,6 +9,7 @@
     --link-color: #6354F7;
     --link-hover-color: #872CA7;
     --highlight-color: #6354F7;
+    --btn-bg-color-light: #D7ECE5;
     --alert-color: rgba(196, 61, 55, 0.3);
 }
 
@@ -237,6 +238,7 @@ h1, h2, h3, h4 {
 
 .navbar-panel {
     position: absolute;
+    z-index: 1;
     background: gray;
     top: 0;
     left: 0;
@@ -262,7 +264,11 @@ h1, h2, h3, h4 {
     display: block;
     width: 100%;
     padding: .6em 1.3em;
-    background: pink;
+}
+
+.nav-item--link:hover, .nav-item--link:focus {
+    background: var(--btn-bg-color-light);
+    border-radius: 0.4em;
 }
 
 /* ====================
