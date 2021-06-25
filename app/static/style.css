@@ -264,11 +264,17 @@ h1, h2, h3, h4 {
     display: block;
     width: 100%;
     padding: .6em 1.3em;
+    color: var(--black);
+    font-weight: 600;
 }
 
 .nav-item--link:hover, .nav-item--link:focus {
     background: var(--btn-bg-color-light);
     border-radius: 0.4em;
+}
+
+.menu-icon {
+    font-size: 1.4em; 
 }
 
 /* ====================
