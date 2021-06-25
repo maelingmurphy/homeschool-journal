@@ -239,7 +239,7 @@ h1, h2, h3, h4 {
 .navbar-panel {
     position: absolute;
     z-index: 1;
-    background: gray;
+    background: var(--off-white);
     top: 0;
     left: 0;
     height: 100vh;
@@ -273,6 +273,7 @@ h1, h2, h3, h4 {
 
 .nav-item--link:hover, .nav-item--link:focus {
     background: var(--btn-bg-color-light);
+    color: var(--black);
     border-radius: 0.4em;
 }
 
