@@ -58,34 +58,6 @@
           </nav> 
         </header>
         
-        
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="{{ url_for('index') }}">Homeschool Journal</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('log') }}">Activities</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for ('attend') }}">Attendance</a>
-              </li> 
-              <li class="nav-item">
-                {% if current_user.is_anonymous %}
-                <a class="nav-link" href="{{ url_for ('login') }}">Log In</a>
-                {% else %}
-                <a class="nav-link" href="{{ url_for ('logout') }}">Log Out</a>
-                {% endif %}
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for ('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
         <!-- Display Flash Messages -->
         {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}
