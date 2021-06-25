@@ -282,6 +282,21 @@ h1, h2, h3, h4 {
     margin-right: 1.125em;
 }
 
+.nav-link--sign {
+    margin: 3.5em auto;
+    text-align: center;
+    background: var(--black);
+    color: #FFF;
+    border-radius: 0.4em;   
+    border: 2px solid var(--black);
+    width: 70%;
+}
+
+.nav-link--sign:hover, .nav-link--sign:focus {
+    border: 2px solid var(--black);
+    background: none;
+}
+
 /* ====================
  SIGN IN PAGE - login.html 
 ======================= */
