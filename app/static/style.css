@@ -7,6 +7,7 @@
     --bg-light: #EBF6F2;
     --bg-navbar: #DEDBFE;
     --bg-dark: #167973;
+    --content-bg-light: #D7ECE5;
     --link-color: #6354F7;
     --link-hover-color: #872CA7;
     --highlight-color: #6354F7;
@@ -17,6 +18,11 @@
 
 *, *:before, *:after {
     box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -400,8 +406,21 @@ h1, h2, h3, h4 {
  HOME PAGE - index.html 
 ======================= */
 .date-wrapper {
-
+    text-align: center;
+    padding: 0.625em 0.5em;
+    background: var(--content-bg-light);
+    border-radius: 1.1em;
 }
+
+.date-title {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.date-info {
+    font-size: 1.4rem;
+}
+
 #add-students-form, #add-subjects-form {
     margin-bottom: 40px;
 }
