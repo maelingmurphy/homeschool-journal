@@ -8,9 +8,11 @@
     --bg-navbar: #DEDBFE;
     --bg-dark: #167973;
     --content-bg-light: #D7ECE5;
+    --attendance-bg:#FBE6CC;
     --link-color: #6354F7;
     --link-hover-color: #872CA7;
     --highlight-color: #6354F7;
+    --btn-bright: #FE6146;
     --btn-bg-color-light: #C7C4E3;
     --alert-color: rgba(196, 61, 55, 0.3);
     --header-icon-hover-color: #872CA7;
@@ -421,6 +423,61 @@ h1, h2, h3, h4 {
 .date-info {
     font-size: 1.4rem;
 }
+/* Log Attendance */
+.attendance {
+    background: var(--attendance-bg);
+    margin: 3.125em auto;
+    padding: 1.75em 0em;
+    border-radius: 1.1em;
+}
+
+.attendance__title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.attendance__form {
+    width: 100%;
+    margin: 2.375em auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid green; */
+}
+
+.attendance__fields {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.4em;
+    padding: 0 1.5em;
+}
+
+.attendance__field--date {
+    flex-basis: 40%;
+    margin-right: 1em;
+}
+
+.attendance__field--student {
+    flex-grow: 1;
+}
+
+.attendance__field-label {
+    text-align: left;
+    font-size: 1.125rem;
+}
+
+
+.attendance__btn {
+    text-align: center;
+    background: var(--btn-bright);
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0.5em 1.5em;
+}
+
 
 #add-students-form, #add-subjects-form {
     margin-bottom: 40px;
@@ -489,9 +546,6 @@ h1, h2, h3, h4 {
 .profile-flex {
     display: flex;
     margin-top: 50px;
-}
-
-.profile-flex-item {
 }
 
 .profile-heading {
