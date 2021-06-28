@@ -13,6 +13,7 @@
     --link-hover-color: #872CA7;
     --highlight-color: #6354F7;
     --btn-bright: #FE6146;
+    --btn-bright-hover: #C84832;
     --btn-bg-color-light: #C7C4E3;
     --alert-color: rgba(196, 61, 55, 0.3);
     --header-icon-hover-color: #872CA7;
@@ -476,6 +477,11 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
     font-weight: bold;
     padding: 0.5em 1.5em;
+}
+
+.attendance__btn:hover, .attendance__btn:focus {
+    background: #C84832;
+    color: #FFF;
 }
 
 #add-students-form, #add-subjects-form {
