@@ -453,6 +453,7 @@ h1, h2, h3, h4 {
     justify-content: space-between;
     margin-bottom: 1.4em;
     padding: 0 1.5em;
+   
 }
 
 .attendance__field--date {
@@ -460,9 +461,48 @@ h1, h2, h3, h4 {
     margin-right: 0.5em;
 }
 
+.attendance__field-input {
+    width: 100%;
+    border: unset;
+    padding: 0.8em 1.2em;
+    border-radius: 0.5em;
+}
+
 .attendance__field--student {
     flex-basis: 50%;
     margin-left: 0.5em;
+}
+
+.attendance__student-input {
+    position: relative;
+}
+
+.attendance__field-input--student {
+    padding-right: 2em;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.attendance__dropdown {
+    display: block;
+    background: transparent;
+    height: 100%;
+    width: 2rem;
+    position: absolute;
+    top: 1.3em;
+    right: 0.5em;
+    pointer-events: none;
+}
+
+.attendance__dropdown:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0.7em solid transparent;
+    border-right: 0.7em solid transparent;
+    border-top: 0.7em solid #131313;
 }
 
 .attendance__field-label {
@@ -483,6 +523,10 @@ h1, h2, h3, h4 {
     background: #C84832;
     color: #FFF;
 }
+
+
+
+/* Initial add students & subjects form for new user */
 
 #add-students-form, #add-subjects-form {
     margin-bottom: 40px;
