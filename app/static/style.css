@@ -539,7 +539,7 @@ h1, h2, h3, h4 {
 }
 
 /* Scheduled Activities */
-.activities__form-container {
+.activities {
     border: 3px solid #131313;
     border-radius: 0.5em;
     padding: 3em 1.5em;
