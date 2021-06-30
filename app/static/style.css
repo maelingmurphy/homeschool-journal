@@ -17,6 +17,7 @@
     --btn-bg-color-light: #C7C4E3;
     --alert-color: rgba(196, 61, 55, 0.3);
     --header-icon-hover-color: #872CA7;
+    --border-light: #D7DADD;
 }
 
 *, *:before, *:after {
@@ -87,6 +88,14 @@ h1, h2, h3, h4 {
 
 .form {
     margin-top: 3.44em;
+}
+
+.form-select--light {
+    display: block;
+    border: unset;
+    padding: 0.8em 1.2em;
+    border: 1px solid var(--border-light);
+    border-radius: 0.5em;   
 }
 
 
@@ -168,6 +177,10 @@ h1, h2, h3, h4 {
 /* ====================
  BUTTON STYLES
 ======================= */
+.btn {
+    border: unset;
+}
+
 .btn-form {
     border: none;
     width: 100%;
@@ -466,6 +479,7 @@ h1, h2, h3, h4 {
     border: unset;
     padding: 0.8em 1.2em;
     border-radius: 0.5em;
+    cursor: pointer;
 }
 
 .attendance__field--student {
@@ -492,7 +506,7 @@ h1, h2, h3, h4 {
     position: absolute;
     top: 1.3em;
     right: 0.5em;
-    pointer-events: none;
+    pointer-events: none
 }
 
 .attendance__dropdown:before {
@@ -524,7 +538,91 @@ h1, h2, h3, h4 {
     color: #FFF;
 }
 
+/* Scheduled Activities */
+.activities {
+    border: 3px solid #131313;
+    border-radius: 0.5em;
+    padding: 3em 1.5em;
+}
 
+.activities__wrapper {
+    margin-top: 2em;
+}
+
+.activities__title {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.activities__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.activities__field-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.activities__field {
+    width: 100%;
+    margin-right: 1.2em;
+}
+
+.activities__field:last-child {
+    margin-right: 0;
+}
+
+.activities__input {
+    position: relative;
+}
+
+.activities__field-input {
+    padding-right: 2em;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+.activities__input-dropdown {
+    display: block;
+    background: transparent;
+    height: 100%;
+    width: 2rem;
+    position: absolute;
+    top: 1.3em;
+    right: 0.5em;
+    pointer-events: none
+}
+
+.activities__input-dropdown:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0.7em solid transparent;
+    border-right: 0.7em solid transparent;
+    border-top: 0.7em solid #131313;
+}
+
+.activities__btn {
+    margin-top: 1.2em;
+    flex-basis: auto;
+    background: var(--btn-bright);
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-top: 0.85em;
+    padding-bottom: 0.85em;
+    width: auto;
+    /* align-self: center; */
+}
+
+.activities__btn:hover, .activities__btn:focus {
+    background: var(--btn-bright-hover);
+    color: #FFF;
+}
 
 /* Initial add students & subjects form for new user */
 
