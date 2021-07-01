@@ -117,38 +117,30 @@
             </form>
         </div>
         
-        <section class=>
-            <div class="activity-log-header">
-                <h2>Activities <a href="{{ url_for('add') }}" id="add-btn" class="btn btn-add float-right">Add New Activity</a></h2>
+        <section class="activity-display">
+            <div class="activity-display__add">
+                <a href="{{ url_for('add') }}" id="add-btn" class="btn">Add New Activity</a>
             </div>
-            <table class="table table-dark">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Activity</th>
-                        <th>Subject</th>
-                        <th>Student</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>  
-                </thead>
-                <tbody>
-                    {% for activity in activities %}
-                    <tr>
-                        <td>{{ activity.activity_date | string_to_datetime_filter | datetime_format_filter }}</td>
-                        <td>{{ activity.title }}</td>
-                        <td>{{ activity.subject }}</td>
-                        <td>{{ activity.student }}</td>
-                        <td>{{ activity.status }}</td>
-                        <td>
-                            <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-update btn-xs"><i class="far fa-edit"></i>Update</a>
-                            <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-details btn-xs"><i class="fas fa-list"></i></i>Details</a>
-                            <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-delete btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="activity-display__cards">
+                {% for activity in activities %}
+                <div class="activity__card">
+                    <div class="activity__card-header">
+                        <p class="activity__card-date">{{ activity.activity_date | string_to_datetime_filter | datetime_format_filter }}</p>
+                        <p class="activity__card-status">{{ activity.status }}</p>
+                    </div>
+                    <div class=activity__card-content>
+                        <p class="activity__card-student">Student: {{ activity.student }}</p>
+                        <p class="activity__card-activity">Activity: {{ activity.title }}</p>
+                        <p class="activity__card-subject">Subject: {{ activity.subject }}</p>
+                    </div>
+                    <div class="activity__card-controls">
+                        <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-update btn-xs"><i class="far fa-edit"></i>Edit</a>
+                        <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-details btn-xs"><i class="fas fa-list"></i></i>Details</a>
+                        <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-delete btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
+                    </div>
+                </div><!--close activity__card-->
+                {% endfor %}
+            </div><!--close activity-display__cards-->
         </section>    
     </div>
     {% endif %}
