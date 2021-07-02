@@ -95,12 +95,33 @@ h1, h2, h3, h4 {
     /* border: 1px solid red; */
 }
 
+.container-form {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .header-form {
     display: none;
 }
 
+.subheading {
+    margin-bottom: 2.5em;
+}
+
+
+
 .form {
-    margin-top: 3.44em;
+    max-width: 600px;
+}
+
+.form-field {
+    margin-bottom: 1.2em;
+}
+
+.input-field:last-child {
+    margin-bottom: 0;
 }
 
 .form-select--light {
@@ -112,7 +133,7 @@ h1, h2, h3, h4 {
 }
 
 
-@media screen and (min-width: 1180px) {
+@media screen and (min-width: 968px) {
     
     .wrapper-form {
         background: var(--bg-light);
@@ -123,18 +144,21 @@ h1, h2, h3, h4 {
     }
     
     .container-form {
-        display: flex;
+        height: unset;
+        align-items: stretch;
         padding: 0;
         box-shadow: 0 3px 20px rgba(0,0,0,0.2);
         border-radius: 25px;
         max-width: 1000px;
         margin: 3em 2.5em;
+        /* border: 1px solid red; */
     }
 
     .header-form {
         display: block;
         background: var(--bg-dark);
         border-radius: 25px 0 0 25px;
+        /* border: 1px solid blue; */
         padding: 0 3.5em;
         display: flex;
         flex-direction: column;
@@ -155,6 +179,10 @@ h1, h2, h3, h4 {
     .form {
         max-width: 350px;
         margin-top: 1.2em;
+    }
+
+    .form-footer {
+        margin-top: 0.5em;
     }
 }
 
@@ -403,7 +431,7 @@ h1, h2, h3, h4 {
 }
 
 /* media queries */
-@media screen and (min-width: 1180px) {
+@media screen and (min-width: 968px) {
     .header-title {
         font-size: 4rem;
     }
@@ -413,11 +441,6 @@ h1, h2, h3, h4 {
         font-weight: 200;
         margin-top: 1.3em;
     }
-
-    .form-footer {
-        margin-top: 0em;
-    }
-
 }
 /* ====================
  SIGN UP PAGE - register.html 
