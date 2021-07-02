@@ -106,6 +106,10 @@ h1, h2, h3, h4 {
     display: none;
 }
 
+.header-title, .header-description {
+    color: #FFF;
+}
+
 .subheading {
     margin-bottom: 2.5em;
 }
@@ -168,10 +172,11 @@ h1, h2, h3, h4 {
     }
 
     .content-form {
-        background: var(--off-white);
+        background: #FFF;
         border-radius: 0 25px 25px 0;
         display: flex;
         flex-direction: column;
+        align-items: center;
         padding: 2em 3.8em;
         flex-shrink: 0;
     }
