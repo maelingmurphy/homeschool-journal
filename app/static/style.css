@@ -98,12 +98,17 @@ h1, h2, h3, h4 {
 .container-form {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .header-form {
     display: none;
+}
+
+.header-title {
+    font-family: 'Zilla Slab', serif;
 }
 
 .header-title, .header-description {
@@ -113,7 +118,6 @@ h1, h2, h3, h4 {
 .subheading {
     margin-bottom: 2.5em;
 }
-
 
 
 .form {
@@ -149,6 +153,7 @@ h1, h2, h3, h4 {
     
     .container-form {
         height: unset;
+        flex-direction: row;
         align-items: stretch;
         padding: 0;
         box-shadow: 0 3px 20px rgba(0,0,0,0.2);
@@ -168,7 +173,18 @@ h1, h2, h3, h4 {
         flex-direction: column;
         justify-content: center;
         color: var(--off-white);
-        flex-grow: 1;
+        flex: 1 1 auto;
+        width: 40%;
+    }
+
+    .header-title {
+        font-size: 3rem;
+    }
+
+    .header-description {
+        font-size: 1.4rem;
+        font-weight: 200;
+        margin-top: 1.3em;
     }
 
     .content-form {
@@ -178,12 +194,12 @@ h1, h2, h3, h4 {
         flex-direction: column;
         align-items: center;
         padding: 2em 3.8em;
-        flex-shrink: 0;
+        flex: 2 0 auto;
     }
 
     .form {
-        max-width: 350px;
-        margin-top: 1.2em;
+        max-width: 500px;
+        margin-top: 0em;
     }
 
     .form-footer {
@@ -437,15 +453,7 @@ h1, h2, h3, h4 {
 
 /* media queries */
 @media screen and (min-width: 968px) {
-    .header-title {
-        font-size: 4rem;
-    }
-
-    .header-description {
-        font-size: 1.6rem;
-        font-weight: 200;
-        margin-top: 1.3em;
-    }
+  
 }
 /* ====================
  SIGN UP PAGE - register.html 
@@ -455,18 +463,44 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
+.heading-text-logo {
+    font-family: 'Zilla Slab', serif;
+    font-size: 2.5rem;
+}
+
+.content-form__subheading {
+    font-weight: 700;
+    text-align: center;
+}
+
 .btn-form {
     margin-top: 1.4em;
 }
 
 .form-alert {
     padding: 0.6em 0.4em;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
     background: var(--alert-color);
     font-size: 0.9rem;
     text-align: center;
     margin-top: 1.2em;
 }
 
+@media screen and (min-width: 968px) {
+    .form__user-info {
+        display: flex;
+    }
+
+    .form__user-info-field {
+        width: 100%;
+        margin-right: 0.5em;
+    }
+
+    .form__user-info-field:last-child {
+        margin-right: 0;
+    }
+}
 
 /* ====================
  HOME PAGE - index.html 
