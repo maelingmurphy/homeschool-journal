@@ -18,14 +18,14 @@
                 <p class="subheading">Sign in to Homeschool Journal</p>
                 <form class="form" action="" method="post" novalidate>
                     {{ form.csrf_token }}
-                    <p>
+                    <p class="form-field">
                         {{ form.username.label }}
                         {{ form.username(size=32, class_='form-control input-field', placeholder='Enter username') }}
                         {% for error in form.username.errors %}
                         <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
                     </p>
-                    <p>
+                    <p class="form-field">
                         {{ form.password.label }}
                         {{ form.password(size=32, class_='form-control input-field', placeholder='Enter password') }}
                         {% for error in form.username.errors %}
