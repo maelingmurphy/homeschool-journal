@@ -126,7 +126,7 @@
                 <div class="activity__card">
                     <div class="activity__card-header">
                         <p class="activity__card-date">{{ activity.activity_date | string_to_datetime_filter | datetime_format_filter }}</p>
-                        <p class="activity__card-status">{{ activity.status }}</p>
+                        <p class="activity__card-status activity__card-status-{{ activity.status | lower | replace(" ", "") }}">{{ activity.status }}</p>
                     </div>
                     <div class=activity__card-content>
                         <p class="activity__card-data activity__card-student">Student: <span class="activity__card-student-data">{{ activity.student }}</span></p>
