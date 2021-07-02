@@ -119,7 +119,7 @@
         
         <section class="activity-display">
             <div class="activity-display__add">
-                <a href="{{ url_for('add') }}" id="add-btn" class="btn">Add New Activity</a>
+                <a href="{{ url_for('add') }}" id="add-btn" class="btn activity-display__add-btn"><i class="fas fa-plus activity-display__add-btn-icon"></i>Add New Activity</a>
             </div>
             <div class="activity-display__cards">
                 {% for activity in activities %}
@@ -129,14 +129,14 @@
                         <p class="activity__card-status">{{ activity.status }}</p>
                     </div>
                     <div class=activity__card-content>
-                        <p class="activity__card-student">Student: {{ activity.student }}</p>
-                        <p class="activity__card-activity">Activity: {{ activity.title }}</p>
-                        <p class="activity__card-subject">Subject: {{ activity.subject }}</p>
+                        <p class="activity__card-data activity__card-student">Student: <span class="activity__card-student-data">{{ activity.student }}</span></p>
+                        <p class="activity__card-data activity__card-activity">Activity: <span class="activity__card-activity-data">{{ activity.title }}</span></p>
+                        <p class="activity__card-data activity__card-subject">Subject: <span class="activity__card-subject-data">{{ activity.subject }}</span></p>
                     </div>
                     <div class="activity__card-controls">
-                        <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-update btn-xs"><i class="far fa-edit"></i>Edit</a>
-                        <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-details btn-xs"><i class="fas fa-list"></i></i>Details</a>
-                        <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-delete btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
+                        <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-edit activity__card-controls-btn"><i class="fas fa-edit activity__card-controls-icon"></i>Edit</a>
+                        <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-details activity__card-controls-btn"><i class="fas fa-file-alt activity__card-controls-icon"></i></i>Details</a>
+                        <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-delete activity__card-controls-btn" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash activity__card-controls-icon"></i>Delete</a>
                     </div>
                 </div><!--close activity__card-->
                 {% endfor %}

@@ -3,10 +3,11 @@
 ======================= */
 :root {
     --black: #131313;
-    --off-white: hsla(240, 7%, 100%, 1);
+    --white: #FFFFFF;
     --bg-light: #EBF6F2;
     --bg-navbar: #DEDBFE;
     --bg-dark: #167973;
+    --bg-activity-display: hsla(245, 100%, 95%, 0.9);
     --content-bg-light: #D7ECE5;
     --attendance-bg:#FBE6CC;
     --link-color: #6354F7;
@@ -14,7 +15,15 @@
     --highlight-color: #6354F7;
     --btn-bright: #FE6146;
     --btn-bright-hover: #C84832;
+    --btn-activity-display: hsla(246, 91%, 65%, 1);
+    --btn-activity-display-hover: hsla(246, 91%, 55%, 1);
     --btn-bg-color-light: #C7C4E3;
+    --btn-edit: hsla(33, 85%, 89%, 1);
+    --btn-details: hsla(220, 78%, 89%, 1);
+    --btn-delete: hsla(3, 56%, 49%, 0.3);
+    --btn-edit-hover: hsla(33, 85%, 79%, 1);
+    --btn-details-hover: hsla(220, 78%, 79%, 1);
+    --btn-delete-hover: hsla(3, 66%, 42%, 0.4);
     --alert-color: rgba(196, 61, 55, 0.3);
     --header-icon-hover-color: #872CA7;
     --border-light: #D7DADD;
@@ -32,10 +41,10 @@ p {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--off-white);
-    color: #000;
+    background-color: var(--white);
+    color: #131313;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* ====================
@@ -179,6 +188,7 @@ h1, h2, h3, h4 {
 ======================= */
 .btn {
     border: unset;
+    cursor: pointer;
 }
 
 .btn-form {
@@ -192,24 +202,31 @@ h1, h2, h3, h4 {
     color: #FFF;
 }
 
-.btn-delete {
-    background-color: #521450;
-    color: #FFFFFF;
+.btn-edit {
+    background-color: var(--btn-edit);
+    color: var(--black);
+}
+
+.btn-edit:hover, .btn-edit:focus {
+    background-color: var(--btn-edit-hover);
 }
 
 .btn-details {
-    background-color: #832080;
-    color: #FFFFFF; 
+    background-color: var(--btn-details);
+    color: var(--black); 
 }
 
-.btn-update {
-    background-color: #AA50CC;
-    color: #FFFFFF;
+.btn-details:hover, .btn-details:focus {
+    background-color: var(--btn-details-hover);
 }
 
-.btn-add {
-    background-color: #17B890;
-    color: #FFFFFF;
+.btn-delete {
+    background-color: var(--btn-delete);
+    color: var(--black);
+}
+
+.btn-delete:hover, .btn-delete:focus {
+    background-color: var(--btn-delete-hover);
 }
 
 /* ====================
@@ -437,7 +454,9 @@ h1, h2, h3, h4 {
 .date-info {
     font-size: 1.4rem;
 }
+
 /* Log Attendance */
+
 .attendance {
     background: var(--attendance-bg);
     margin: 3.125em auto;
@@ -540,9 +559,11 @@ h1, h2, h3, h4 {
 
 /* Scheduled Activities */
 .activities {
-    border: 3px solid #131313;
-    border-radius: 0.5em;
+    /* border: 3px solid #131313; */
+    border-radius: 1.1em;
     padding: 3em 1.5em;
+    background: var(--bg-activity-display);
+
 }
 
 .activities__wrapper {
@@ -609,7 +630,7 @@ h1, h2, h3, h4 {
 .activities__btn {
     margin-top: 1.2em;
     flex-basis: auto;
-    background: var(--btn-bright);
+    background: var(--btn-activity-display);
     color: #FFF;
     text-transform: uppercase;
     font-weight: 700;
@@ -620,14 +641,90 @@ h1, h2, h3, h4 {
 }
 
 .activities__btn:hover, .activities__btn:focus {
-    background: var(--btn-bright-hover);
+    background: var(--btn-activity-display-hover);
     color: #FFF;
 }
 
 /* Display Scheduled Activities */
 
 .activity-display {
-    margin-top: 2.2em;
+    margin-top: 3em;
+}
+
+.activity-display__add {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.activity-display__add-btn {
+    border: 2px solid var(--black);
+    font-weight: 700;
+}
+
+.activity-display__add-btn:hover, .activity-display__add-btn:focus {
+    background: var(--black);
+    color: #FFF;
+}
+
+.activity-display__add-btn-icon {
+    margin-right: 0.6em;
+}
+
+.activity-display__cards {
+    margin-top: 2em;
+
+}
+
+.activity__card {
+    background: #FFF;
+    padding: 1.5em 2em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-radius: 1.3em;
+    margin-bottom: 1.2em;
+}
+
+.activity__card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.activity__card-content {
+    margin-bottom: 1em;
+}
+
+.activity__card-data {
+    margin-bottom: 0.5em;
+}
+
+.activity__card-data:last-child {
+    margin-bottom: 0;
+}
+
+.activity__card-date,
+.activity__card-status,
+.activity__card-student-data, 
+.activity__card-activity-data,
+.activity__card-subject-data {
+    font-weight: 700;
+}
+
+.activity__card-controls {
+    display: flex;
+    justify-content: center;
+}
+
+.activity__card-controls-btn {
+    margin-right: 0.6em;
+    flex-grow: 1;
+}
+
+.activity__card-controls-btn:last-child {
+    margin-right: 0;
+}
+
+.activity__card-controls-icon {
+    margin-right: 0.5em;
 }
 
 /* Initial add students & subjects form for new user */
