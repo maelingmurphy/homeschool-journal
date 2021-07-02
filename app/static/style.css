@@ -8,6 +8,10 @@
     --bg-navbar: #DEDBFE;
     --bg-dark: #167973;
     --bg-activity-display: hsla(245, 100%, 95%, 0.9);
+    --bg-completed: hsla(160, 36%, 88%, 1);
+    --bg-notcompleted: hsla(246, 91%, 65%, 0.21);
+    --completed-color: hsla(176, 69%, 28%, 1);
+    --notcompleted-color: hsla(246, 54%, 53%, 1);
     --content-bg-light: #D7ECE5;
     --attendance-bg:#FBE6CC;
     --link-color: #6354F7;
@@ -686,7 +690,24 @@ h1, h2, h3, h4 {
 .activity__card-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 1em;
+}
+
+.activity__card-status {
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    font-weight: 700;
+}
+
+.activity__card-status-completed {
+    background: var(--bg-completed);
+    color: var(--completed-color);
+}
+
+.activity__card-status-notcompleted {
+    background: var(--bg-notcompleted);
+    color: var(--notcompleted-color);
 }
 
 .activity__card-content {
