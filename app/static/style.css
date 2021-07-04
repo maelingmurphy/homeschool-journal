@@ -276,6 +276,10 @@ h1, h2, h3, h4 {
     background-color: var(--btn-delete-hover);
 }
 
+.controls-icon {
+    margin-right: 0.5em;
+}
+
 /* ====================
  HEADER & NAV 
 ======================= */
@@ -605,15 +609,15 @@ h1, h2, h3, h4 {
 
 .attendance__btn {
     text-align: center;
-    background: var(--btn-bright);
-    color: #FFF;
+    border: 3px solid var(--black);
+    color: var(--black);
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 700;
     padding: 0.5em 1.5em;
 }
 
 .attendance__btn:hover, .attendance__btn:focus {
-    background: #C84832;
+    background: var(--black);
     color: #FFF;
 }
 
@@ -842,30 +846,70 @@ h1, h2, h3, h4 {
     }
 }
 
-/* attendance.html */
-#log-container {
-    background-color: #83c5be;
-    padding: 10px;
-    margin: 0 auto;
-}
-
-#log-attendance {
-    margin: 0 auto;
-}
-
-#log-attendance-form {
+/* ====================
+ ATTENDANCE HISTORY - attend.html 
+======================= */
+.attendance-history {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-}
-#log-attendance-form div {
-    margin-right: 30px;
-}
-
-#log-attendance-form p {
-    margin-top: 33px;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: center;
 }
 
-/* profile.html */
+.attendance-history__title, .attendance-history__form-title {
+    text-align: center;
+}
+
+.attendance-history__form-title {
+    font-family: 'Zilla Slab', serif;
+}
+
+.attendance-history__form-wrapper {
+    margin: 2em auto;
+    background: var(--attendance-bg);
+    padding: 1.75em 1.5em;
+    border-radius: 1.1em;
+    width: 100%;
+    max-width: 500px;
+}
+
+.attendance-history__form {
+    margin-top: 1.5em;
+}
+
+.attendance__btn--history {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1.3em;
+}
+
+@media screen and (min-width: 968px) {
+    .attendance-history__form-wrapper {
+        max-width: 100%;
+        padding: 1.2em 1.5em;
+    }
+
+    .attendance-history__form {
+        display: flex;
+        max-width: 70%;
+        justify-content: center;
+        align-items: flex-end;
+        margin: 1.2em auto 0;
+    }
+
+    .attendance-history__field {
+        margin-bottom: 0;
+        margin-right: 1.5em;
+    }
+}
+
+
+/* ====================
+ Profile - profile.html 
+======================= */
+
 .profile-container {
     margin-top: 50px;
 }
