@@ -14,7 +14,7 @@
                 {{ form.csrf_token() }}
                 <div class="form-group attendance-history__field">
                     {{ form.attendance_date.label }}
-                    {{ form.attendance_date(class_='form-control') }}
+                    {{ form.attendance_date(class_='attendance__field-input') }}
                     {% for error in form.attendance_date.errors %}
                     <span style="color:red;">[{{ error }}]</span>
                     {% endfor %}
@@ -23,8 +23,8 @@
                 <div class="form-group attendance-history__field">
                     {{ form.student.label }}
                     <div class="attendance__student-input">
-                        {{ form.student(class_='form-control attendance__field-input--student') }}
-                        <span class="attendance__dropdown attendance__dropdown--history"></span>
+                        {{ form.student(class_='attendance__field-input attendance__field-input--student') }}
+                        <span class="attendance__dropdown"></span>
                     </div>
                   
                     {% for error in form.student.errors %}
