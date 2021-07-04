@@ -22,7 +22,11 @@
         
                 <div class="form-group attendance-history__field">
                     {{ form.student.label }}
-                    {{ form.student(class_='form-control') }}
+                    <div class="attendance__student-input">
+                        {{ form.student(class_='form-control attendance__field-input--student') }}
+                        <span class="attendance__dropdown attendance__dropdown--history"></span>
+                    </div>
+                  
                     {% for error in form.student.errors %}
                     <span style="color:red;">[{{ error }}]</span>
                     {% endfor %}
