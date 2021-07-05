@@ -908,9 +908,8 @@ h1, h2, h3, h4 {
 }
 
 /* ====================
- EDIT ACTIVITY & ACTIVITY DETAILS - update.html, details.html
+ EDIT ACTIVITY, ADD ACTIVITY & ACTIVITY DETAILS - update.html, add.html, details.html
 ======================= */
-
 .activity__btn-back {
     display: block;
     font-weight: 700;
@@ -963,6 +962,26 @@ h1, h2, h3, h4 {
 .btn--activity:hover, .btn--activity:focus {
     background: var(--btn-bright-hover);
     color: #FFF;
+}
+
+@media screen and (min-width: 650px) {
+    .activity {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    .activity__form-float {
+        display: flex;
+    }
+
+    .activity__float-field {
+        margin-right: 1.5em;
+        width: 100%;
+    }
+
+    .activity__float-field:last-child {
+        margin-right: 0;
+    }
 }
 
 /* ====================

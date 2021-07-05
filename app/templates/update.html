@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="activity-edit">
+    <div class="activity">
         <a class="activity__btn-back" href="{{ url_for('log') }}"><i class="fas fa-long-arrow-alt-left controls-icon"></i>All Activities</a>
         <h1 class="activity__title">Edit Activity: {{ title }}</h1>
         <div class="activity__form-wrapper">
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="activity__form-float">
-                    <div class="form-group">
+                    <div class="form-group activity__float-field">
                         {{ form.activity_date.label }}
                         {{ form.activity_date(class_='datepicker form-control', value=activity.activity_date) }}
                         {% for error in form.activity_date.errors %}
@@ -28,7 +28,7 @@
                         {% endfor %}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group activity__float-field">
                         {{ form.student.label }}
                         <div class="activity__field-input">
                             {{ form.student(class_='form-control activity__field-select') }}
@@ -37,7 +37,7 @@
                         
                     </div>  
 
-                    <div class="form-group">
+                    <div class="form-group activity__float-field">
                         {{ form.subject.label }}
                         <div class="activity__field-input">
                             {{ form.subject(class_='form-control activity__field-select') }}
