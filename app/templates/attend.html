@@ -49,7 +49,7 @@
             <tbody>
                 {% for record in attendance_records %}
                 <tr>
-                    <td>{{ record.attendance_date | string_to_datetime_filter | datetime_format_filter }}</td>
+                    <td>{{ record.attendance_date | datetime_format_filter }}</td>
                     <td>{{ record.student }}</td>
                     <td><a href="{{ url_for('delete_attendance', id=record.id) }}" class="btn btn-delete btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash controls-icon"></i>Delete</a></td>
                 </tr>
