@@ -17,8 +17,8 @@
     --link-color: #6354F7;
     --link-hover-color: #872CA7;
     --highlight-color: #6354F7;
-    --btn-bright: #FE6146;
-    --btn-bright-hover: #C84832;
+    --btn-bright: #6354F7;
+    --btn-bright-hover: #872CA7;
     --btn-activity-display: hsla(246, 91%, 65%, 1);
     --btn-activity-display-hover: hsla(246, 91%, 55%, 1);
     --btn-bg-color-light: #C7C4E3;
@@ -921,6 +921,48 @@ h1, h2, h3, h4 {
 
 .activity__title {
     margin-bottom: 1.4em;
+}
+
+.activity__field-input {
+    position: relative;
+}
+
+.activity__field-select {
+    padding-right: 2em;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.select-custom-dropdown {
+    display: block;
+    background: transparent;
+    height: 100%;
+    width: 2rem;
+    position: absolute;
+    top: 35%;
+    right: 0.5em;
+    pointer-events: none
+}
+
+.select-custom-dropdown:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0.7em solid transparent;
+    border-right: 0.7em solid transparent;
+    border-top: 0.7em solid #131313;
+}
+
+.btn--activity {
+    background: var(--btn-bright);
+    color: #FFF;
+}
+
+.btn--activity:hover, .btn--activity:focus {
+    background: var(--btn-bright-hover);
+    color: #FFF;
 }
 
 /* ====================
