@@ -14,7 +14,7 @@
             </div>
 
             <div class="activity__content-group">
-                <h2 class="activity__content-label">Date: <span class="activity__content-data">{{ activity.activity_date }}</span></h2>
+                <h2 class="activity__content-label">Date: <span class="activity__content-data">{{ activity.activity_date | datetime_format_filter }}</span></h2>
             </div>
 
             <div class="activity__content-group">

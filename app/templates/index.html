@@ -125,7 +125,7 @@
                 {% for activity in activities %}
                 <div class="activity__card">
                     <div class="activity__card-header">
-                        <p class="activity__card-date">{{ activity.activity_date | string_to_datetime_filter | datetime_format_filter }}</p>
+                        <p class="activity__card-date">{{ activity.activity_date | datetime_format_filter }}</p>
                         <p class="activity__card-status activity__card-status-{{ activity.status | lower | replace(" ", "") }}">{{ activity.status }}</p>
                     </div>
                     <div class=activity__card-content>
