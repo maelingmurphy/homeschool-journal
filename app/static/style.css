@@ -1016,6 +1016,12 @@ h1, h2, h3, h4 {
 
 }
 
+.activity-log__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .activity-log__table-wrapper {
     width: 100%;
     margin-top: 2em;
@@ -1071,7 +1077,7 @@ h1, h2, h3, h4 {
     }
 
     .activity-log__header {    
-        flex-direction: row;
+        display: flex;
         justify-content: space-between;
         align-items: center;
     }
