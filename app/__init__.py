@@ -21,11 +21,19 @@ naming_convention = {
 
 # Create custom filters to use on Jinja template variables
 @app.template_filter()
-def datetime_format_filter(value, format='%m-%d-%Y'):
+def datetime_format_filter(value, format='%B %d, %Y'):
     """Convert a datetime to a different format."""
     return value.strftime(format)
 
 app.jinja_env.filters['datetime_format_filter'] = datetime_format_filter
+
+@app.template_filter()
+def datepicker_format_filter(value, format='%Y-%m-%d'):
+    """Convert date to format compatible with datepicker."""
+    return value.strftime(format)
+
+app.jinja_env.filters['datetime_format_filter'] = datetime_format_filter
+
 
 @app.template_filter()
 def string_to_datetime_filter(value):
