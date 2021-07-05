@@ -5,49 +5,45 @@
 {% endblock %}
 
 {% block content %}
-    <h1> Activity Details: {{ title }}</h1>
-    <div class="content-wrapper">
-        <div>
-            <div class="content-group">
-                <h2>Title:</h2>
-                <p>{{ activity.title }}</p>
+    <div class="activity">
+        <a class="activity__btn-back" href="{{ url_for('log') }}"><i class="fas fa-long-arrow-alt-left controls-icon"></i>All Activities</a>
+        <h1 class="activity__title"> Activity Details: {{ title }}</h1>
+        <div class="activity__content">    
+            <div class="activity__content-group">
+                <h2 class="activity__content-label">Title: <span class="activity__content-data">{{ activity.title }}</span></h2>
             </div>
 
-            <div class="content-group">
-                <h2>Date:</h2>
-                <p>{{ activity.activity_date }}</p>
+            <div class="activity__content-group">
+                <h2 class="activity__content-label">Date: <span class="activity__content-data">{{ activity.activity_date }}</span></h2>
             </div>
 
-            <div class="content-group">
-                <h2>Subject:</h2>
-                <p>{{ activity.subject }}</p>
-            </div>
-
-            <div class="content-group">
-                <h2>Student:</h2>
-                <p>{{ activity.student }}</p>
+            <div class="activity__content-group">
+                <h2 class="activity__content-label">Student: <span class="activity__content-data">{{ activity.student }}</span></h2>
             </div>  
- 
-            <div class="content-group">
-                <h2>Description:</h2>
+
+            <div class="activity__content-group">
+                <h2 class="activity__content-label">Subject: <span class="activity__content-data">{{ activity.subject }}</span></h2>
+            </div>
+  
+            <div class="activity__content-group">
+                <h2 class="activity__content-label">Description:</h2>
                 <p>{{ activity.description }}</p>
             </div>
-
             
-            <div class="content-group">
-                <h2>Resources:</h2>
+            <div class="activity__content-group">
+                <h2 class="activity__content-label">Resources:</h2>
                 <p>{{ activity.resources }}</p>
             </div>
 
-            <div class="content-group">
-                <h2>Notes:</h2>
+            <div class="activity__content-group">
+                <h2 class="activity__content-label">Notes:</h2>
                 <p>{{ activity.notes }}</p>  
             </div>
 
-            <div class="content-group">
-                <h2>Status:</h2>
-                <p>{{ activity.status }}</p>
-            </div>
+            <div class="activity__content-group">
+                <h2 class="activity__content-label">Status: <span class="activity__content-data">{{ activity.status }}</span></h2>
+            </div>     
         </div>
     </div>
+    
 {% endblock %}

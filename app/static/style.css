@@ -968,6 +968,25 @@ h1, h2, h3, h4 {
     color: #FFF;
 }
 
+/* details.html */
+
+.activity__content {
+    margin-top: 2em;
+}
+
+.activity__content-group {
+    margin-bottom: 1.2em;
+}
+
+.activity__content-label {
+    font-size: 1.4rem;
+}
+
+.activity__content-data {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
 @media screen and (min-width: 650px) {
     .activity {
         max-width: 650px;
