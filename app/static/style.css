@@ -907,6 +907,21 @@ h1, h2, h3, h4 {
     }
 }
 
+/* ====================
+ EDIT ACTIVITY & ACTIVITY DETAILS - update.html, details.html
+======================= */
+
+.activity__btn-back {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5em;
+}
+
+.activity__title {
+    margin-bottom: 1.4em;
+}
 
 /* ====================
  Profile - profile.html 
