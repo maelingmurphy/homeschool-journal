@@ -6,71 +6,79 @@
 {% endblock %}
 
 {% block content %}
-    <div class="header">
-        <h1>Add an Activity</h1>
-    </div>
-
-    <div class="formwrapper">
-        <form method="POST" action="/add" class="form" role="form" novalidate>
-            {{ form.csrf_token() }}
-            <div class="form-group">
-                {{ form.title.label }}
-                {{ form.title(size=100, class_='form-control', placeholder='Enter activity title') }}
-                {% for error in form.title.errors %}
-                <span style="color:red;">[{{ error }}]</span>
-                {% endfor %}
-            </div>
-
-            <div class="form-float">
-                <div class="form-group float-item">
-                    {{ form.activity_date.label }}
-                    {{ form.activity_date(class_='datepicker form-control') }}
-                    {% for error in form.activity_date.errors %}
+    <div class="activity">
+        <a class="activity__btn-back" href="{{ url_for('log') }}"><i class="fas fa-long-arrow-alt-left controls-icon"></i>All Activities</a>
+        <h1 class="activity__title">Add Activity</h1>
+        <div class="activity__form-wrapper">
+            <form method="POST" action="/add" class="activity__form" role="form" novalidate>
+                {{ form.csrf_token() }}
+                <div class="form-group">
+                    {{ form.title.label }}
+                    {{ form.title(size=100, class_='form-control', placeholder='Enter activity title') }}
+                    {% for error in form.title.errors %}
                     <span style="color:red;">[{{ error }}]</span>
                     {% endfor %}
                 </div>
-    
-                <div class="form-group float-item">
-                    {{ form.subject.label }}
-                    {{ form.subject(class_='form-control') }}
-                    {% for error in form.subject.errors %}
-                    <span style="color:red;">[{{ error }}]</span>
-                    {% endfor %}
-                </div>
-    
-                <div class="form-group float-item">
-                    {{ form.student.label }}
-                    {{ form.student(class_='form-control') }}
-                    {% for error in form.student.errors %}
-                    <span style="color:red;">[{{ error }}]</span>
-                    {% endfor %}
-                </div>  
 
-            </div>
-            
+                <div class="activity__form-float">
+                    <div class="form-group activity__float-field">
+                        {{ form.activity_date.label }}
+                        {{ form.activity_date(class_='datepicker form-control') }}
+                        {% for error in form.activity_date.errors %}
+                        <span style="color:red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
         
-            <div class="form-group">
-                {{ form.description.label }}
-                {{ form.description(size=500, class_='form-control', placeholder='Enter activity description') }}
-            </div>
+                    <div class="form-group activity__float-field">
+                        {{ form.subject.label }}
+                        <div class="activity__field-input">
+                            {{ form.subject(class_='form-control activity__field-select') }}
+                            <span class="select-custom-dropdown"></span>
+                        </div>  
+                        {% for error in form.subject.errors %}
+                        <span style="color:red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+        
+                    <div class="form-group activity__float-field">
+                        {{ form.student.label }}
+                        <div class="activity__field-input">
+                            {{ form.student(class_='form-control activity__field-select') }}
+                            <span class="select-custom-dropdown"></span>
+                        </div>
+                        {% for error in form.student.errors %}
+                        <span style="color:red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>  
 
-            
-            <div class="form-group">
-                {{ form.resources.label }}
-                {{ form.resources(size=500, class_='form-control', placeholder='List any resources needed for this activity (e.g. supplies, books, links, etc.)') }}
-            </div>
+                </div>
+  
+                <div class="form-group">
+                    {{ form.description.label }}
+                    {{ form.description(size=500, class_='form-control', placeholder='Enter activity description') }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.resources.label }}
+                    {{ form.resources(size=500, class_='form-control', placeholder='List any resources needed for this activity (e.g. supplies, books, links, etc.)') }}
+                </div>
 
-            <div class="form-group">
-                {{ form.notes.label }}
-                {{ form.notes(size=500, class_='form-control', placeholder='Add any additional notes or feedback for this activity') }}
-            </div>
+                <div class="form-group">
+                    {{ form.notes.label }}
+                    {{ form.notes(size=500, class_='form-control', placeholder='Add any additional notes or feedback for this activity') }}
+                </div>
 
-            <div class="form-group">
-                {{ form.status.label }}
-                {{ form.status }}
-            </div>
-            <p>{{ form.submit(class_='btn btn-primary') }}</p>
-        </form>
+                <div class="form-group">
+                    <label class="checkbox" for="status">
+                        {{ form.status(class='checkbox__input') }}      
+                        <div class="checkbox__box"></div>
+                        Activity Completed?
+                    </label>  
+                </div>
+                <p>{{ form.submit(class_='btn btn--activity') }}</p>
+            </form>
+        </div>
     </div>
+    
 
 {% endblock %}
