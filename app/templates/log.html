@@ -5,38 +5,47 @@
 {% endblock %}
 
 {% block content %}
-    <div class="activity-log-header">
-        <h2>Activity Log <a href="{{ url_for('add') }}" id="add-btn" class="btn btn-success float-right">Add New Activity</a></h2>
-    </div>
+    <div class="activity activity--log">
+        <a class="activity__btn-back" href="{{ url_for('index') }}"><i class="fas fa-long-arrow-alt-left controls-icon"></i>Return to Home</a>
 
-    <table class="table table-hover table-dark">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Activity</th>
-                <th>Subject</th>
-                <th>Student</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for activity in activities %}
-            <tr>
-                <td>{{ activity.activity_date | datetime_format_filter }}</td>
-                <td>{{ activity.title }}</td>
-                <td>{{ activity.subject }}</td>
-                <td>{{ activity.student }}</td>
-                <td>{{ activity.status }}</td>   
-                <td>
-                    <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-info btn-xs"><i class="far fa-edit"></i>Update</a>
-                    <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-info btn-xs"><i class="fas fa-list"></i></i>Details</a>
-                    <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
-                </td>     
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="activity-log__header">
+            <h1 class="activity__title">Activity Log</h1>
+            <a href="{{ url_for('add') }}" id="add-btn" class="btn activity__add-btn"><i class="fas fa-plus activity__add-btn-icon"></i>Add New Activity</a>
+        </div>
+        <div class="activity-log__table-wrapper">
+            <div class="activity-log__table-wrapper">
+                <div class="activity-log__table-header-wrapper">
+                    <div class="activity-log__table-header">
+                        <h2 class="activity-log__table-heading">Date</h2>
+                        <h2 class="activity-log__table-heading">Status</h2>
+                        <h2 class="activity-log__table-heading">Student</h2>
+                        <h2 class="activity-log__table-heading">Activity</h2>
+                        <h2 class="activity-log__table-heading">Subject</h2>
+                        <h2 class="activity-log__table-heading">Action</h2>
+                    </div>
+                </div>
+                
+                <div class="activity-log__table-content">
+                    {% for activity in activities %}
+                    <div class=activity-log__entry>     
+                        <p class="activity-log__entry-data">{{ activity.activity_date | datetime_format_filter }}</p>
+                        <p class="activity-log__entry-data activity__entry-status-{{ activity.status | lower | replace(" ", "") }}">{{ activity.status }}</p>   
+                        <p class="activity-log__entry-data"><span class="activity-log__entry-label">Student: </span>{{ activity.student }}</p>
+                        <p class="activity-log__entry-data"><span class="activity-log__entry-label">Activity: </span>{{ activity.title }}</p>
+                        <p class="activity-log__entry-data"><span class="activity-log__entry-label">Subject: </span>{{ activity.subject }}</p> 
+                        <p class="activity-log__entry-data">
+                            <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-info btn-xs"><i class="far fa-edit"></i>Update</a>
+                            <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-info btn-xs"><i class="fas fa-list"></i></i>Details</a>
+                            <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash"></i>Delete</a>
+                        </td>     
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
 
 <!-- TEST TABLE WITH FILTER
     <h2>TEST TABLE</h2>
