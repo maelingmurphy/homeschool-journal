@@ -10,7 +10,7 @@
     --bg-activity-display: hsla(245, 100%, 95%, 0.9);
     --bg-completed: hsla(160, 36%, 88%, 1);
     --bg-notcompleted: hsla(246, 91%, 65%, 0.21);
-    --bg-cell-hover: hsla(245, 100%, 96%, 1);
+    --bg-cell-hover: hsla(245, 100%, 96%, 0.7);
     --completed-color: hsla(176, 69%, 28%, 1);
     --notcompleted-color: hsla(246, 54%, 53%, 1);
     --content-bg-light: #D7ECE5;
