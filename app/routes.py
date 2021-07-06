@@ -247,7 +247,7 @@ def add():
 @login_required
 def log():
 
-    activities = current_user.activities.order_by(Activity.activity_date).all()
+    activities = current_user.activities.order_by(Activity.activity_date.desc()).all()
 
     return render_template('log.html', activities=activities)
 
