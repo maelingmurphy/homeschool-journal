@@ -54,7 +54,7 @@
     {% if current_user.student_number %} 
     <div class="date-wrapper">
         <h2 class="date-title">Today's Date</h2>
-        <p class="date-info">{{ today | datetime_format_filter }}</p>
+        <p class="date-info">{{ todays_datetime | datetime_format_filter }}</p>
     </div>
     <div class="attendance">
         <h2 class="attendance__title">Log Attendance</h2>
@@ -63,7 +63,7 @@
             <div class="attendance__fields">
                 <div class="attendance__field attendance__field--date">
                     {{ form2.attendance_date.label(class_='attendance__field-label') }}
-                    {{ form2.attendance_date(class_='datepicker attendance__field-input', value=today) }}
+                    {{ form2.attendance_date(class_='datepicker attendance__field-input', value=todays_datetime | datepicker_format_filter) }}
                     {% for error in form2.attendance_date.errors %}
                     <span style="color:red;">[{{ error }}]</span>
                     {% endfor %}

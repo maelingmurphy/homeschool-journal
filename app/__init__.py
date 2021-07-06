@@ -32,7 +32,7 @@ def datepicker_format_filter(value, format='%Y-%m-%d'):
     """Convert date to format compatible with datepicker."""
     return value.strftime(format)
 
-app.jinja_env.filters['datetime_format_filter'] = datetime_format_filter
+app.jinja_env.filters['datepicker_format_filter'] = datepicker_format_filter
 
 
 @app.template_filter()

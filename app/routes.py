@@ -12,7 +12,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Student, Activity, Subject, Attendance
 from werkzeug.urls import url_parse
 import datetime
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 
 
@@ -98,8 +98,9 @@ def index():
             flash('Attendance record already exists', 'error')
 
     # Get date info related to current date
-    today = datetime.date.today() # Gets current date 
-    current_weekday = today.isoweekday()
+    # today = datetime.date.today() # Gets current date 
+    todays_datetime = datetime(datetime.today().year, datetime.today().month, datetime.today().day)
+    current_weekday = todays_datetime.isoweekday()
     
     # DISPLAY ACTIVITIES FORM
     form3 = DisplayActivitiesForm()
@@ -113,7 +114,7 @@ def index():
     form3.student.choices = student_list
 
     # Show all activites for current date for all students as default
-    activities = current_user.activities.filter_by(activity_date=today).order_by(Activity.activity_date).all()
+    activities = current_user.activities.filter_by(activity_date=todays_datetime).order_by(Activity.activity_date).all()
 
     # Choose which activities to display based on form selection
     if "display_submit" in request.form and form3.display.validate(form3):
@@ -122,10 +123,10 @@ def index():
         print(student)
 
         # Get activities for current date
-        activities_today = current_user.activities.filter(Activity.activity_date == today).order_by(Activity.activity_date).all()
+        activities_today = current_user.activities.filter(Activity.activity_date == todays_datetime).all()
 
         # Get activities for current week
-        current_week_start = today - timedelta(days=current_weekday)
+        current_week_start = todays_datetime - timedelta(days=current_weekday)
         current_week_end = current_week_start + timedelta(days=6)
         activities_currentweek = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end)).order_by(Activity.activity_date).all()
 
@@ -144,7 +145,7 @@ def index():
             if form3.student.data == "All":
                 activities = activities_today
             else:
-                activities = current_user.activities.filter((Activity.activity_date == today) & (Activity.student == student)).order_by(Activity.activity_date).all()
+                activities = current_user.activities.filter((Activity.activity_date == todays_datetime) & (Activity.student == student)).all()
                 if not activities:
                     flash('No activity scheduled', 'error')
 
@@ -179,7 +180,7 @@ def index():
         else:
             flash('There are no activities that match this selection', 'error') 
     
-    return render_template('index.html', form=form, form2=form2, today=today, form3=form3, activities=activities)
+    return render_template('index.html', form=form, form2=form2, todays_datetime=todays_datetime, form3=form3, activities=activities)
 
 # Register User
 @app.route('/register', methods=['GET', 'POST'])
@@ -218,12 +219,6 @@ def add():
         # Get subject and student objects
         subject = db.session.query(Subject).filter_by(subject_name=form.subject.data).first()
         student = db.session.query(Student).filter_by(student_name=form.student.data).first()
-
-        # TEST
-        print('Subject', subject)
-        print('Subject id', subject.id)
-        print('Student', student)
-        print('Student id', student.id)
         
         # ADD-ON: Change Boolean to text for status
         if form.status.data:
@@ -302,12 +297,6 @@ def update(title):
         subject = db.session.query(Subject).filter_by(subject_name=form.subject.data).first()
         student = db.session.query(Student).filter_by(student_name=form.student.data).first()
 
-        # TEST
-        print('Subject', subject)
-        print('Subject id', subject.id)
-        print('Student', student)
-        print('Student id', student.id)
-        
         # ADD-ON: Change Boolean to text for status
         if form.status.data:
             activity.status = "Completed"
@@ -461,7 +450,6 @@ def remove_student(id):
     activities = student.activities
 
     for activity in activities:
-        print(activity)
         db.session.delete(activity)
 
     db.session.delete(student)
