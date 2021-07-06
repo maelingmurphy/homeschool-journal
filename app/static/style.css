@@ -264,6 +264,21 @@ h1, h2, h3, h4 {
     padding: 0;
     margin-left: 0.6em;
 }
+.navbar-panel-logo {
+    margin-top: 1.6em;
+}
+
+.navbar-panel-logo__text {
+    display: block;
+    font-family: 'Zilla Slab', serif;
+    font-size: 2rem;
+    color: var(--black);
+    margin-left: 0.8em;
+}
+
+.navbar-panel-logo__text:hover {
+    color: var(--black);
+}
 
 .navbar-list {
     margin-top: 4.75em;
@@ -315,7 +330,7 @@ h1, h2, h3, h4 {
         /* border: 2px solid red; */
         display: grid;
         grid-gap: 1.4rem;
-        grid-template-columns: minmax(auto, 250px) 1fr;
+        grid-template-columns: minmax(auto, 280px) 1fr;
     }
     
     .navbar-panel {
@@ -330,7 +345,6 @@ h1, h2, h3, h4 {
 
     .navbar-panel-logo {
         margin-top: 1.8em;
-        margin-left: 0.8em;
         padding-right: 0.8em;
     }
 
