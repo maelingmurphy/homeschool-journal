@@ -257,6 +257,7 @@ def log():
 @login_required
 def update(title):
 
+    # FIX BELOW! Need to get activity record by id. You could have multiple records with same title
     # Get activity record by title
     activity = db.session.query(Activity).filter_by(title=title).first()
     
