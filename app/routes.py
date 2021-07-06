@@ -113,7 +113,7 @@ def index():
     form3.student.choices = student_list
 
     # Show all activites for current date for all students as default
-    activities = current_user.activities.filter_by(activity_date=today).all()
+    activities = current_user.activities.filter_by(activity_date=today).order_by(Activity.activity_date).all()
 
     # Choose which activities to display based on form selection
     if "display_submit" in request.form and form3.display.validate(form3):
@@ -122,29 +122,29 @@ def index():
         print(student)
 
         # Get activities for current date
-        activities_today = current_user.activities.filter(Activity.activity_date == today).all()
+        activities_today = current_user.activities.filter(Activity.activity_date == today).order_by(Activity.activity_date).all()
 
         # Get activities for current week
         current_week_start = today - timedelta(days=current_weekday)
         current_week_end = current_week_start + timedelta(days=6)
-        activities_currentweek = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end)).all()
+        activities_currentweek = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end)).order_by(Activity.activity_date).all()
 
         # Get activities for next week
         next_week_start = current_week_start + timedelta(days=7)
         next_week_end = current_week_end + timedelta(days=7)
-        activities_nextweek = current_user.activities.filter((Activity.activity_date >= next_week_start) & (Activity.activity_date <= next_week_end)).all()
+        activities_nextweek = current_user.activities.filter((Activity.activity_date >= next_week_start) & (Activity.activity_date <= next_week_end)).order_by(Activity.activity_date).all()
 
         # Get activities for previous week 
         previous_week_start = current_week_start - timedelta(days=7)
         previous_week_end = current_week_end - timedelta(days=7)
-        activities_previousweek = current_user.activities.filter((Activity.activity_date >= previous_week_start) & (Activity.activity_date <= previous_week_end)).all()
+        activities_previousweek = current_user.activities.filter((Activity.activity_date >= previous_week_start) & (Activity.activity_date <= previous_week_end)).order_by(Activity.activity_date).all()
 
         # If "Today" is selected and there are records in activities_today
         if form3.display.data == "Today" and activities_today:
             if form3.student.data == "All":
                 activities = activities_today
             else:
-                activities = current_user.activities.filter((Activity.activity_date == today) & (Activity.student == student)).all()
+                activities = current_user.activities.filter((Activity.activity_date == today) & (Activity.student == student)).order_by(Activity.activity_date).all()
                 if not activities:
                     flash('No activity scheduled', 'error')
 
@@ -153,7 +153,7 @@ def index():
             if form3.student.data == "All":
                 activities = activities_currentweek
             else:
-                activities = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end) & (Activity.student == student)).all()
+                activities = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end) & (Activity.student == student)).order_by(Activity.activity_date).all()
                 if not activities:
                     flash('No activity scheduled', 'error')
 
@@ -162,7 +162,7 @@ def index():
             if form3.student.data == "All":
                 activities = activities_nextweek
             else:
-                activities = current_user.activities.filter((Activity.activity_date >= next_week_start) & (Activity.activity_date <= next_week_end) & (Activity.student == student)).all()
+                activities = current_user.activities.filter((Activity.activity_date >= next_week_start) & (Activity.activity_date <= next_week_end) & (Activity.student == student)).order_by(Activity.activity_date).all()
                 if not activities:
                     flash('No activity scheduled', 'error')
 
@@ -171,7 +171,7 @@ def index():
             if form3.student.data == "All":
                 activities = activities_previousweek
             else:
-                activities = current_user.activities.filter((Activity.activity_date >= previous_week_start) & (Activity.activity_date <= previous_week_end) & (Activity.student == student)).all()
+                activities = current_user.activities.filter((Activity.activity_date >= previous_week_start) & (Activity.activity_date <= previous_week_end) & (Activity.student == student)).order_by(Activity.activity_date).all()
                 if not activities:
                     flash('No activity scheduled', 'error')
 
