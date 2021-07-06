@@ -55,11 +55,6 @@ def index():
         for i in range(1, subject_number + 1):
             subject_names.append(request.form.get(f"subject_name{i}"))
 
-        # TEST
-        print("Subject Number", subject_number)
-        print("Subject Names", subject_names)
-        print("Current User ID", current_user.id)
-
         # Add subject names with current user id to database
         for name in subject_names:
             subject = Subject(subject_name=name, user_id=current_user.id)
@@ -110,7 +105,6 @@ def index():
     for student in students:
         student_list.append(student)
 
-    print(student_list)
     form3.student.choices = student_list
 
     # Show all activites for current date for all students as default
@@ -120,7 +114,6 @@ def index():
     if "display_submit" in request.form and form3.display.validate(form3):
         # Get student data
         student = db.session.query(Student).filter_by(student_name = form3.student.data).first()
-        print(student)
 
         # Get activities for current date
         activities_today = current_user.activities.filter(Activity.activity_date == todays_datetime).all()
@@ -468,7 +461,6 @@ def remove_subject(id):
     activities = subject.activities
 
     for activity in activities:
-        print(activity)
         db.session.delete(activity)
 
     db.session.delete(subject)
