@@ -314,6 +314,7 @@ h1, h2, h3, h4 {
     .container-main {
         /* border: 2px solid red; */
         display: grid;
+        grid-gap: 1.4rem;
         grid-template-columns: minmax(auto, 250px) 1fr;
     }
     
@@ -325,6 +326,12 @@ h1, h2, h3, h4 {
 
     .navbar-logo {
         display: none;
+    }
+
+    .navbar-panel-logo {
+        margin-top: 1.8em;
+        margin-left: 0.8em;
+        padding-right: 0.8em;
     }
 
     .navbar-icon {
@@ -534,8 +541,8 @@ h1, h2, h3, h4 {
 .date-wrapper {
     text-align: center;
     padding: 0.625em 0.5em;
-    background: var(--content-bg-light);
-    border-radius: 1.1em;
+    /* border: 2px solid var(--black); */
+    /* border-radius: 0.5em; */
 }
 
 .date-title {
@@ -544,13 +551,21 @@ h1, h2, h3, h4 {
 }
 
 .date-info {
+    /* display: inline-block; */
     font-size: 1.4rem;
+    text-align: center;
+    /* text-transform: uppercase; */
+    border-bottom: 5px solid var(--link-hover-color);
+}
+
+.date-info-data {
+    font-weight: 700;
 }
 
 /* Log Attendance */
 
 .attendance {
-    background: var(--attendance-bg);
+    background: var(--content-bg-light);
     margin: 3.125em auto;
     padding: 1.75em 0em;
     border-radius: 1.1em;
@@ -651,10 +666,10 @@ h1, h2, h3, h4 {
 
 /* Scheduled Activities */
 .activities {
-    /* border: 3px solid #131313; */
+    border: 3px solid #131313;
     border-radius: 1.1em;
     padding: 3em 1.5em;
-    background: var(--bg-activity-display);
+    /* background: var(--content-bg-light); */
 
 }
 
@@ -722,7 +737,7 @@ h1, h2, h3, h4 {
 .activities__btn {
     margin-top: 1.2em;
     flex-basis: auto;
-    background: var(--btn-activity-display);
+    background: var(--link-hover-color);
     color: #FFF;
     text-transform: uppercase;
     font-weight: 700;
@@ -733,7 +748,7 @@ h1, h2, h3, h4 {
 }
 
 .activities__btn:hover, .activities__btn:focus {
-    background: var(--btn-activity-display-hover);
+    background: var(--link-color);
     color: #FFF;
 }
 

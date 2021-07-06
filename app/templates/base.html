@@ -35,13 +35,17 @@
               <button class="navbar-icon navbar-icon--close" id="navbarClose" type="button" aria-controls="navbarPanel">
                 <i class="fas fa-times"></i>
               </button>
+              <h1 class="navbar-panel-logo"><a class="navbar-logo-text" href="{{ url_for('index') }}">homeschool </br>journal</a></h1>
               <ul class="navbar-list">
                 <li class="nav-item">
                   <a class="nav-item--link" href="{{ url_for('log') }}"><i class="fas fa-fw fa-star menu-icon"></i>Activities</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-item--link" href="{{ url_for ('attend') }}"><i class="fas fa-fw fa-calendar menu-icon"></i>Attendance</a>
-                </li> 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-item--link" href="{{ url_for ('profile') }}"><i class="fas fa-fw fa-user-circle menu-icon"></i>Profile</a>
+                </li>  
                 <li class="nav-item">
                   {% if current_user.is_anonymous %}
                   <a class="nav-item--link nav-link--sign" href="{{ url_for ('login') }}">Sign In</a>
