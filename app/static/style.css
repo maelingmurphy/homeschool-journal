@@ -1079,6 +1079,14 @@ h1, h2, h3, h4 {
     font-weight: 400;
 }
 
+.activity__entry-status-completed {
+    background: var(--bg-completed);
+}
+
+.activity__entry-status-notcompleted {
+    background: var(--bg-notcompleted);
+}
+
 .activity-log__entry-controls {
     display: flex;
     width: 100%;
