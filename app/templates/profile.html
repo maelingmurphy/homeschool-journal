@@ -5,30 +5,32 @@
 {% endblock %}
 
 {% block content %}
-    <div class="profile-container">
-        <div>
-            <p class="profile-heading">Username: {{ current_user.username }}</p>
+    <div class="profile">
+        <h1 class="profile__title">Profile Details</h1>
+        <div class="profile__header">
+            <p class="profile__heading">Username: <span class="profile__heading-data">{{ current_user.username }}</span></p>
+            <p class="profile__heading">Email: <span class="profile__heading-data">{{ current_user.email }}</span></p>
         </div>
-        <div class="">
-            <p class="profile-heading">Email: {{ current_user.email }}</p>
-        </div>
-        <a href="{{ url_for('edit_profile') }}" class="btn btn-primary">Edit Profile</a>
-        <div class="profile-flex">
-            <div class="profile-flex-item">
-                <p class="profile-heading">Students</p>
-                {% for student in current_user.students %}
-                    <p>{{ student }}</p>
-                {% endfor %}
+        <div class="profile__data-wrapper">
+            <a href="{{ url_for('edit_profile') }}" class="btn btn--dark btn--profile-edit"><i class="fas fa-pencil-alt controls-icon"></i>Edit Students & Subjects</a>
+            <div class="profile__data-group">
+                <p class="profile__data-heading"><span class="profile__data-heading-title">Students</span></p>
+                <div class="profile__data-content">
+                    {% for student in current_user.students %}
+                        <p class="profile__data">{{ student }}</p>
+                    {% endfor %}
+                </div>    
             </div>
-            <div class="profile-flex-item">
-                <p class="profile-heading">Subjects</p>
-                {% for subject in current_user.subjects %}
-                    <p>{{ subject }}</p>
-                {% endfor %}
+
+            <div class="profile__data-group">
+                <p class="profile__data-heading"><span class="profile__data-heading-title">Subjects</span></p>
+                <div class="profile__data-content">
+                    {% for subject in current_user.subjects %}
+                        <p class="profile__data">{{ subject }}</p>
+                    {% endfor %}
+                </div>    
             </div>
-        </div>
-        
-        
+        </div>    
     </div>
     
 {% endblock %}
