@@ -11,8 +11,9 @@
             <p class="profile__heading">Username: <span class="profile__heading-data">{{ current_user.username }}</span></p>
             <p class="profile__heading">Email: <span class="profile__heading-data">{{ current_user.email }}</span></p>
         </div>
+        <a href="{{ url_for('edit_profile') }}" class="btn btn--dark btn--profile-edit"><i class="fas fa-pencil-alt controls-icon"></i>Edit Students & Subjects</a>
+
         <div class="profile__data-wrapper">
-            <a href="{{ url_for('edit_profile') }}" class="btn btn--dark btn--profile-edit"><i class="fas fa-pencil-alt controls-icon"></i>Edit Students & Subjects</a>
             <div class="profile__data-group">
                 <p class="profile__data-heading"><span class="profile__data-heading-title">Students</span></p>
                 <div class="profile__data-content">

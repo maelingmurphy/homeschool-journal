@@ -11,6 +11,7 @@
     --bg-completed: hsla(160, 36%, 88%, 1);
     --bg-notcompleted: hsla(246, 91%, 65%, 0.21);
     --bg-cell-hover: hsla(245, 100%, 96%, 0.7);
+    --bg-cell-hover-dark: hsla(245, 100%, 93%, 0.7);
     --completed-color: hsla(176, 69%, 28%, 1);
     --notcompleted-color: hsla(246, 54%, 53%, 1);
     --content-bg-light: #D7ECE5;
@@ -107,7 +108,7 @@ h1, h2, h3, h4 {
 }
 
 /* ====================
- BUTTON STYLES
+ BUTTON & LINK STYLES
 ======================= */
 .btn {
     border: unset;
@@ -166,6 +167,13 @@ h1, h2, h3, h4 {
 
 .controls-icon {
     margin-right: 0.5em;
+}
+
+.btn-back {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
 /* ====================
@@ -1235,7 +1243,7 @@ h1, h2, h3, h4 {
 }
 
 .btn--profile-edit {
-    margin-bottom: 2.1em;
+    margin-top: 2.2em;
 }
 
 .profile__data-group {
@@ -1252,7 +1260,7 @@ h1, h2, h3, h4 {
 
 .profile__data-heading-title {
     font-family: 'Zilla Slab', serif;
-    font-size: 1.5rem;
+    font-size: 2.1rem;
     padding-bottom: 0.1em;
     border-bottom: 4px solid var(--border-dark);
 }
@@ -1260,4 +1268,63 @@ h1, h2, h3, h4 {
 .profile__data {
     margin-bottom: 0.3em;
     font-size: 1.2rem;
+}
+
+/* ====================
+ Profile - profile-edit.html 
+======================= */
+.profile-edit__btn-back {
+    margin-top: 2em;
+}
+
+.profile-edit__form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.profile-edit__form-input {
+    margin-bottom: 0;
+}
+
+.profile-edit__btn-add {
+    margin-left: 0.5em;
+}
+
+.profile-edit__data-group {
+    background: var(--bg-cell-hover);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.3em;
+    padding: 0.5em 0.3em;
+    max-width: 400px;
+}
+
+.profile-edit__data-group:hover, .profile-edit__data-group:focus {
+    background: var(--bg-cell-hover-dark);
+}
+
+.profile-edit__data:last-child {
+    margin-bottom: 0;
+}
+
+.profile-edit__btn-delete {
+    border: 2px solid var(--black);
+    padding: 0.1em 0.8em;
+}
+
+.profile-edit__btn-delete:hover, .profile-edit__btn-delete:focus  {
+    background: var(--black);
+    color: #FFF;
+}
+
+@media screen and (min-width: 968px) {
+    .profile__data-wrapper {
+        display: flex;
+    }
+
+    .profile__data-group {
+        margin-right: 5.5em;
+    }
 }
