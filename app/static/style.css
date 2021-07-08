@@ -1243,7 +1243,7 @@ h1, h2, h3, h4 {
 }
 
 .btn--profile-edit {
-    margin-bottom: 2.1em;
+    margin-top: 2.2em;
 }
 
 .profile__data-group {
@@ -1260,7 +1260,7 @@ h1, h2, h3, h4 {
 
 .profile__data-heading-title {
     font-family: 'Zilla Slab', serif;
-    font-size: 1.5rem;
+    font-size: 2.1rem;
     padding-bottom: 0.1em;
     border-bottom: 4px solid var(--border-dark);
 }
