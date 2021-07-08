@@ -343,7 +343,7 @@ h1, h2, h3, h4 {
         /* border: 2px solid red; */
         display: grid;
         grid-gap: 1.4rem;
-        grid-template-columns: minmax(auto, 280px) 1fr;
+        grid-template-columns: minmax(auto, 240px) 1fr;
     }
     
     .navbar-panel {
