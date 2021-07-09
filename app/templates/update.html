@@ -7,9 +7,9 @@
 {% block content %}
     <div class="activity">
         <a class="activity__btn-back" href="{{ url_for('log') }}"><i class="fas fa-long-arrow-alt-left controls-icon"></i>All Activities</a>
-        <h1 class="activity__title">Edit Activity: {{ title }}</h1>
+        <h1 class="activity__title">Edit Activity: {{ activity.title }}</h1>
         <div class="activity__form-wrapper">
-            <form method="POST" action="{{ url_for('update', title=title) }}" class="activity__form" role="form" novalidate>
+            <form method="POST" action="{{ url_for('update', id=activity.id) }}" class="activity__form" role="form" novalidate>
                 {{ form.csrf_token() }}
                 <div class="form-group">
                     {{ form.title.label }}

@@ -7,7 +7,7 @@
 {% block content %}
     <div class="activity">
         <a class="activity__btn-back" href="{{ url_for('log') }}"><i class="fas fa-long-arrow-alt-left controls-icon"></i>All Activities</a>
-        <h1 class="activity__title"> Activity Details: {{ title }}</h1>
+        <h1 class="activity__title"> Activity Details: {{ activity.title }}</h1>
         <div class="activity__content">    
             <div class="activity__content-group">
                 <h2 class="activity__content-label">Title: <span class="activity__content-data">{{ activity.title }}</span></h2>
