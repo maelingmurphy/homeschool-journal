@@ -934,7 +934,7 @@ h1, h2, h3, h4 {
     .activities__field-wrapper {
         flex-direction: row;
     }
-    
+
     .activities__field {
         margin-right: 1.5em;
     }
@@ -1000,7 +1000,7 @@ h1, h2, h3, h4 {
 
     .attendance-history__form {
         display: flex;
-        max-width: 70%;
+        max-width: 100%;
         justify-content: center;
         align-items: flex-end;
         margin: 1.2em auto 0;
