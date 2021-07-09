@@ -847,7 +847,8 @@ h1, h2, h3, h4 {
     padding: 1.5em 2em;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -1px;
     border-radius: 1.3em;
-    margin-bottom: 1.2em;
+    margin: 0 auto 1.2em auto;
+    max-width: 450px;
 }
 
 .activity__card-header {
@@ -916,6 +917,10 @@ h1, h2, h3, h4 {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 1em;
+    }
+
+    .activity__card {
+        margin: unset;
     }
 }
 
