@@ -927,6 +927,21 @@ h1, h2, h3, h4 {
 }
 
 @media screen and (min-width: 768px) {
+    .activities__form {
+        max-width: 80%;
+    }
+    
+    .activities__field-wrapper {
+        flex-direction: row;
+    }
+    
+    .activities__field {
+        margin-right: 1.5em;
+    }
+
+    .activities__field:last-of-type {
+        margin-right: 0;
+    }
     .activity-display__cards {
         display: grid;
         grid-template-columns: 1fr 1fr;
