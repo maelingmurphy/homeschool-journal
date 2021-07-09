@@ -1344,9 +1344,15 @@ footer {
     padding: 1.3em 1em;
     background: var(--black);
     color: #FFF;
-    grid-column: 2 / -1;  
+    grid-column: 2 / -1;   
 }
 
 .footer__link {
-    color: #FFF;
+    color: #FFF;   
+}
+
+@media screen and (min-width: 968px) {
+    footer {
+        display: none;
+    }
 }
