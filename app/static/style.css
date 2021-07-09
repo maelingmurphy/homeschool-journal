@@ -743,6 +743,8 @@ h1, h2, h3, h4 {
 .activities__form {
     display: flex;
     flex-direction: column;
+    margin: 3.5em auto 0 auto;
+    max-width: 450px;
 }
 
 .activities__field-wrapper {
