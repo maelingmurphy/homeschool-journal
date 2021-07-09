@@ -576,6 +576,10 @@ h1, h2, h3, h4 {
 
 /* ADD STUDENT & SUBJECTS ONBOARDING FORM */
 
+.add-user-info__form {
+    max-width: 400px;
+}
+
 .add-user-info__form-group {
     margin-bottom: 3.5em;
 }
@@ -583,8 +587,6 @@ h1, h2, h3, h4 {
 .add-user-info__form-group:last-of-type {
     margin-bottom: 2em;
 }
-
-
 
 /* MAIN HOME PAGE */
 
