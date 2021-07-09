@@ -32,7 +32,7 @@ def datetime_day_format_filter(value, format='%A - %B %d, %Y'):
     """Convert a datetime to a different format."""
     return value.strftime(format)
 
-app.jinja_env.filters['datetime_format_filter'] = datetime_day_format_filter
+app.jinja_env.filters['datetime_day_format_filter'] = datetime_day_format_filter
 
 @app.template_filter()
 def datepicker_format_filter(value, format='%Y-%m-%d'):
