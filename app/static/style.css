@@ -350,7 +350,7 @@ h1, h2, h3, h4 {
     .container-main {
         /* border: 2px solid red; */
         display: grid;
-        grid-gap: 1.4rem;
+        /* grid-gap: 1.4rem; */
         grid-template-columns: minmax(auto, 240px) 1fr;
     }
     
@@ -432,6 +432,11 @@ h1, h2, h3, h4 {
 
 
 @media screen and (min-width: 968px) {
+
+    .container {
+        padding-left: 3em;
+        padding-right: 3em;
+    }
 
     .wrapper-form {
         background: var(--bg-light);
@@ -1333,9 +1338,15 @@ h1, h2, h3, h4 {
  FOOTER
 ======================= */
 
+/* Footer is grid-item child of container-main */
 footer {
     text-align:center;
     padding: 1.3em 1em;
     background: var(--black);
+    color: #FFF;
+    grid-column: 2 / -1;  
+}
+
+.footer__link {
     color: #FFF;
 }
