@@ -1328,3 +1328,14 @@ h1, h2, h3, h4 {
         margin-right: 5.5em;
     }
 }
+
+/* ====================
+ FOOTER
+======================= */
+
+footer {
+    text-align:center;
+    padding: 1.3em 1em;
+    background: var(--black);
+    color: #FFF;
+}

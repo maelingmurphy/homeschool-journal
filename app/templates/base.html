@@ -62,9 +62,6 @@
           </nav> 
         </header>
         
-       
-
-
         <div class ="container">
            <!-- Display Flash Messages -->
           {% with messages = get_flashed_messages(with_categories=True) %}
@@ -80,6 +77,7 @@
 
           {% block content %} {% endblock %}
         </div>
+        <footer>Made with <i class="fas fa-heart footer__icon"></i> by <a href="https://github.com/maelingmurphy" class="footer__link">MaelingCodes</a></footer>
 
         <!-- Bootstrap JS Bundle -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
