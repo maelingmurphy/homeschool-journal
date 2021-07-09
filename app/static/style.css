@@ -911,17 +911,6 @@ h1, h2, h3, h4 {
     margin-right: 0.5em;
 }
 
-/* Initial add students & subjects form for new user */
-
-#add-students-form, #add-subjects-form {
-    margin-bottom: 40px;
-}
-
-#student-container input, #subject-container input {
-    margin-bottom: 10px;
-}
-
-
 /* ====================
  ADD STUDENTS & SUBJECTS - add.html 
 ======================= */
