@@ -815,7 +815,7 @@ h1, h2, h3, h4 {
 /* Display Scheduled Activities */
 
 .activity-display {
-    margin-top: 3em;
+    margin-top: 5em;
 }
 
 .activity-display__add {
@@ -845,7 +845,7 @@ h1, h2, h3, h4 {
 .activity__card {
     background: #FFF;
     padding: 1.5em 2em;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -1px;
     border-radius: 1.3em;
     margin-bottom: 1.2em;
 }
