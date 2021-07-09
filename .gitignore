@@ -4,3 +4,4 @@ __pycache__/
 .flaskenv
 config-notes.py
 venv/
+.vscode/

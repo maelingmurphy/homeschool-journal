@@ -716,6 +716,12 @@ h1, h2, h3, h4 {
     color: #FFF;
 }
 
+@media screen and (min-width: 968px) {
+    .attendance {
+        max-width: 750px;
+    }
+}
+
 /* Scheduled Activities */
 .activities {
     border: 3px solid #131313;
@@ -737,6 +743,8 @@ h1, h2, h3, h4 {
 .activities__form {
     display: flex;
     flex-direction: column;
+    margin: 3.5em auto 0 auto;
+    max-width: 450px;
 }
 
 .activities__field-wrapper {
@@ -807,7 +815,7 @@ h1, h2, h3, h4 {
 /* Display Scheduled Activities */
 
 .activity-display {
-    margin-top: 3em;
+    margin-top: 5em;
 }
 
 .activity-display__add {
@@ -837,9 +845,10 @@ h1, h2, h3, h4 {
 .activity__card {
     background: #FFF;
     padding: 1.5em 2em;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -1px;
     border-radius: 1.3em;
-    margin-bottom: 1.2em;
+    margin: 0 auto 1.2em auto;
+    max-width: 450px;
 }
 
 .activity__card-header {
@@ -903,41 +912,15 @@ h1, h2, h3, h4 {
     margin-right: 0.5em;
 }
 
-/* Initial add students & subjects form for new user */
+@media screen and (min-width: 768px) {
+    .activity-display__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+    }
 
-#add-students-form, #add-subjects-form {
-    margin-bottom: 40px;
-}
-
-#student-container input, #subject-container input {
-    margin-bottom: 10px;
-}
-
-
-/* ====================
- ADD STUDENTS & SUBJECTS - add.html 
-======================= */
-.text-area {
-    display: block;
-}
-
-.form-float {
-    display: inline-flex;
-
-}
-
-.float-item {
-    padding-right: 30px;
-}
-
-/* Log */
-.activity-log-header {
-    padding-top: 30px;
-}
-
-@media screen and (min-width: 676px) {
-    .modal-dialog {
-        max-width: 600px;
+    .activity__card {
+        margin: unset;
     }
 }
 
