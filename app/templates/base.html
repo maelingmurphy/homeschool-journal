@@ -54,6 +54,9 @@
                   {% endif %}
                 </li>
               </ul>
+              <div class=navbar__footer>
+                Made with <i class="fas fa-heart footer__icon"></i> by<br> <a href="https://github.com/maelingmurphy" class="footer__link">MaelingCodes</a>
+              </div>
             </div><!--close navbar-panel-->
             <h1 class="navbar-logo"><a class="navbar-logo-text" href="{{ url_for('index') }}">homeschool </br>journal</a></h1>
             <a href="{{ url_for ('profile') }}" class="navbar-icon navbar-profile">
@@ -77,7 +80,7 @@
 
           {% block content %} {% endblock %}
         </div>
-        <footer>Made with <i class="fas fa-heart footer__icon"></i> by <a href="https://github.com/maelingmurphy" class="footer__link">MaelingCodes</a></footer>
+        <footer><p>Made with <i class="fas fa-heart footer__icon"></i> by <a href="https://github.com/maelingmurphy" class="footer__link">MaelingCodes</a></p></footer>
 
         <!-- Bootstrap JS Bundle -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
