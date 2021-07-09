@@ -716,6 +716,12 @@ h1, h2, h3, h4 {
     color: #FFF;
 }
 
+@media screen and (min-width: 968px) {
+    .attendance {
+        max-width: 750px;
+    }
+}
+
 /* Scheduled Activities */
 .activities {
     border: 3px solid #131313;
