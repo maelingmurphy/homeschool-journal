@@ -911,6 +911,14 @@ h1, h2, h3, h4 {
     margin-right: 0.5em;
 }
 
+@media screen and (min-width: 768px) {
+    .activity-display__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+    }
+}
+
 /* ====================
  ATTENDANCE HISTORY - attend.html 
 ======================= */
