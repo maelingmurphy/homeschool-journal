@@ -912,33 +912,6 @@ h1, h2, h3, h4 {
 }
 
 /* ====================
- ADD STUDENTS & SUBJECTS - add.html 
-======================= */
-.text-area {
-    display: block;
-}
-
-.form-float {
-    display: inline-flex;
-
-}
-
-.float-item {
-    padding-right: 30px;
-}
-
-/* Log */
-.activity-log-header {
-    padding-top: 30px;
-}
-
-@media screen and (min-width: 676px) {
-    .modal-dialog {
-        max-width: 600px;
-    }
-}
-
-/* ====================
  ATTENDANCE HISTORY - attend.html 
 ======================= */
 .attendance-history {
