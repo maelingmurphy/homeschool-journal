@@ -136,7 +136,7 @@
                         <p class="activity__card-data activity__card-subject">Subject: <span class="activity__card-subject-data">{{ activity.subject }}</span></p>
                     </div>
                     <div class="activity__card-controls">
-                        <a href="{{ url_for('update', title=activity.title) }}" class="btn btn-edit activity__card-controls-btn"><i class="fas fa-edit activity__card-controls-icon"></i>Edit</a>
+                        <a href="{{ url_for('update', id=activity.id) }}" class="btn btn-edit activity__card-controls-btn"><i class="fas fa-edit activity__card-controls-icon"></i>Edit</a>
                         <a href="{{ url_for('details', title=activity.title) }}" class="btn btn-details activity__card-controls-btn"><i class="fas fa-file-alt activity__card-controls-icon"></i></i>Details</a>
                         <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-delete activity__card-controls-btn" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash activity__card-controls-icon"></i>Delete</a>
                     </div>

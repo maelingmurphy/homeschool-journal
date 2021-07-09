@@ -253,13 +253,13 @@ def log():
 
 # Update Activity
 @app.route('/update', methods=('GET', 'POST'))
-@app.route('/update/<string:title>', methods=('GET', 'POST'))
+@app.route('/update/<string:id>', methods=('GET', 'POST'))
 @login_required
-def update(title):
+def update(id):
 
     # FIX BELOW! Need to get activity record by id. You could have multiple records with same title
-    # Get activity record by title
-    activity = db.session.query(Activity).filter_by(title=title).first()
+    # Get activity record by id
+    activity = db.session.query(Activity).filter_by(id=id).first()
     
     # Pull user's list of students and objects saved to their User model so it can be displayed in form
     students = current_user.students
@@ -315,7 +315,7 @@ def update(title):
         return redirect(url_for('log'))
 
 
-    return render_template('update.html', title=title, form=form, activity=activity)
+    return render_template('update.html', form=form, activity=activity)
 
 # Activity Details
 @app.route('/details/<string:title>')
