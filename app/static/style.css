@@ -573,6 +573,21 @@ h1, h2, h3, h4 {
 /* ====================
  HOME PAGE - index.html 
 ======================= */
+
+/* ADD STUDENT & SUBJECTS ONBOARDING FORM */
+
+.add-user-info__form-group {
+    margin-bottom: 3.5em;
+}
+
+.add-user-info__form-group:last-of-type {
+    margin-bottom: 2em;
+}
+
+
+
+/* MAIN HOME PAGE */
+
 .date-wrapper {
     text-align: center;
     padding: 0.625em 0.5em;
