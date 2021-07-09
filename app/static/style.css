@@ -346,6 +346,17 @@ h1, h2, h3, h4 {
     background: none;
 }
 
+.navbar__footer {
+    text-align: center;
+    margin-top: 5em;
+    display: none;
+}
+
+.navbar__footer-link {
+    /* color: var(--black); */
+    color: var(--black);
+}
+
 @media screen and (min-width: 968px) {
     .container-main {
         /* border: 2px solid red; */
@@ -355,7 +366,7 @@ h1, h2, h3, h4 {
     }
     
     .navbar-panel {
-        transform: translateX(0);
+        transform: translateX(0) !important;
         position: unset;
         position: fixed;
     }
@@ -371,6 +382,10 @@ h1, h2, h3, h4 {
 
     .navbar-icon {
         display: none;
+    }
+
+    .navbar__footer {
+        display: block;
     }
 }
 
