@@ -2,6 +2,7 @@ todo.md
 instance/
 __pycache__/
 .flaskenv
+.env
 config-notes.py
 venv/
 .vscode/
