@@ -61,30 +61,3 @@ login = LoginManager(app)
 login.login_view = 'login'
 
 from app import routes, models
-
-# CODE BELOW THAT NEEDS TO BE TESTED
-
-
-
-
-#def create_app():
-    # Flask app creation 
-    #app = Flask(__name__, instance_relative_config=True) # Refers to this current file 
-
-    # Set app configuration variables 
-    #if app.config['ENV'] == 'production':
-    #    app.config.from_object('config.ProductionConfig')
-    #else:
-    #    app.config.from_object('config.DevelopmentConfig')
-
-   
-
-   
-
-    
-
-    #print(f'ENV is now set to: {app.config["ENV"]}')
-
-    #return app
-
-
