@@ -7,6 +7,4 @@ config-notes.py
 .vscode/
 
 venv
-app.db
 homeschool_journal.log
-
