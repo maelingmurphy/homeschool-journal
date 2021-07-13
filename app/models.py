@@ -39,7 +39,7 @@ class Activity(db.Model):
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
     resources = db.Column(db.Text, index=True)
-    activity_date = db.Column(db.DateTime, index=True, nullable=False)
+    activity_date = db.Column(db.DateTime(timezone=False), index=True, nullable=False)
     notes = db.Column(db.Text, index=True)
     status = db.Column(db.String(64), index=True, nullable=False)
 
@@ -62,7 +62,7 @@ class Student(db.Model):
 class Attendance(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
-    attendance_date = db.Column(db.DateTime, nullable=False, index=True)
+    attendance_date = db.Column(db.DateTime(timezone=False), nullable=False, index=True)
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
     
     def __repr__(self):
