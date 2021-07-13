@@ -108,6 +108,7 @@ def index():
     form3.student.choices = student_list
 
     # Show all activites for current date for all students as default
+    print('Get all activities for today')
     activities = current_user.activities.filter_by(activity_date=todays_datetime).order_by(Activity.activity_date).all()
 
     # Choose which activities to display based on form selection
