@@ -41,7 +41,7 @@ class Activity(db.Model):
     resources = db.Column(db.Text, index=True)
     activity_date = db.Column(db.DateTime(timezone=False), index=True, nullable=False)
     notes = db.Column(db.Text, index=True)
-    status = db.Column(db.String(64), index=True, nullable=False)
+    status = db.Column(db.String(64), index=True)
 
     def __repr__(self):
         return '<Activity {}>'.format(self.title)
