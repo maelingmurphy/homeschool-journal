@@ -4,5 +4,9 @@ __pycache__/
 .flaskenv
 .env
 config-notes.py
-venv/
 .vscode/
+
+venv
+app.db
+homeschool_journal.log
+
