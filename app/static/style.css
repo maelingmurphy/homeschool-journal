@@ -665,7 +665,6 @@ input, select {
 
 .attendance__field--date {
     flex-basis: 50%;
-    margin-right: 0.5em;
 }
 
 .attendance__field-input {
@@ -678,6 +677,17 @@ input, select {
 
 .attendance__field--student {
     flex-basis: 50%;
+}
+
+.attendance__date-input {
+    position: relative;
+}
+
+.attendance__field-input--date {
+    padding-right: 4em;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
 .attendance__student-input {
