@@ -760,6 +760,7 @@ h1, h2, h3, h4 {
 }
 
 .activities__title {
+    font-family: 'Zilla Slab', serif;
     text-align: center;
     text-transform: uppercase;
 }
