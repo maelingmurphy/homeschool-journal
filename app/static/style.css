@@ -603,8 +603,6 @@ h1, h2, h3, h4 {
 .date-wrapper {
     text-align: center;
     padding: 0.625em 0.5em;
-    /* border: 2px solid var(--black); */
-    /* border-radius: 0.5em; */
 }
 
 .date__title {
@@ -615,12 +613,9 @@ h1, h2, h3, h4 {
     margin-bottom: 0.5em;
 }
 
-.date__info{
-    /* display: inline-block; */
+.date__info {
     font-size: 1.4rem;
-    text-align: center;
-    /* text-transform: uppercase; */
-   
+    text-align: center; 
 }
 
 .date-info-data {
@@ -634,6 +629,7 @@ h1, h2, h3, h4 {
     margin: 3.125em auto;
     padding: 1.75em 0em;
     border-radius: 1.1em;
+    max-width: 450px;
 }
 
 .attendance__title {
@@ -654,10 +650,13 @@ h1, h2, h3, h4 {
 .attendance__fields {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.4em;
+    flex-direction: column;
     padding: 0 1.5em;
    
+}
+
+.attendance__field {
+    margin-bottom: 1.3em;
 }
 
 .attendance__field--date {
@@ -675,7 +674,6 @@ h1, h2, h3, h4 {
 
 .attendance__field--student {
     flex-basis: 50%;
-    margin-left: 0.5em;
 }
 
 .attendance__student-input {
@@ -729,9 +727,21 @@ h1, h2, h3, h4 {
     color: #FFF;
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 768px) {
     .attendance {
-        max-width: 750px;
+        max-width: 80%;
+    }
+
+    .attendance__fields {
+        flex-direction: row;
+    }
+
+    .attendance__field {
+        margin-right: 1.5em;
+    }
+
+    .attendance__field:last-of-type {
+        margin-right: 0;
     }
 }
 
@@ -739,7 +749,8 @@ h1, h2, h3, h4 {
 .activities {
     /* border: 3px solid #131313; */
     border-radius: 1.1em;
-    padding: 3em 1.5em;
+    margin-top: 5em;
+    /* padding: 3em 1.5em; */
     
 
 }
@@ -756,7 +767,7 @@ h1, h2, h3, h4 {
 .activities__form {
     display: flex;
     flex-direction: column;
-    margin: 3.5em auto 0 auto;
+    margin: 2em auto 0 auto;
     max-width: 450px;
     background: var(--bg-navbar);
     padding: 2em 1.5em;
