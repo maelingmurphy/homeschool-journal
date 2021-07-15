@@ -433,6 +433,10 @@ h1, h2, h3, h4 {
     margin-bottom: 1.2em;
 }
 
+input, select {
+    background-color: #FFF;
+}
+
 .input-field:last-child {
     margin-bottom: 0;
 }
