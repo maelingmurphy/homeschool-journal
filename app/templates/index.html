@@ -56,7 +56,8 @@
 
     {% if current_user.student_number %} 
     <div class="date-wrapper">
-        <span class="date-info">Today's Date: <span class="date-info-data">{{ todays_datetime | datetime_day_format_filter }}</span></span>
+        <span class="date__title">Today's Date</span>
+        <p class="date__info">{{ todays_datetime | datetime_day_format_filter }}</span>
     </div>
     <div class="attendance">
         <h2 class="attendance__title">Log Attendance</h2>

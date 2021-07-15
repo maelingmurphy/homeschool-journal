@@ -607,17 +607,20 @@ h1, h2, h3, h4 {
     /* border-radius: 0.5em; */
 }
 
-.date-title {
+.date__title {
+    display: inline-block;
     font-size: 1.5rem;
     text-transform: uppercase;
+    border-bottom: 5px solid var(--link-hover-color);
+    margin-bottom: 0.5em;
 }
 
-.date-info {
+.date__info{
     /* display: inline-block; */
     font-size: 1.4rem;
     text-align: center;
     /* text-transform: uppercase; */
-    border-bottom: 5px solid var(--link-hover-color);
+   
 }
 
 .date-info-data {
