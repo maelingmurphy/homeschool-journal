@@ -437,10 +437,21 @@ input, select {
     background-color: #FFF;
 }
 
-/* clear x icon from datepicker fields on Chrome browser */
+/* clear x icon & dropdown arrow from datepicker fields on Chrome and mobile browser */
+input[type="date"] {
+    -webkit-appearance: none;
+}
+
 input[type="date"]::-webkit-clear-button { 
     display: none; 
 }
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator { 
+    display: none; 
+    -webkit-appearance: none;
+}
+
 
 .input-field:last-child {
     margin-bottom: 0;
