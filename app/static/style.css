@@ -437,6 +437,11 @@ input, select {
     background-color: #FFF;
 }
 
+/* clear x icon from datepicker fields on Chrome browser */
+input[type="date"]::-webkit-clear-button { 
+    display: none; 
+}
+
 .input-field:last-child {
     margin-bottom: 0;
 }
