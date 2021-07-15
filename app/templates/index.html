@@ -66,10 +66,7 @@
             <div class="attendance__fields">
                 <div class="attendance__field attendance__field--date">
                     {{ form2.attendance_date.label(class_='attendance__field-label') }}
-                    <div class="attendance__date-input">
-                        {{ form2.attendance_date(class_='datepicker attendance__field-input attendance__field-input--date', value=todays_datetime | datepicker_format_filter, required=True) }}
-                        <span class="attendance__dropdown"></span>
-                    </div>
+                    {{ form2.attendance_date(class_='datepicker attendance__field-input attendance__field-input--date', value=todays_datetime | datepicker_format_filter, required=True) }}
                     {% for error in form2.attendance_date.errors %}
                     <span style="color:red;">[{{ error }}]</span>
                     {% endfor %}

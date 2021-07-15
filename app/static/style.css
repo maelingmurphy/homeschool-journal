@@ -437,22 +437,6 @@ input, select {
     background-color: #FFF;
 }
 
-/* clear x icon & dropdown arrow from datepicker fields on Chrome and mobile browser */
-input[type="date"] {
-    -webkit-appearance: none;
-}
-
-input[type="date"]::-webkit-clear-button { 
-    display: none; 
-}
-
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator { 
-    display: none; 
-    -webkit-appearance: none;
-}
-
-
 .input-field:last-child {
     margin-bottom: 0;
 }
@@ -693,17 +677,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .attendance__field--student {
     flex-basis: 50%;
-}
-
-.attendance__date-input {
-    position: relative;
-}
-
-.attendance__field-input--date {
-    padding-right: 4em;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
 }
 
 .attendance__student-input {
