@@ -165,10 +165,6 @@ h1, h2, h3, h4 {
     color: var(--black);
 }
 
-.controls-icon {
-    margin-right: 0.5em;
-}
-
 .btn-back {
     display: block;
     font-weight: 700;
@@ -1244,6 +1240,10 @@ input, select {
 }
 
 @media screen and (min-width: 768px) {
+    .activity-log__controls-icon {
+        margin-right: 0.5em;
+    }
+
     .activity-log__controls-btn-text {
         display: inline;
     }
@@ -1282,6 +1282,13 @@ input, select {
         margin-top: 0;
     }
 
+    .activity-log__controls-icon {
+        margin: unset;
+    }
+    
+    .activity-log__controls-btn-text {
+        display: none;
+    }
 }
 
 /* ====================
