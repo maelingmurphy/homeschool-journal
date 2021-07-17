@@ -6,6 +6,15 @@
 
 {% block content %}
 
+    {% if not current_user.student_number %}
+        <div>
+            <p>In order to log attendance, please add one or more students to your account</p>
+            <a href="{{ url_for('edit_profile') }}" class="btn btn--dark">Go to Profile</a>
+        </div>
+    {% endif %}
+
+    <!-- Only show the content below if user has students -->
+    {% if current_user.student_number %}
     <div class="attendance-history">
         <h1 class="attendance-history__title">Attendance History</h1>
         <div class="attendance-history__form-wrapper">
@@ -57,5 +66,5 @@
             </tbody>
         </table>
     </div>
-
+    {% endif %}
 {% endblock %}
