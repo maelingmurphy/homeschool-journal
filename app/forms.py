@@ -31,10 +31,10 @@ class LoginForm(FlaskForm):
 
 class AddStudentSubjectForm(FlaskForm):
     """Add student(s) and subject(s) form."""
-    user_student = SelectField('How many students do you have?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8], validators=[DataRequired()])
-    student_name1 = StringField('Student Name(s)', validators=[DataRequired("Please enter student's name")])
-    user_subject = SelectField('How many subjects do you teach?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], validators=[DataRequired()] )
-    subject_name1 = StringField('Subject', validators=[DataRequired("Please enter subject name")])
+    user_student = SelectField('How many students do you have?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8], validators=[InputRequired()])
+    student_name1 = StringField('Student Name(s)', validators=[InputRequired("Please enter student's name")])
+    user_subject = SelectField('How many subjects do you teach?', choices=[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], validators=[InputRequired()] )
+    subject_name1 = StringField('Subject', validators=[InputRequired("Please enter subject name")])
     submit = SubmitField('Update')
 
 class AddStudentForm(FlaskForm):
