@@ -44,7 +44,11 @@ def index():
             flash('You have successfully added {} as a student!'.format(name), 'info')
         
         # Add student_number to user table 
-        current_user.student_number = student_number
+        # If user already has 1 or more students, add the form student_number to the existing count
+        if current_user.student_number: 
+            current_user.student_number += student_number
+        else:
+            current_user.student_number = student_number
         db.session.commit()
 
         # Get subject number
@@ -62,7 +66,12 @@ def index():
             db.session.commit()
         
         # Add subject_number to user table
-        current_user.subject_number = subject_number
+        # If user already has 1 or more subjects, add the form subject_number to the existing count
+        if current_user.subject_number:
+            current_user.subject_number += subject_number
+        else: 
+            current_user.subject_number = subject_number
+        
         db.session.commit()
 
         flash('You have successfully added the subject(s): {} '.format(subject_names), 'info')

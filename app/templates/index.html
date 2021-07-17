@@ -6,7 +6,8 @@
 
 {% block content %}
     <div id="add-user-info">
-        {% if not current_user.student_number %} 
+        <!-- Show add students/subjects form if user has 0 students OR subjects -->
+        {% if (not current_user.student_number) or (not current_user.subject_number) %} 
         <form class="add-user-info__form" action="" method="post" id="add-students-form">
             {{ form.csrf_token }}
             <div class="add-user-info__form-group">
@@ -54,7 +55,8 @@
         {% endif %} 
     </div>
 
-    {% if current_user.student_number %} 
+    <!-- Show everything below only if user as 1 or more students AND subjects associated with their account -->
+    {% if current_user.student_number and current_user.subject_number %} 
     <div class="date-wrapper">
         <span class="date__title">Today's Date</span>
         <p class="date__info">{{ todays_datetime | datetime_day_format_filter }}</span>
