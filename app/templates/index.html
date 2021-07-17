@@ -7,7 +7,7 @@
 {% block content %}
     <div id="add-user-info">
         {% if not current_user.student_number %} 
-        <form class="add-user-info__form" action="" method="post" id="add-students-form" novalidate>
+        <form class="add-user-info__form" action="" method="post" id="add-students-form">
             {{ form.csrf_token }}
             <div class="add-user-info__form-group">
                 <h2>Add Student(s)</h2>
