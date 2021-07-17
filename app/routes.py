@@ -60,6 +60,10 @@ def index():
             subject = Subject(subject_name=name, user_id=current_user.id)
             db.session.add(subject)
             db.session.commit()
+        
+        # Add subject_number to user table
+        current_user.subject_number = subject_number
+        db.session.commit()
 
         flash('You have successfully added the subject(s): {} '.format(subject_names), 'info')
 
