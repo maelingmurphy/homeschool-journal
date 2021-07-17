@@ -944,8 +944,8 @@ input, select {
     margin-right: 0;
 }
 
-.activity__card-controls-icon {
-    margin-right: 0.5em;
+.activity__card-controls-icon-text {
+    display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -972,6 +972,16 @@ input, select {
 
     .activity__card {
         margin: unset;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .activity__card-controls-icon-text {
+        display: inline;
+    }
+
+    .activity__card-controls-icon {
+        margin-right: 0.5em;
     }
 }
 
