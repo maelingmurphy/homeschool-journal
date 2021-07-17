@@ -450,6 +450,10 @@ input, select {
 }
 
 
+.user-alert__note {
+    margin-bottom: 1em;
+}
+
 @media screen and (min-width: 968px) {
 
     .wrapper-form {

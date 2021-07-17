@@ -7,9 +7,9 @@
 {% block content %}
 
     {% if not current_user.student_number %}
-        <div>
-            <p>In order to log attendance, please add one or more students to your account</p>
-            <a href="{{ url_for('edit_profile') }}" class="btn btn--dark">Go to Profile</a>
+        <div class="user-alert">
+            <p class="user-alert__note">In order to log attendance, please add one or more students to your account</p>
+            <a href="{{ url_for('edit_profile') }}" class="btn btn--dark">Edit Profile</a>
         </div>
     {% endif %}
 
