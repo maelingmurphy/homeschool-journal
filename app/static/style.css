@@ -1229,6 +1229,16 @@ input, select {
     margin-right: 0;
 }
 
+.activity-log__controls-btn-text {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .activity-log__controls-btn-text {
+        display: inline;
+    }
+}
+
 @media screen and (min-width: 968px) {
     .activity-log__table-header-wrapper {
         display: block;
@@ -1261,7 +1271,6 @@ input, select {
     .activity-log__entry-controls {
         margin-top: 0;
     }
-
 
 }
 

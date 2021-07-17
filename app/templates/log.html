@@ -43,9 +43,9 @@
                         <p class="activity-log__entry-data"><span class="activity-log__entry-label">Activity: </span>{{ activity.title }}</p>
                         <p class="activity-log__entry-data"><span class="activity-log__entry-label">Subject: </span>{{ activity.subject }}</p> 
                         <p class="activity-log__entry-data activity-log__entry-controls">
-                            <a href="{{ url_for('update', id=activity.id) }}" class="btn btn-edit activity-log__controls-btn" title="Edit Activity"><i class="fas fa-edit controls-icon"></i>Edit</a>
-                            <a href="{{ url_for('details', id=activity.id) }}" class="btn btn-details activity-log__controls-btn" title="View Activity Details"><i class="fas fa-file-alt controls-icon"></i></i>Details</a>
-                            <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-delete activity-log__controls-btn" title="Delete Activity" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash controls-icon"></i>Delete</a>
+                            <a href="{{ url_for('update', id=activity.id) }}" class="btn btn-edit activity-log__controls-btn" title="Edit Activity"><i class="fas fa-edit controls-icon"></i><span class="activity-log__controls-btn-text">Edit</span></a>
+                            <a href="{{ url_for('details', id=activity.id) }}" class="btn btn-details activity-log__controls-btn" title="View Activity Details"><i class="fas fa-file-alt controls-icon"></i><span class="activity-log__controls-btn-text">Details</span></a>
+                            <a href="{{ url_for('delete', id=activity.id) }}" class="btn btn-delete activity-log__controls-btn" title="Delete Activity" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash controls-icon"></i><span class="activity-log__controls-btn-text">Delete</span></a>
                         </p>     
                     </div>
                     {% endfor %}
