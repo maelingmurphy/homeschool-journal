@@ -1020,6 +1020,20 @@ input, select {
     margin-top: 1.3em;
 }
 
+.attendance__controls-icon-text {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .attendance__controls-icon {
+        margin-right: 0.5em;
+    }
+
+    .attendance__controls-icon-text {
+        display: inline;
+    }
+}
+
 @media screen and (min-width: 968px) {
     .attendance-history__form-wrapper {
         max-width: 100%;
