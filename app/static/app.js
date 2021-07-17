@@ -33,16 +33,16 @@ const subjectContainer = document.querySelector("#subject-container");
 function displayInputFields() {
     
     // Number of subjects selected
-    var subjectNum = subjectSelect.value;
+    let subjectNum = subjectSelect.value;
     
     // Number of subject name input fields at time of selection
-    var fieldNum = subjectContainer.childElementCount;
+    let fieldNum = subjectContainer.childElementCount;
 
     // If subjectNum > fieldNum, add subject name input fields
     if (subjectNum > fieldNum) {
-        var addFieldNum = subjectNum - fieldNum;
-        for (i = 0; i < addFieldNum; i++) {
-            var input = document.createElement("input");
+        let addFieldNum = subjectNum - fieldNum;
+        for (let i = 0; i < addFieldNum; i++) {
+            let input = document.createElement("input");
 
             input.type = "text";
             input.name = `subject_name${i+2}`;
@@ -56,8 +56,8 @@ function displayInputFields() {
     // If subjectNum < fieldNum, remove subject name input fields
     
     if (fieldNum > subjectNum) {
-        var removeFieldNum = fieldNum - subjectNum;
-        for (i = 0; i < removeFieldNum; i++) {
+        let removeFieldNum = fieldNum - subjectNum;
+        for (let i = 0; i < removeFieldNum; i++) {
             subjectContainer.removeChild(subjectContainer.lastElementChild);
         }
     }
@@ -70,16 +70,16 @@ subjectSelect.addEventListener('change', displayInputFields, false);
 studentSelect.addEventListener('change', (event) => {
 
     // Number of students selected
-    var studentNum = event.target.value;
+    let studentNum = event.target.value;
     
     // Number of student name input fields at time of selection
-    var fieldNum = studentContainer.childElementCount;
+    let fieldNum = studentContainer.childElementCount;
 
     // If studentNum > fieldNum, add student name input fields
     if (studentNum > fieldNum) {
-        var addFieldNum = studentNum - fieldNum;
-        for (i = 0; i < addFieldNum; i++) {
-            var input = document.createElement("input");
+        let addFieldNum = studentNum - fieldNum;
+        for (let i = 0; i < addFieldNum; i++) {
+            let input = document.createElement("input");
 
             input.type = "text";
             input.name = `student_name${i+2}`;
@@ -93,8 +93,8 @@ studentSelect.addEventListener('change', (event) => {
     // If studentNum < fieldNum, remove student name input fields
     
     if (fieldNum > studentNum) {
-        var removeFieldNum = fieldNum - studentNum;
-        for (i = 0; i < removeFieldNum; i++) {
+        let removeFieldNum = fieldNum - studentNum;
+        for (let i = 0; i < removeFieldNum; i++) {
             studentContainer.removeChild(studentContainer.lastElementChild);
         }
     }
