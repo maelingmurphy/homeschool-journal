@@ -415,6 +415,11 @@ def edit_profile():
 
         # Add student to database
         student = Student(student_name=student_name, user_id=current_user.id)
+        current_user.student_number += 1 # Increment user's student_number count
+
+        #TEST
+        print("# of students", current_user.student_number)
+
         db.session.add(student)
         db.session.commit()
         flash('Student: {} has been added'.format(student), 'info')
@@ -426,6 +431,11 @@ def edit_profile():
 
         # Add subject to database
         subject = Subject(subject_name=subject_name, user_id=current_user.id)
+        current_user.subject_number += 1 # Increment user's subject_number count
+
+        #TEST
+        print("# of subjects", current_user.subject_number)
+
         db.session.add(subject)
         db.session.commit()
         flash('Subject: {} has been added'.format(subject), 'info')
@@ -446,6 +456,12 @@ def remove_student(id):
     for activity in activities:
         db.session.delete(activity)
 
+    # Decrement user's student_number
+    current_user.student_number -= 1 # Decrement user's student_number count
+    
+    #TEST
+    print("# of students", current_user.student_number)
+    
     db.session.delete(student)
     db.session.commit()
     flash('Student has been removed', 'info')
@@ -463,6 +479,12 @@ def remove_subject(id):
 
     for activity in activities:
         db.session.delete(activity)
+
+    # Decrement user's subject_number
+    current_user.subject_number -= 1 # Decrement user's subject_number count
+    
+    #TEST
+    print("# of subjects", current_user.subject_number)
 
     db.session.delete(subject)
     db.session.commit()
