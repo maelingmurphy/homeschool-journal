@@ -49,6 +49,7 @@ function displayInputFields() {
             input.className = "form-control";
             input.id = `subject_name${i+2}`;
             input.placeholder = "Enter subject's name here";
+            input.required = true;
             subjectContainer.appendChild(input);
         }
     }
@@ -85,6 +86,7 @@ studentSelect.addEventListener('change', (event) => {
             input.className = "form-control";
             input.id = `student_name${i+2}`;
             input.placeholder = "Enter student's name here";
+            input.required = true;
             studentContainer.appendChild(input);
         }
     }
