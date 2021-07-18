@@ -12,11 +12,13 @@
                 </p> 
             </header>
             <main class="content-form">
-                <h1 class="heading-sans-serif heading-sign-up">Sign up for</br><span class="heading-text-logo">homeschool journal</span></h1>
-                <p class="content-form__subheading">Start logging lessons, activities and more!</p>
-                <form class="form" action="" method="post" novalidate>
+                <div class="content-form__header">
+                    <h1 class="heading-sans-serif heading-sign-up">Sign up for</br><span class="heading-text-logo">homeschool journal</span></h1>
+                    <p class="content-form__info">Start logging lessons, activities and more!</p>    
+                </div>
+                 <form class="form" action="" method="post" novalidate>
                     {{ form.csrf_token }}
-                    <p class="form-alert">*This is a mock site. Please do not enter real email or password information. You can test the site with non-sensitive mock information*</p>
+                    <p class="form-alert"><strong>THIS IS A MOCK SITE</strong><br/> Please do NOT enter real email or password information. Feel free to test the site with non-sensitive mock information OR use the guest login feature on the sign in page.</p>
                     <div class="form__user-info">
                         <div class="form-group form__user-info-field">
                             {{ form.username.label }}

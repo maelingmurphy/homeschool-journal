@@ -16,6 +16,15 @@ navbarOpen.addEventListener('click', () => navbarPanel.style.transform = 'transl
 navbarClose.addEventListener('click', () => navbarPanel.style.transform = 'translateX(-100%)');
 
 
+/* GUEST LOGIN FUNCTIONALITY */
+// When guest login button is clicked, it should auto-fill the sign-in form with credentials
+// that will provide the user access
+
+function autoFillForm() {
+    // auto-fill form with guest-user credentials on click of 'Guest Login' button
+    document.getElementById('username').value = "guest";
+    document.getElementById('password').value = "guest-password";  
+}
 
 /* ADD STUDENT & SUBJECTS - register.html */ 
 
