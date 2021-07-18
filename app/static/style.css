@@ -294,7 +294,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar-panel-logo {
-    margin-top: 1.6em;
+    margin-top: 1em;
 }
 
 .navbar-panel-logo__text {
@@ -310,7 +310,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar-list {
-    margin-top: 4.75em;
+    margin-top: 2.2em;
     padding: 0;
     list-style-type: none;
 }
@@ -340,7 +340,7 @@ h1, h2, h3, h4 {
 }
 
 .nav-link--sign {
-    margin: 3.5em auto;
+    margin: 2em auto;
     text-align: center;
     background: var(--black);
     color: #FFF;
