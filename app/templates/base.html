@@ -71,7 +71,7 @@
           {% if messages %}
             {% for category, message in messages %}
             <div class="{{ category }}" id="flask-flash">
-              {{ message }}
+              <p class="flash-message">{{ message }}</p>
               <button type="button" class="close" onclick="this.parentElement.style.display='none'"><i class="far fa-times-circle"></i></button>
             </div>
             {% endfor %}
