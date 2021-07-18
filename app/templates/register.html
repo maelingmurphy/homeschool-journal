@@ -29,7 +29,7 @@
                         </div>
                         <div class="form-group form__user-info-field">
                             {{ form.email.label }}
-                            {{ form.email(size=64, class_="form-control input-field", placeholder="Enter email address" )}}
+                            {{ form.email(size=64, class_="form-control input-field", placeholder="Enter email address", type="email" )}}
                             {% for error in form.email.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
                             {% endfor %}
@@ -38,14 +38,14 @@
                     <div class="form__user-info">
                         <div class="form-group form__user-info-field">
                             {{ form.password.label }}
-                            {{ form.password(size=32, class_="form-control input-field", placeholder="Enter password" )}}
+                            {{ form.password(size=32, class_="form-control input-field", placeholder="Enter password", type="password" )}}
                             {% for error in form.password.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
                             {% endfor %}
                         </div>
                         <div class="form-group form__user-info-field">
                             {{ form.password2.label }}
-                            {{ form.password2(size=32, class_="form-control input-field", placeholder="Confirm password" )}}
+                            {{ form.password2(size=32, class_="form-control input-field", placeholder="Confirm password", type="password" )}}
                             {% for error in form.password2.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
                             {% endfor %}

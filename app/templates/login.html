@@ -36,7 +36,7 @@
                     </p>
                     <p class="form-field">
                         {{ form.password.label }}
-                        {{ form.password(size=32, class_='form-control input-field', placeholder='Enter password') }}
+                        {{ form.password(size=32, class_='form-control input-field', placeholder='Enter password', type="password") }}
                         {% for error in form.username.errors %}
                         <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
