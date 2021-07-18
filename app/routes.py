@@ -108,7 +108,7 @@ def index():
     # Get date info related to current date
     # today = datetime.date.today() # Gets current date 
     todays_datetime = datetime(datetime.today().year, datetime.today().month, datetime.today().day)
-    current_weekday = todays_datetime.isoweekday()
+    current_weekday = todays_datetime.isoweekday() # 1 - 7, representing Monday to Sunday
     
     # DISPLAY ACTIVITIES FORM
     form3 = DisplayActivitiesForm()
@@ -132,20 +132,29 @@ def index():
         # Get activities for current date
         activities_today = current_user.activities.filter(Activity.activity_date == todays_datetime).all()
 
+        print("current weekday", current_weekday)
+
         # Get activities for current week
-        current_week_start = todays_datetime - timedelta(days=current_weekday)
+        if current_weekday == 7:
+            current_week_start = todays_datetime
+        else:
+            current_week_start = todays_datetime - timedelta(current_weekday) 
+        #current_week_start = todays_datetime - timedelta(days=current_weekday)
         current_week_end = current_week_start + timedelta(days=6)
         activities_currentweek = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end)).order_by(Activity.activity_date).all()
+        print("current week", current_week_start, current_week_end)
 
         # Get activities for next week
         next_week_start = current_week_start + timedelta(days=7)
         next_week_end = current_week_end + timedelta(days=7)
         activities_nextweek = current_user.activities.filter((Activity.activity_date >= next_week_start) & (Activity.activity_date <= next_week_end)).order_by(Activity.activity_date).all()
+        print("next week", next_week_start, next_week_end)
 
         # Get activities for previous week 
         previous_week_start = current_week_start - timedelta(days=7)
         previous_week_end = current_week_end - timedelta(days=7)
         activities_previousweek = current_user.activities.filter((Activity.activity_date >= previous_week_start) & (Activity.activity_date <= previous_week_end)).order_by(Activity.activity_date).all()
+        print("previous week", previous_week_start, previous_week_end)
 
         # If "Today" is selected and there are records in activities_today
         if form3.display.data == "Today" and activities_today:
