@@ -28,7 +28,7 @@
         {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}
           {% for category, message in messages %}
-          <div class="{{ category }}" id="flask-flash">
+          <div class="flask-flash flask-flash--no-nav {{ category }}">
             {{ message }}
             <button type="button" class="close" onclick="this.parentElement.style.display='none'"><i class="far fa-times-circle"></i></button>
           </div>
