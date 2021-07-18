@@ -165,6 +165,17 @@ h1, h2, h3, h4 {
     color: var(--black);
 }
 
+.btn--bright {
+    background: var(--btn-bright);
+    color: #FFF;
+    font-weight: 700;
+}
+
+.btn--bright:hover, .btn--bright:focus {
+    background: var(--btn-bright-hover);
+    color: #FFF;
+}
+
 .btn-back {
     display: block;
     font-weight: 700;
