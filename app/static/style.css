@@ -994,6 +994,7 @@ input, select {
 .activity__card-controls-btn {
     margin-right: 0.6em;
     flex-grow: 1;
+    border-radius: 0.8em;
 }
 
 .activity__card-controls-btn:last-child {
@@ -1303,6 +1304,7 @@ input, select {
     margin-right: 0.6em;
     width: 100%;
     flex-grow: 1;
+    border-radius: 0.8em;
 }
 
 .activity-log__controls-btn:last-child {
