@@ -275,7 +275,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar-panel {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     background: var(--bg-navbar);
     top: 0;
@@ -292,6 +292,7 @@ h1, h2, h3, h4 {
     padding: 0;
     margin-left: 0.6em;
 }
+
 .navbar-panel-logo {
     margin-top: 1.6em;
 }
