@@ -179,6 +179,10 @@ h1, h2, h3, h4 {
     letter-spacing: 0.02em;
 }
 
+.controls-icon {
+    margin-right: 0.5em;
+}
+
 /* ====================
  CUSTOM CHECKBOX STYLING
 ======================= */
