@@ -25,7 +25,7 @@
                     <p class="guest-login__info">Click on 'Guest Login' to auto-fill the form for easy access</p>
                     <button class="btn btn--bright" id="guest-login-btn" onclick="autoFillForm()">Guest Login</button>
                 </div>
-                <form class="form" action="" method="post" novalidate>
+                <form class="form form--sign-in" action="" method="post" novalidate>
                     {{ form.csrf_token }}
                     <p class="form-field">
                         {{ form.username.label }}
@@ -49,9 +49,8 @@
                     </label>
                     
                     <p>{{ form.submit(class_='btn btn-primary btn-form', value='Sign In') }}</p>
-                    
+                    <p class="form-footer">Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a></p>
                 </form>
-                <p class="form-footer">Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a></p>
             </main>
         </div><!--close container-sign-in-->
     </div>

@@ -399,6 +399,12 @@ h1, h2, h3, h4 {
 /* ====================
  GENERAL LAYOUT
 ======================= */
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .container {
     width: 100%;  
     max-width: 1000px;
@@ -548,6 +554,10 @@ input, select {
 
 .guest-login__info {
     margin-bottom: 1em;
+}
+
+.form--sign-in {
+    margin: 0 auto;
 }
 
 .input-field:focus { 
