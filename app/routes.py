@@ -134,12 +134,12 @@ def index():
 
         print("current weekday", current_weekday)
 
-        # Get activities for current week
+        # Get activities for current week (weekdays are 1 - 7, Monday - Sunday) - Week starts on Sunday
         if current_weekday == 7:
             current_week_start = todays_datetime
         else:
             current_week_start = todays_datetime - timedelta(current_weekday) 
-        #current_week_start = todays_datetime - timedelta(days=current_weekday)
+
         current_week_end = current_week_start + timedelta(days=6)
         activities_currentweek = current_user.activities.filter((Activity.activity_date >= current_week_start) & (Activity.activity_date <= current_week_end)).order_by(Activity.activity_date).all()
         print("current week", current_week_start, current_week_end)
