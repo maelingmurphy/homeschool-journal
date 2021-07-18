@@ -399,10 +399,16 @@ h1, h2, h3, h4 {
 /* ====================
  GENERAL LAYOUT
 ======================= */
+html, body {
+    height: 100%; 
+}
+
 body {
-    height: 100%;
     display: flex;
     flex-direction: column;
+}
+.container-main {
+    flex: 1 0 auto; /* grow, shrink, basis */
 }
 
 .container {
@@ -456,7 +462,6 @@ input, select {
     border: 1px solid var(--border-light);
     border-radius: 0.5em;   
 }
-
 
 .user-alert__note {
     margin-bottom: 1em;
@@ -1467,13 +1472,13 @@ input, select {
  FOOTER
 ======================= */
 
-/* Footer is grid-item child of container-main */
+/* footer is flex-item child of body */
 footer {
     text-align:center;
     padding: 1.3em 1em;
     background: var(--black);
     color: #FFF;
-    grid-column: 2 / -1;   
+    flex-shrink: 0;
 }
 
 .footer__link {
