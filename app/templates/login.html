@@ -14,13 +14,15 @@
                 </p>
             </header>
             <main class="content-form">
-                <h1 class="heading heading-sign-in">Welcome!</h1>
-                <p class="subheading">Sign in to Homeschool Journal</p>
-                <p class="">
-                    An online tool to help you schedule lessons, log learning activities & more. 
-                </p>
+                <div class="content-form__header">
+                    <h1 class="heading heading-sign-in">Welcome!</h1>
+                    <p class="content-form__subheading">Sign in to Homeschool Journal</p>
+                    <p class="content-form__info">
+                        An online tool to help you schedule lessons, log learning activities & more. 
+                    </p>
+                </div>
                 <div class="guest-login">
-                    <p>Click on 'Guest Login' to auto-fill the form for easy access</p>
+                    <p class="guest-login__info">Click on 'Guest Login' to auto-fill the form for easy access</p>
                     <button class="btn btn--bright" id="guest-login-btn" onclick="autoFillForm()">Guest Login</button>
                 </div>
                 <form class="form" action="" method="post" novalidate>

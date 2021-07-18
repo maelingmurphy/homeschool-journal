@@ -81,11 +81,7 @@ h1, h2, h3, h4 {
     font-family: 'Lexend Deca', sans-serif;
 }
 
-.subheading {
-    font-family: 'Lexend Deca', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-}
+
 
 /* ====================
  FLASH MESSAGE STYLES
@@ -427,11 +423,6 @@ h1, h2, h3, h4 {
     color: #FFF;
 }
 
-.subheading {
-    margin-bottom: 2.5em;
-}
-
-
 .form {
     max-width: 600px;
 }
@@ -530,8 +521,29 @@ input, select {
 /* ====================
  SIGN IN PAGE - login.html 
 ======================= */
-.heading-sign-in, .subheading {
+.content-form__header, .guest-login {
     text-align: center;
+}
+.content-form__subheading {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1em;
+}
+
+.content-form__info {
+    font-size: 1.5rem;
+}
+
+.guest-login {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.guest-login__info {
+    margin-bottom: 1em;
 }
 
 .input-field:focus { 
@@ -546,14 +558,21 @@ input, select {
 
 /* media queries */
 @media screen and (min-width: 968px) {
-  
+  .content-form__info {
+      display: none;
+  }
+
+  .guest-login {
+      margin-top: 0;
+  }
 }
 /* ====================
  SIGN UP PAGE - register.html 
 ======================= */
 .heading-sign-up {
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-align: center;
+    margin-bottom: 1em;
 }
 
 .heading-text-logo {
@@ -571,7 +590,7 @@ input, select {
 }
 
 .form-alert {
-    padding: 0.6em 0.4em;
+    padding: 1em;
     border-radius: 0.5em;
     margin-bottom: 1em;
     background: var(--alert-color);
