@@ -64,8 +64,39 @@
             </a>
           </nav> 
         </header>
-        
+         
         <div class ="container">
+          <!-- Email List Signup -->
+          <div class="email-signup">
+            <div class="email-signup-prompt">
+              
+              <p>Thank you for visiting my project site! Interested in using a service like this for <em>your</em> homeschooling needs?</p>
+              <div class="email-signup-prompt__action">
+                <p><strong>Join our mailing list for updates!</strong></p>
+                <button class="email-signup-prompt__btn" id="email-signup-prompt__btn"><i class="far fa-arrow-alt-circle-down"></i></button>
+              </div> 
+            </div>
+
+            <form
+              action="https://buttondown.email/api/emails/embed-subscribe/maelingcodes"
+              method="post"
+              target="popupwindow"
+              onsubmit="window.open('https://buttondown.email/maelingcodes', 'popupwindow')"
+              class="email-signup-form hide"
+              id="email-signup-form"
+            >
+              <label for="bd-email">Enter your email</label>
+              <input type="email" name="email" id="bd-email" class="email-signup-form__input" placeholder="Enter email address" />
+              <input type="hidden" value="1" name="embed" />
+              <input type="submit" value="Subscribe" id="email-subscribe-btn" class="btn--dark" />
+              <input type="hidden" name="tag" value="homeschool-journal" />
+              
+              <div class=email-signup-form__options>  
+                <input type="checkbox" name="tag" value="coding-journey">
+                <label for="tag" class="email-signup-form__options-label">Would you also like to receive my general coding journey updates and resources?</label>
+              </div>
+            </form>
+          </div>
            <!-- Display Flash Messages -->
           {% with messages = get_flashed_messages(with_categories=True) %}
           {% if messages %}

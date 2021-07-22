@@ -16,6 +16,22 @@ navbarOpen.addEventListener('click', () => navbarPanel.style.transform = 'transl
 navbarClose.addEventListener('click', () => navbarPanel.style.transform = 'translateX(-100%)');
 
 
+/* EMAIL LIST SIGNUP FORM */
+// get elements from the DOM
+const emailForm = document.getElementById("email-signup-form");
+const emailFormBtn = document.getElementById("email-signup-prompt__btn");
+const emailSubscribeBtn = document.getElementById("email-subscribe-btn");
+
+// add event listeners
+emailFormBtn.addEventListener("click", showHideEmailForm);
+emailSubscribeBtn.addEventListener("click", showSignupMsg);
+
+// When arrow is clicked, email form is displayed
+function showHideEmailForm() {
+    // toggle 'hide' class on emailForm element to show/hide the email form
+    emailForm.classList.toggle("hide");
+}
+
 /* GUEST LOGIN FUNCTIONALITY */
 // When guest login button is clicked, it should auto-fill the sign-in form with credentials
 // that will provide the user access

@@ -665,6 +665,61 @@ input, select {
 
 /* MAIN HOME PAGE */
 
+/* email list signup */
+.email-signup {
+    background: var(--bg-navbar);
+    padding: 1.2em;
+    margin-bottom: 2em;
+}
+
+.email-signup-prompt__action {
+    display: flex;
+    align-items: center;
+}
+
+.email-signup-prompt__btn {
+    margin-left: 0.3em;
+    border: unset;
+    background: unset;
+    font-size: 1.5rem;
+}
+
+.email-signup-prompt__btn:hover, .email-signup-prompt__btn:focus {
+    color: var(--link-hover-color);
+    transform: translateY(2px);
+    transition: transform 200ms;
+}
+
+.email-signup-form {
+    margin-top: 1.5em;
+}
+
+.email-signup-form__input {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 0.5em;
+}
+
+.email-signup-form__options {
+    margin-top: 0.7em;
+    display: flex;
+    align-items: center;
+}
+
+.email-signup-form__options-label {
+    margin-left: 0.5em;
+}
+
+.hide {
+    display: none;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+/* main homepage content */
+
 .date-wrapper {
     text-align: center;
     padding: 0.625em 0.5em;
