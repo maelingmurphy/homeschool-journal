@@ -1,6 +1,14 @@
 # homeschool-journal
 
-(IN PROGRESS)
+A CRUD website application that helps homeschooling faciliators log/schedule learning activities and record attendance for students. 
 
-A CRUD website application (Python, Flask, Flask-SQLAlchemy) that helps homeschooling faciliators organize activities for their students.
+**LIVE DEMO**: https://homeschool-journal.herokuapp.com/
 
+## TECH STACK
+- Flask
+- Python
+- PostgreSQL
+- Flask-SQLAlchemy
+- HTML
+- CSS 
+- JavaScript
