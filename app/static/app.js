@@ -6,9 +6,9 @@ const navbarClose = document.getElementById('navbarClose');
 const navbarOpen = document.getElementById('navbarOpen') ; 
 
 // test
-console.log(navbarPanel);
-console.log(navbarOpen);
-console.log(navbarClose);
+// console.log(navbarPanel);
+// console.log(navbarOpen);
+// console.log(navbarClose);
 
 
 // add event listeners
@@ -24,7 +24,6 @@ const emailSubscribeBtn = document.getElementById("email-subscribe-btn");
 
 // add event listeners
 emailFormBtn.addEventListener("click", showHideEmailForm);
-emailSubscribeBtn.addEventListener("click", showSignupMsg);
 
 // When arrow is clicked, email form is displayed
 function showHideEmailForm() {
@@ -55,6 +54,7 @@ const studentContainer = document.querySelector("#student-container"); // Get #s
 const subjectSelect = document.querySelector("#user_subject"); 
 const subjectContainer = document.querySelector("#subject-container"); 
 
+// Function that generates the appropriate number of input fields based on number selected
 function displayInputFields() {
     
     // Number of subjects selected
@@ -88,39 +88,42 @@ function displayInputFields() {
     }
 }
 
-// Add event listener to subject <select> element
-subjectSelect.addEventListener('change', displayInputFields, false);
+// Add event listener to subject <select> element IF element exists on page 
+if (subjectSelect) { subjectSelect.addEventListener('change', displayInputFields, false); }
 
-// Add event listener to student <select> element
-studentSelect.addEventListener('change', (event) => {
+// Add event listener to student <select> element IF element exists on page
+if (studentSelect) { 
+    studentSelect.addEventListener('change', (event) => {
 
-    // Number of students selected
-    let studentNum = event.target.value;
+        // Number of students selected
+        let studentNum = event.target.value;
+        
+        // Number of student name input fields at time of selection
+        let fieldNum = studentContainer.childElementCount;
     
-    // Number of student name input fields at time of selection
-    let fieldNum = studentContainer.childElementCount;
-
-    // If studentNum > fieldNum, add student name input fields
-    if (studentNum > fieldNum) {
-        let addFieldNum = studentNum - fieldNum;
-        for (let i = 0; i < addFieldNum; i++) {
-            let input = document.createElement("input");
-
-            input.type = "text";
-            input.name = `student_name${i+2}`;
-            input.className = "form-control";
-            input.id = `student_name${i+2}`;
-            input.placeholder = "Enter student's name here";
-            input.required = true;
-            studentContainer.appendChild(input);
-        }
-    }
-    // If studentNum < fieldNum, remove student name input fields
+        // If studentNum > fieldNum, add student name input fields
+        if (studentNum > fieldNum) {
+            let addFieldNum = studentNum - fieldNum;
+            for (let i = 0; i < addFieldNum; i++) {
+                let input = document.createElement("input");
     
-    if (fieldNum > studentNum) {
-        let removeFieldNum = fieldNum - studentNum;
-        for (let i = 0; i < removeFieldNum; i++) {
-            studentContainer.removeChild(studentContainer.lastElementChild);
+                input.type = "text";
+                input.name = `student_name${i+2}`;
+                input.className = "form-control";
+                input.id = `student_name${i+2}`;
+                input.placeholder = "Enter student's name here";
+                input.required = true;
+                studentContainer.appendChild(input);
+            }
         }
-    }
-}) 
+        // If studentNum < fieldNum, remove student name input fields
+        
+        if (fieldNum > studentNum) {
+            let removeFieldNum = fieldNum - studentNum;
+            for (let i = 0; i < removeFieldNum; i++) {
+                studentContainer.removeChild(studentContainer.lastElementChild);
+            }
+        }
+    }); 
+}
+
