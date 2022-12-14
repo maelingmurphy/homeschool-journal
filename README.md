@@ -3,7 +3,7 @@
 homeschool journal is a web application that enables homeschooling facilitators to schedule and record activities for their students, as well as log attendance records. 
 
 ~~**LIVE SITE**~~:  https://homeschool-journal.herokuapp.com/ 
-**Update (12/14/22):** This app was previously hosted on Heroku when they still had their free development tier. Will host this app on a different platform soon!
+**Update (12/14/22):** This app was previously hosted on Heroku when they still had their free development tier. Will host this app on a different platform soon! Feel free to check out the video walkthrough below to observe how the app functions.
 
 ![Homeschool Journal Homepage Screenshot](./project_notes/project_clips/7.21.21-display-activities-homepage-desktop.jpg)
 
